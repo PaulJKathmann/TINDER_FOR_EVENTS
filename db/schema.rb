@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_143618) do
+ActiveRecord::Schema.define(version: 2019_07_15_162821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pictures", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +31,18 @@ ActiveRecord::Schema.define(version: 2019_07_15_143618) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "bio"
+    t.integer "age", null: false
+    t.string "gender", null: false
+    t.string "preferred_gender", default: "all", null: false
+    t.string "preferred_match_type", null: false
+    t.string "role", default: "user", null: false
+    t.integer "upper_age_preference", null: false
+    t.integer "lower_age_preference", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pictures", "users"
 end
