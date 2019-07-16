@@ -1,0 +1,7 @@
+<div class="container">
+  <h1><%= @event.name %></h1>
+  <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY(EVENT_LOGO)",
+        width: 200, height: 200, crop: :fill) %>
+  <p>Find me in app/views/events/show.html.erb</p>
+  <%= link_to "Start meeting people", participants_new_path, class: "btn-square" %>
+</div>
