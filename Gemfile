@@ -30,3 +30,4 @@ group :development, :test do
 end
 
 gem 'cloudinary', '~> 1.9.1'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
