@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pictures
   has_many :participants
-  has_many :events
+  # For participant:
+  has_many :events, through: :participants
+  # For organizer:
+  has_many :projects, foreign_key: "user_id", class_name: "Event"
 end

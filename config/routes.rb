@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # Check out which route is for which page on figma
+  # event/:id might be changed to event token later
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'projects/new', to: 'events#new'
+  post 'projects', to: 'events#create'
+  get 'projects/:id/edit', to: 'events#edit'
+  patch 'projects/:id', to: 'events#update'
+  get 'projects/:id', to: 'events#show'
+  get 'projects', to: 'events#index'
 end
