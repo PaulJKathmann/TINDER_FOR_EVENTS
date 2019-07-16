@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_171011) do
+ActiveRecord::Schema.define(version: 2019_07_16_094954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,30 @@ ActiveRecord::Schema.define(version: 2019_07_15_171011) do
     t.datetime "updated_at", null: false
     t.date "end_date"
     t.string "primary_color"
-    t.string "secondary"
+    t.string "secondary_color"
     t.string "logo"
     t.bigint "user_id"
     t.string "background_image"
     t.text "welcome_message"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "swipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["swipe_id"], name: "index_matches_on_swipe_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "match_id"
+    t.bigint "author_id"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["match_id"], name: "index_messages_on_match_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -46,6 +64,17 @@ ActiveRecord::Schema.define(version: 2019_07_15_171011) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
+  create_table "swipes", force: :cascade do |t|
+    t.boolean "participant_1_liked"
+    t.boolean "participant_2_liked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "participant_1_id"
+    t.bigint "participant_2_id"
+    t.index ["participant_1_id"], name: "index_swipes_on_participant_1_id"
+    t.index ["participant_2_id"], name: "index_swipes_on_participant_2_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,7 +99,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_171011) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "matches", "swipes"
+  add_foreign_key "messages", "participants", column: "author_id"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
   add_foreign_key "pictures", "users"
+  add_foreign_key "swipes", "users", column: "participant_1_id"
+  add_foreign_key "swipes", "users", column: "participant_2_id"
 end
