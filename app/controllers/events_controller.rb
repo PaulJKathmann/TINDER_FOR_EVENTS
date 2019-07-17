@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
+  # Remove later, just necessary until log-in problem is gone
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def new
-    @event = Event.new()
+    @project = Event.new()
   end
 
   def create
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to project_path(@event)
+    @project = Event.new(event_params)
+    if @project.save
+      redirect_to project_path(@project)
     else
       render :new
     end
