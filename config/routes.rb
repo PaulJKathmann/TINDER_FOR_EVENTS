@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
   get 'projects/new', to: 'events#new'
-  post 'projects', to: 'events#create'
+  post 'projects', to: 'events#create', as: :events
   get 'projects/:id/edit', to: 'events#edit'
   patch 'projects/:id', to: 'events#update'
   get 'projects/:id', to: 'events#show'
