@@ -1,0 +1,18 @@
+<div class="background">
+  <div class="phone-container p-3 profile-content">
+    <h1 class="text-center">Your Profile</h1>
+    <%= simple_form_for current_user, method: :patch, url: users_edit_path do |f| %>
+      <h4 class="text-center">Personal Info:</h4>
+      <%= f.input :name %>
+      <%= f.input :bio %>
+      <%= f.input :age %>
+      <%= f.input :gender %>
+      <h4 class="text-center">Filters:</h4>
+      <%= f.input :preferred_match_type %>
+      <%= f.input :preferred_gender %>
+      <%= f.input :lower_age_preference %>
+      <%= f.input :upper_age_preference %>
+  </div>
+  <%= f.submit "Update Profile", class: "btn-full-screen" %>
+  <% end %>
+</div>
