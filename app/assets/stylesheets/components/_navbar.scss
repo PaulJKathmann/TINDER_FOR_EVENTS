@@ -5,8 +5,19 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  .nav-link {
+   color:white;
+   transition: 1.2s;
+  }
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-home {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  width:100%;
 }
