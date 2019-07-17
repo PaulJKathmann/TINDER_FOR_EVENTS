@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get 'projects/:id', to: 'events#show'
   get 'projects', to: 'events#index'
   get 'events/:id', to: 'events#show'
+  get "events/:id/profile", to: "users#edit", as: "profile"
+  patch  "users/:id", to: "users#update"
 end
