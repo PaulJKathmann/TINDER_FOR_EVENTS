@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   def show
+  end
+  def show
     @event = Event.find(params[:id])
   end
-  
+
   def new
     @project = Event.new()
   end
