@@ -2,13 +2,14 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
-  
+
   def new
     @project = Event.new()
   end
 
   def create
     @project = Event.new(event_params)
+    @project.user = current_user
     if @project.save
       redirect_to project_path(@project)
     else
