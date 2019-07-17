@@ -6,11 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+puts "clean db"
+Picture.destroy_all
+Participant.destroy_all
+Event.destroy_all
+User.destroy_all
 
 puts 'Creating fake user'
-user = User.new(
+event_organizer = User.new(
   name: Faker::Name.female_first_name,
-  email: "test#{rand(1...100)}@gmail.com",
+  email: "organizer@go-vesta.com",
   bio: "Single and ready to mingle",
   age: rand(21...30),
   gender: "Female",
@@ -21,13 +26,13 @@ user = User.new(
   upper_age_preference: 40,
   password: "password"
   )
-user.save!
+event_organizer.save!
 picture = Picture.new(
-  user: user,
+  user: event_organizer,
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292928/n3gga63cnhde7ztwdbwd.jpg")
 picture.save!
 
-user = User.new(
+lisa = User.new(
   name: Faker::Name.female_first_name,
   email: "test#{rand(1...100)}@gmail.com",
   bio: "Let's dance all night!",
@@ -40,13 +45,13 @@ user = User.new(
   upper_age_preference: 40,
   password: "password"
   )
-user.save!
+lisa.save!
 picture = Picture.new(
-  user: user,
+  user: lisa,
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292971/oapfaj830rdqcgfsc7vz.jpg")
 picture.save!
 
-user = User.new(
+anna = User.new(
   name: Faker::Name.female_first_name,
   email: "test#{rand(1...100)}@gmail.com",
   bio: " ",
@@ -59,15 +64,15 @@ user = User.new(
   upper_age_preference: 40,
   password: "password"
   )
-user.save!
+anna.save!
 picture = Picture.new(
-  user: user,
+  user: anna,
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292982/lrostbfruf0i4bcmgukk.jpg")
 picture.save!
 
-user = User.new(
+manfred = User.new(
   name: Faker::Name.female_first_name,
-  email: "test#{rand(1...100)}@gmail.com",
+  email: "manfred@gmail.com",
   bio: "Techno is Lifeeee",
   age: rand(21...30),
   gender: "Female",
@@ -78,9 +83,9 @@ user = User.new(
   upper_age_preference: 40,
   password: "password"
   )
-user.save!
+manfred.save!
 picture = Picture.new(
-  user: user,
+  user: manfred,
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292993/lpet7w6dyag73uge6ytx.jpg")
 picture.save!
 
@@ -141,4 +146,26 @@ picture = Picture.new(
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563293194/ig0umhoruyqginakyksa.jpg")
 picture.save!
 
+puts "create event"
+festival = Event.create!(
+    name: "festival",
+    user: event_organizer,
+    primary_color: "black"
+  )
+
+puts "create participants"
+Participant.create!(
+event: festival,
+user: lisa
+)
+Participant.create!(
+  event: festival,
+  user: anna
+  )
+Participant.create!(
+  event: festival,
+  user: manfred
+  )
+
 puts 'Finished!'
+
