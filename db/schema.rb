@@ -85,15 +85,15 @@ ActiveRecord::Schema.define(version: 2019_07_16_094954) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
+    t.string "name"
     t.string "bio"
-    t.integer "age", null: false
-    t.string "gender", null: false
-    t.string "preferred_gender", default: "all", null: false
-    t.string "preferred_match_type", null: false
-    t.string "role", default: "user", null: false
-    t.integer "upper_age_preference", null: false
-    t.integer "lower_age_preference", null: false
+    t.integer "age"
+    t.string "gender"
+    t.string "preferred_gender"
+    t.string "preferred_match_type"
+    t.string "role", default: "user"
+    t.integer "upper_age_preference"
+    t.integer "lower_age_preference"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
