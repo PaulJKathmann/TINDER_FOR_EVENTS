@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   patch 'projects/:id', to: 'events#update'
   get 'projects/:id', to: 'events#show'
   get 'projects', to: 'events#index'
-  get 'events/:id/participants/new', to: 'events#show'
+  get 'events/:id', to: 'events#show'
 end

@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   def show
-    @event = Event.find(:id)
-    authorize @event
+    @event = Event.find(params[:id])
   end
 end
