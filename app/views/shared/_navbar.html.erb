@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%=yield(:navbar_class)%>">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
@@ -9,7 +10,7 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
       <li class="nav-item">
         <%= link_to "Create event", "#", class: "nav-link" %>
       </li>

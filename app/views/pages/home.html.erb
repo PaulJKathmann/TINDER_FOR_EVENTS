@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner d-flex justify-content-around align-item-center" >
+
+  <div class="banner-content text-center">
+    <h1 style="margin-top: 30vh;color: white">Vesta</h1>
+    <h3 style="margin-bottom: 8vh;color: white">Customize the matching app just for your event</h3>
+    <%= link_to "Customize my app", projects_new_path, class: "btn btn-light mr-5"%>
+    <%= link_to "Start to meet people", projects_new_path,class: "btn btn-dark"%>
+  </div>
+
+</div>
