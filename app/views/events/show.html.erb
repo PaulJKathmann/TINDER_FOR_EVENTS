@@ -2,9 +2,9 @@
 <div class="container welcome-content">
   <h1 class="text-center pt-3"><%= @event.name %></h1>
   <%= cl_image_tag("fusion_logo2019_spskle", crop: :fill, class: "logo mb-3" )%>
-    <p class="pb-3"><%= @event.welcome_message %></p>
+    <p class="pb-3 text-dark"><%= @event.welcome_message %></p>
   </div>
   <div class="container welcome-buttons">
-    <%= link_to "Start meeting people", participants_new_path, class: "btn-square"%>
+    <%= link_to "Start meeting people", profile_path, class: "btn-square"%>
   </div>
 </div>
