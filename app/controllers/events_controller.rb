@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  def index
+    @events = Event.where(user: current_user)
+  end
+
   def show
     @event = Event.find(params[:id])
   end
