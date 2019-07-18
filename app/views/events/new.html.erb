@@ -1,13 +1,19 @@
+<%= render 'shared/navbar' %>
+<div style="position: fixed; top: 0; width: 100%; height:100%; background-color: rgba(0,0,30,.6); z-index: -5;"></div>
+<br>
+<br>
+<br>
+<br>
 <div class="container my-3">
   <div class="row">
     <div class="col-1"></div>
     <div class="col-6">
-      <h1 class="ml-5">Customize for your event</h1>
+      <h1 class="ml-4" style="color: white;">Customize for your event</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-6 card m-3 p-3" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1);">
+    <div class="col-6 card my-3 p-3" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1); border-radius: 4px;">
       <%= simple_form_for(@project) do |f| %>
       <div class="form-group mt-3">
         <%= f.label :event_name %>
@@ -26,33 +32,30 @@
       <div class="form-group row">
         <label for="primary_color" class="col-3 col-form-label">Background</label>
         <div class="col-3">
-          <%= f.input :primary_color, as: :color, class: "form-control", label: false %>
+          <input class="form-control" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value="#333333">
         </div>
       </div>
 
       <div class="form-group row mb-3">
         <label for="secondary_color" class="col-3 col-form-label">Buttons</label>
         <div class="col-3">
-          <%= f.input :secondary_color, as: :color, class: "form-control", label: false %>
+          <input class="form-control" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value="#F0037E">
         </div>
       </div>
 
-      <div class="form-group mb-3">
         <%= f.input :logo %>
         <%= f.input :logo_cache, as: :hidden %>
-      </div>
 
-      <div class="form-group mb-3">
         <%= f.input :background_image %>
         <%= f.input :background_image_cache, as: :hidden %>
-      </div>
+
 
       <div class="form-group">
         <%= f.label :welcome_message %>
         <%= f.text_area :welcome_message, class: 'form-control' %>
       </div>
 
-      <%= f.submit "Create app", class: "btn-square mt-2" %>
+      <%= f.submit "Create app", class: "btn btn-dark mt-2" %>
     <% end %>
   </div>
 
