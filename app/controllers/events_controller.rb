@@ -11,11 +11,22 @@ class EventsController < ApplicationController
     @project = Event.new(event_params)
     @project.user = current_user
     if @project.save
-      redirect_to project_path(@project)
+      redirect_to event_path(@project)
     else
       render :new
     end
   end
+
+  def edit
+    @project = Event.find(params[:id])
+  end
+
+  def update
+    @project = Event.find(params[:id])
+    @project.update(event_params)
+    redirect_to event_path(@project)
+  end
+
 
   private
 

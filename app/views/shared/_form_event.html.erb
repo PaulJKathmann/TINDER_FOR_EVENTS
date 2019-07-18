@@ -1,56 +1,70 @@
-<% unless current_user.id == Event.find(params[:id]).user_id %>
-  <%= cl_image_tag("Fusion-Festival-2017_xfzslw", crop: :fill, class: "mobile-background") %>
-  <div class="phone-container welcome-content">
-    <h1 class="text-center pt-3"><%= @event.name %></h1>
-    <%= cl_image_tag("fusion_logo2019_spskle", crop: :fill, class: "logo mb-3 text-center" )%>
-    <p class="p-3 text-dark text-left"><%= @event.welcome_message %></p>
-    </div>
-  </div>
-  <div class="welcome-buttons">
-    <%= link_to "Start meeting people", profile_path, class: "btn-full-screen"%>
-  </div>
-<% end %>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-6 card my-3 p-3" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1); border-radius: 4px;">
+      <%= simple_form_for(@project) do |f| %>
+      <div class="form-group mt-3">
+        <%= f.label :event_name %>
+        <%= f.text_field :name, class: 'form-control', id: "new_name", placeholder: "Event" %>
+      </div>
 
-<% if current_user.id == Event.find(params[:id]).user_id %>
-  <%= render 'shared/navbar' %>
-  <div style="position: fixed; top: 0; width: 100%; height:100%; background-color: #1c2938; z-index: -5;"></div>
-  <br>
-  <br>
-  <div class="container my-3">
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-6 card my-3 p-4" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1); border-radius: 4px; min-height: 500px;">
-        <div>
-          <div style="width: 300px;">
-            <h2><%= @event.name %></h2>
-            <p class="my-2">Start date: <%= @event.start_date.strftime('%a %d %b %Y') %></p>
-            <p class="my-2">End date: <%= @event.end_date.strftime('%a %d %b %Y') %></p>
-            <br>
-            <% unless @event.welcome_message.empty? %>
-              <p>Welcome message:</p>
-              <p><%= @event.welcome_message %></p>
-            <% end %>
-          </div>
-          <div style="position: absolute; top: 30px; right: 40px;">
-            <%= cl_image_tag @event.logo, style: "widht: 100px; height: 100px; object-fit: fill;" %>
-          </div>
-          <div style="position: absolute; top: 150px; right: 40px;">
-            <%= cl_image_tag @event.background_image, style: "height: 300px; width: 180px; object-fit: cover; border-radius: 6px;" %>
-          </div>
-          <%= link_to "Edit", project_edit_path(@event), class: "btn btn-dark" %>
-          <%= link_to "My Events", root_path, class: "btn btn-light" %>
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        </div>
+        <div class="col">
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
         </div>
       </div>
 
-    <div class="col-1"></div>
+      <div class="form-group row">
+        <label for="primary_color" class="col-3 col-form-label">Background</label>
+        <div class="col-3">
+          <input class="form-control" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value=<% if @project.primary_color.nil? %>
+                                            <%= "#333333" %>
+                                          <% else %>
+                                            <%= @project.primary_color %>
+                                          <% end %>
+          ;>
+        </div>
+      </div>
+
+      <div class="form-group row mb-3">
+        <label for="secondary_color" class="col-3 col-form-label">Buttons</label>
+        <div class="col-3">
+          <input class="form-control" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value=<% if @project.secondary_color.nil? %>
+                                            <%= "#F0037E" %>
+                                          <% else %>
+                                            <%= @project.secondary_color %>
+                                          <% end %>
+          ;>
+        </div>
+      </div>
+
+        <%= f.input :logo %>
+        <%= f.input :logo_cache, as: :hidden %>
+
+        <%= f.input :background_image %>
+        <%= f.input :background_image_cache, as: :hidden %>
+
+
+      <div class="form-group">
+        <%= f.label :welcome_message %>
+        <%= f.text_area :welcome_message, class: 'form-control' %>
+      </div>
+
+      <%= f.submit "Ready!", class: "btn btn-dark mt-2" %>
+    <% end %>
+  </div>
+
+  <div class="col-1"></div>
 
   <div class="col-3">
+    <h2 class="mt-2 mb-0 ml-1" style="color: white;">Custom design</h2>
     <div class="phone-frame" style="
       height: 500px;
       width: 250px;
       position: relative;
-      top: 20px;
+      top: 50px;
       border-top: 15px solid black;
       border-bottom: 10px solid black;
       border-left: 4px solid black;
@@ -76,7 +90,11 @@
         z-index: -1;
         width: 100%;
         height: 40px;
-        background-color: <%= @event.primary_color %>;
+        background-color: <% if @project.primary_color.nil? %>
+                            <%= "#333333" %>
+                          <% else %>
+                            <%= @project.primary_color %>
+                          <% end %>;
       "></div>
       <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show" style="
         position: absolute;
@@ -94,7 +112,11 @@
       ">
         <i class="fas fa-comments show_secondary_text" style="
         font-size: 25px;
-        color: <%= @event.secondary_color %>;
+        color: <% if @project.secondary_color.nil? %>
+                  <%= "#F0037E" %>
+                <% else %>
+                  <%= @project.secondary_color %>
+                <% end %>;
         "></i>
       </div>
       <div class="logo_show" style="
@@ -120,7 +142,11 @@
         height: 100%;
         width: 100%;
         border-radius: 10px;
-        background-color: <%= @event.primary_color %>;
+        background-color: <% if @project.primary_color.nil? %>
+                            <%= "#333333" %>
+                          <% else %>
+                            <%= @project.primary_color %>
+                          <% end %>;
       "></div>
       <div class="lighter_background_show" style="
         position: absolute;
@@ -197,7 +223,11 @@
         position: absolute;
         left: 10.5px;
         top: 5px;
-        color: <%= @event.secondary_color %>;
+        color: <% if @project.secondary_color.nil? %>
+                  <%= "#F0037E" %>
+                <% else %>
+                  <%= @project.secondary_color %>
+                <% end %>;
       "></i></div>
       <div class="bnt_love_show" style="
         position: absolute;
@@ -213,8 +243,13 @@
         position: absolute;
         left: 7.5px;
         top: 9px;
-        color: <%= @event.secondary_color %>;
+        color: <% if @project.secondary_color.nil? %>
+                  <%= "#F0037E" %>
+                <% else %>
+                  <%= @project.secondary_color %>
+                <% end %>;
       "></i></div>
     </div>
   </div>
-<% end %>
+
+<%= javascript_pack_tag 'event_new_form' %>
