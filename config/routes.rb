@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'projects', to: 'events#index'
 
 
-  get 'events/:id/swipes', to: 'swipes#new'
+  get 'events/:id/swipes', to: 'swipes#new', as: :new_swipe
   post 'events/:id/swipes', to: 'swipes#create'
 
   get 'reject_swipe/:id', to: 'swipes#reject', as: :reject
