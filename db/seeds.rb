@@ -11,6 +11,7 @@ puts 'Creating fake users'
 maria = User.new(
   name: "Maria",
   email: "maria_test@gmail.com",
+
   bio: "Single and ready to mingle",
   age: rand(21...30),
   gender: "Female",
@@ -21,6 +22,7 @@ maria = User.new(
   upper_age_preference: 40,
   password: "password"
   )
+
 maria.save!
 picture = Picture.new(
   user: maria,
@@ -40,6 +42,7 @@ anna = User.new(
   upper_age_preference: 40,
   password: "password"
   )
+
 anna.save!
 picture = Picture.new(
   user: anna,
@@ -50,6 +53,7 @@ fran = User.new(
   name: "Fran",
   email: "Fran_test@gmail.com",
   bio: " I like pancakes",
+
   age: rand(21...30),
   gender: "Female",
   preferred_gender: "Male",
@@ -59,6 +63,7 @@ fran = User.new(
   upper_age_preference: 40,
   password: "password"
   )
+
 fran.save!
 picture = Picture.new(
   user: fran,
@@ -78,6 +83,7 @@ nina = User.new(
   upper_age_preference: 40,
   password: "password"
   )
+
 nina.save!
 picture = Picture.new(
   user: nina,
