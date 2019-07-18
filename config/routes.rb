@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   get 'events/:id', to: 'events#show'
 
   get "events/:id/profile", to: "users#edit", as: "profile"
-  patch  "users/:id", to: "users#update"
+  patch "users/:id", to: "users#update"
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
   get "matches", to: "matches#index"
+
+  get 'events/:id/matches/new', to: 'matches#new'
+  post 'events/:id/matches', to: 'matches#create'
 end
