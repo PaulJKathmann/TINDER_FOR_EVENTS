@@ -3,16 +3,17 @@
   height: 100vh;
   position: absolute;
   object-fit: cover;
+  top: 0;
 }
 .welcome-content {
   position: relative;
   margin-top: 24px;
-  width: 320px;
+  width: 90%;
   text-align: center;
   margin: 16px auto;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
-  z-index: 100
+  z-index: 100;
 }
 .logo {
  width: auto;
@@ -21,9 +22,9 @@
 
 .welcome-buttons {
   position: absolute;
-  bottom: 16px;
-  margin: 0 auto;
+  bottom: 0px;
   text-align: center;
+  width: 100vw;
 }
 
 

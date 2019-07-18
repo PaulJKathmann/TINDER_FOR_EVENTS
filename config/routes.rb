@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'swipes/new'
+  get 'swipes/create'
+  get 'swipes/edit'
+  get 'swipes/update'
+  get 'users/edit'
+  get 'users/update'
   get 'events/show'
   get 'participants/new'
   get 'participants/create'
@@ -25,5 +31,8 @@ Rails.application.routes.draw do
 
 
   get 'events/:id', to: 'events#show'
+
+  get "events/:id/profile", to: "users#edit", as: "profile"
+  patch  "users/:id", to: "users#update"
 
 end

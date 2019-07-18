@@ -1,10 +1,10 @@
 <%= cl_image_tag("Fusion-Festival-2017_xfzslw", crop: :fill, class: "mobile-background") %>
-<div class="container welcome-content">
+<div class="phone-container welcome-content">
   <h1 class="text-center pt-3"><%= @event.name %></h1>
-  <%= cl_image_tag("fusion_logo2019_spskle", crop: :fill, class: "logo mb-3" )%>
-    <p class="pb-3"><%= @event.welcome_message %></p>
+  <%= cl_image_tag("fusion_logo2019_spskle", crop: :fill, class: "logo mb-3 text-center" )%>
+    <p class="p-3 text-dark text-left"><%= @event.welcome_message %></p>
   </div>
-  <div class="container welcome-buttons">
-    <%= link_to "Start meeting people", participants_new_path, class: "btn-square"%>
-  </div>
+</div>
+<div class="welcome-buttons">
+    <%= link_to "Start meeting people", profile_path, class: "btn-full-screen"%>
 </div>

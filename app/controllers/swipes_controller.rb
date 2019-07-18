@@ -1,4 +1,5 @@
 class SwipesController < ApplicationController
+
   #isnteud
   before_action :set_swipe, only: [:edit, :update, :show_swipe]
 

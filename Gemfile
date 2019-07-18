@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'coffee-rails'
+gem 'jquery-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
@@ -32,3 +35,5 @@ end
 
 gem 'cloudinary', '~> 1.9.1'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
