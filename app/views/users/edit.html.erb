@@ -4,14 +4,12 @@
     <%= simple_form_for current_user, method: :patch, url: users_edit_path do |f| %>
       <h4 class="text-center">Personal Info:</h4>
       <%= f.input :name %>
-      <%= f.input :bio %>
-      <%= f.input :age %>
-      <%= f.input :gender %>
+      <%= f.input :bio, as: :text %>
+      <%= f.input :age, collection: 18..100 %>
+      <%= f.input :preferred_match_type, collection: [ "Friends", "Date", "Just go with the Flow"] %>
+      <%= f.input :gender, collection: [ "Male", "Female", "Other"] %>
       <h4 class="text-center">Filters:</h4>
-      <%= f.input :preferred_match_type %>
-      <%= f.input :preferred_gender %>
-      <%= f.input :lower_age_preference %>
-      <%= f.input :upper_age_preference %>
+      <%= f.input :preferred_gender, collection: [ "Male", "Female", "I don't care"] %>
   </div>
   <%= f.submit "Update Profile", class: "btn-full-screen" %>
   <% end %>
