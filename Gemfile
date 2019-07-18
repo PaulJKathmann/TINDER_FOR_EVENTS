@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-gem 'simple_form_extension'
 gem 'carrierwave', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'devise'
@@ -17,6 +16,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem 'coffee-rails'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
