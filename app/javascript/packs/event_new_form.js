@@ -7,19 +7,27 @@ const newName = document.querySelector("#new_name");
   });
 
   const newPrimary = document.querySelector("#primary_color");
-  const primaryShow = document.querySelector(".show_primary");
+  const primaryShow = document.querySelectorAll(".show_primary");
 
   newPrimary.addEventListener("change", (event) => {
     let primary = document.querySelector("#primary_color").value;
-    primaryShow.style.backgroundColor = primary;
+    for (const element of primaryShow) {
+      element.style.backgroundColor = primary;
+    }
   });
 
   const newSecondary = document.querySelector("#secondary_color");
-  const secondaryShow = document.querySelector(".show_secondary");
+  const secondaryShow = document.querySelectorAll(".show_secondary");
+  const secondaryTextShow = document.querySelectorAll(".show_secondary_text");
 
   newSecondary.addEventListener("change", (event) => {
     let secondary = document.querySelector("#secondary_color").value;
-    secondaryShow.style.backgroundColor = secondary;
+    for (const element of secondaryShow) {
+      element.style.backgroundColor = secondary;
+    }
+    for (const element of secondaryTextShow) {
+      element.style.color = secondary;
+    }
   });
 
   /* const newLogo = document.querySelector("#event_logo");
