@@ -1,3 +1,65 @@
+<div class="container">
+  <!-- inline styling, we pass the event to all the pages necessary. then we inject the styling in each piece necessary.  -->
+  <div class="swiper-card" style="color:<%= @swipe.event.primary_color %>;" >
+    <%= cl_image_tag("#{@swipe.participant_2.user.pictures.first.url}") %>
+    <div class="participant-info row">
+      <p><%= @swipe.participant_2.user.name %></p>
+      <p><%= @swipe.participant_2.user.age %></p>
+    </div>
+  </div>
+  <div class="btns-box">
+    <%= link_to "Reject", reject_path(@swipe.id) %>
+    <%= link_to "Accept", accept_path(@swipe.id) %>
+  </div>
+  <div class="desc-pictures">
+    <div class="description">
+      <p>description of the person here</p>
+    </div>
+    <p>image 2</p>
+
+    <p>image 3</p>
+    <p>image 4</p>
+    <p>image 5</p>
+    <p>image 6</p>
+    <div class="name-age">
+      <p>@swipe.participant_2.name</p>
+      <p>@swipe.participant_2.age</p>
+    </div>
+  </div>
+  <div class="btns-box">
+    <div class="bnt_love_show" style="
+        position: absolute;
+        z-index: -1;
+        top: 410px;
+        left: 30px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: white;
+      "><i class="fas fa-times show_secondary_text" style="
+        font-size: 35px;
+        position: absolute;
+        left: 10.5px;
+        top: 5px;
+        color: #F0037E;
+      "></i></div>
+      <div class="bnt_love_show" style="
+        position: absolute;
+        z-index: -1;
+        top: 410px;
+        right: 30px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: white;
+      "><i class="fas fa-heart show_secondary_text" style="
+        font-size: 30px;
+        position: absolute;
+        left: 7.5px;
+        top: 9px;
+        color: #F0037E;
+      "></i></div>
+  </div>
+</div>
 
 
-<%= render 'shared/swipe_card' %>
