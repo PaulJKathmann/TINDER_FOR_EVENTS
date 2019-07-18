@@ -28,8 +28,9 @@ class SwipesController < ApplicationController
       @swipe = s2
     end
     @swipe.save!
+
   end
-  
+
   # checkGender will select a new participant according to your gender Preferences
   def checkGender(preferred_gender, random_gender)
     #we need a way to stop infinite loops
@@ -65,7 +66,6 @@ class SwipesController < ApplicationController
     end
     # redirect to new swipe
     redirect_to new_swipe_path(@event.id)
-
   end
 
   def accept
