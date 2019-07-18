@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-puts "clean db"
-Picture.destroy_all
-Participant.destroy_all
-Event.destroy_all
-User.destroy_all
 
 puts 'Creating fake user'
 event_organizer = User.new(
