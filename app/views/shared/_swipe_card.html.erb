@@ -1,32 +1,34 @@
-<div class="phone-container">
+
+<div class="container">
   <!-- inline styling, we pass the event to all the pages necessary. then we inject the styling in each piece necessary.  -->
-  <div class="picture-name-container" style="color:<%= @event.primary_color %>;" >
-    <p>the person image here</p>
+  <div class="picture-name-container" style="color:<%= @swipe.event.primary_color %>;" >
+    <p>participant image here</p>
     <div class="name-age">
-      <p>name</p>
-      <p>age</p>
+      <p><%= @swipe.participant_2.user.name %></p>
+      <p><%= @swipe.participant_2.user.age %></p>
     </div>
   </div>
   <div class="btns-box">
-    <p>bt1 reject</p>
-    <p>btn like</p>
+    <%= link_to "Reject", reject_path(@swipe.id) %>
+    <%= link_to "Accept", accept_path(@swipe.id) %>
   </div>
   <div class="desc-pictures">
     <div class="description">
       <p>description of the person here</p>
     </div>
     <p>image 2</p>
+
     <p>image 3</p>
     <p>image 4</p>
     <p>image 5</p>
     <p>image 6</p>
     <div class="name-age">
-      <p>name</p>
-      <p>age</p>
+      <p>@swipe.participant_2.name</p>
+      <p>@swipe.participant_2.age</p>
     </div>
   </div>
   <div class="btns-box">
-    <p>bt1 reject</p>
+    <p>bt1 reject <%= @swipe.id %></p>
     <p>btn like</p>
   </div>
 </div>

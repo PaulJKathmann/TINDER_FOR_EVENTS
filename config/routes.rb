@@ -21,7 +21,17 @@ Rails.application.routes.draw do
   patch 'projects/:id', to: 'events#update'
   get 'projects/:id', to: 'events#show'
   get 'projects', to: 'events#index'
+
+
+  get 'events/:id/swipes', to: 'swipes#new', as: :new_swipe
+  post 'events/:id/swipes', to: 'swipes#create'
+
+  get 'reject_swipe/:id', to: 'swipes#reject', as: :reject
+  get 'accept_swipe/:id', to: 'swipes#accept', as: :accept
+
+
   get 'events/:id', to: 'events#show'
+
   get "events/:id/profile", to: "users#edit", as: "profile"
   patch  "users/:id", to: "users#update"
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
