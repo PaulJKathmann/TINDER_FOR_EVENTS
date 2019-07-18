@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="welcome-buttons">
-    <%= link_to "Start meeting people", profile_path, class: "btn-full-screen"%>
+      <%= link_to "Start meeting people", participants_create_path(params[:id]), method: :post, class: "btn-full-screen"%>
   </div>
 <% end %>
 
