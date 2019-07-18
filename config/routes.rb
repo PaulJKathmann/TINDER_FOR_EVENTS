@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   get "events/:id/profile", to: "users#edit", as: "profile"
   patch  "users/:id", to: "users#update"
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
+  get "matches", to: "matches#index"
 end
