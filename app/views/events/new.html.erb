@@ -1,35 +1,66 @@
-<h1>Create to connect people at your event!</h1>
-
-<div class="col-6 card ml-3 p-3">
-  <%= simple_form_for(@project) do |f| %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-
-    <div class="row mb-4">
-      <div class="col">
-        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+<div class="container">
+  <h1>Create to connect people at your event!</h1>
+  <div class="row">
+    <div class="col-6 card m-3 p-3">
+      <%= simple_form_for(@project) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', id: "new_name", placeholder: "Event" %>
       </div>
-      <div class="col">
-        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        </div>
+        <div class="col">
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-    <label for="primary_color" class="col-3 col-form-label">Primary color</label>
-    <div class="col-3">
-      <input class="form-control" type="color" value="#bfbfbf" id="primary_color">
-    </div>
-    </div>
+      <div class="form-group row">
+        <label for="primary_color" class="col-3 col-form-label">Primary color</label>
+        <div class="col-3">
+          <input class="form-control" type="color" value="#bfbfbf" id="primary_color">
+        </div>
+      </div>
 
-    <div class="form-group row">
-    <label for="secondary_color" class="col-3 col-form-label">Secondary color</label>
-    <div class="col-3">
-      <input class="form-control" type="color" value="#202020" id="secondary_color">
-    </div>
-    </div>
+      <div class="form-group row mb-3">
+        <label for="secondary_color" class="col-3 col-form-label">Secondary color</label>
+        <div class="col-3">
+          <input class="form-control" type="color" value="#202020" id="secondary_color">
+        </div>
+      </div>
 
-    <%= f.submit "Create app", class: "btn-square mt-2" %>
-  <% end %>
+      <div class="form-group">
+        <%= f.input :logo %>
+        <%= f.input :logo_cache, as: :hidden %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.input :background_image %>
+        <%= f.input :background_image_cache, as: :hidden %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :welcome_message %>
+        <%= f.text_area :welcome_message, class: 'form-control' %>
+      </div>
+
+      <%= f.submit "Create app", class: "btn-square mt-2" %>
+    <% end %>
+  </div>
+
+  <div class="col-5">
+    <div id="phone-frame">
+
+    </div>
+  </div>
 </div>
+
+<%= javascript_pack_tag 'event_new_form' %>
+
+  <div class="show_primary" style="height: 10px; width: 100%; background-color: #bfbfbf;"></div>
+    <p id="show_name">Event</p>
+    <div class="show_secondary" style="height: 10px; width: 100%; background-color: #202020;"></div>
+    <img id="show_logo" src=""></img>
+  </div>
