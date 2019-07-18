@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'events/show'
   get 'participants/new'
-  get 'participants/create'
+  post 'events/:id/participants/create', to: 'participants#create', as: "participants_create"
   get 'participants/edit'
   get 'participants/update'
   get 'participants/show'
@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   get 'events/:id', to: 'events#show'
 
   get "events/:id/profile", to: "users#edit", as: "profile"
-  patch  "users/:id", to: "users#update"
+  patch "events/:id/profile/update", to: "users#update", as: "update_user"
 
 end
