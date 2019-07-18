@@ -37,4 +37,7 @@ Rails.application.routes.draw do
   patch  "users/:id", to: "users#update"
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
   get "matches", to: "matches#index"
+
+  get 'events/:id/matches/new', to: 'matches#new'
+  post 'events/:id/matches', to: 'matches#create'
 end
