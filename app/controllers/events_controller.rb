@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @project = Event.new(event_params)
+    @project.event_code = SecureRandom.hex(10)
     @project.user = current_user
     if @project.save
       redirect_to event_path(@project)
