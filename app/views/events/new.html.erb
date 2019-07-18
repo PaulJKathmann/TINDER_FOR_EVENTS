@@ -26,18 +26,18 @@
       <div class="form-group row">
         <label for="primary_color" class="col-3 col-form-label">Background</label>
         <div class="col-3">
-          <input class="form-control" type="color" value="#333333" id="primary_color">
+          <%= f.input :primary_color, as: :color, class: "form-control", label: false %>
         </div>
       </div>
 
       <div class="form-group row mb-3">
         <label for="secondary_color" class="col-3 col-form-label">Buttons</label>
         <div class="col-3">
-          <input class="form-control" type="color" value="#F0037E" id="secondary_color">
+          <%= f.input :secondary_color, as: :color, class: "form-control", label: false %>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         <%= f.input :logo %>
         <%= f.input :logo_cache, as: :hidden %>
       </div>
@@ -92,32 +92,15 @@
         height: 40px;
         background-color: #333333;
       "></div>
-      <div class="nav_extend_show">
-        <div class="show_secondary" style="
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show" style="
         position: absolute;
-        top: 11px;
-        left: 24px;
-        width: 28px;
-        height: 2px;
-        background-color: #F0037E;
-        "></div>
-        <div class="show_secondary" style="
-          position: absolute;
-          top: 19px;
-          left: 24px;
-          width: 28px;
-          height: 2px;
-          background-color: #F0037E;
-        "></div>
-        <div class="show_secondary" style="
-          position: absolute;
-          top: 27px;
-          left: 24px;
-          width: 28px;
-          height: 2px;
-          background-color: #F0037E;
-        "></div>
-      </div>
+        top: 4.5px;
+        left: 20px;
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+      "></img>
       <div class="chat_show" style="
         position: absolute;
         top: 6px;
@@ -164,7 +147,7 @@
         opacity: .2;
       "></div>
 
-      <img src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1445&q=80" alt="avatar" style="
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" style="
         position: absolute;
         top: 90px;
         left: 0;
@@ -198,7 +181,7 @@
         left: 34px;
         font-size: 18px;
         font-weight: bolder;
-      ">Mopsi</div>
+      ">Mara</div>
       <div class="age_show" style="
         position: absolute;
         z-index: -1;
@@ -213,7 +196,7 @@
         top: 360px;
         left: 34px;
         font-size: 13px;
-      ">I love long walks...</div>
+      ">Live & Laugh</div>
       <div class="bnt_love_show" style="
         position: absolute;
         z-index: -1;

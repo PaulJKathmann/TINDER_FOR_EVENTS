@@ -6,22 +6,22 @@ const newName = document.querySelector("#new_name");
     nameShow.innerText = name
   });
 
-  const newPrimary = document.querySelector("#primary_color");
+  const newPrimary = document.querySelector("#event_primary_color");
   const primaryShow = document.querySelectorAll(".show_primary");
 
   newPrimary.addEventListener("change", (event) => {
-    let primary = document.querySelector("#primary_color").value;
+    let primary = document.querySelector("#event_primary_color").value;
     for (const element of primaryShow) {
       element.style.backgroundColor = primary;
     }
   });
 
-  const newSecondary = document.querySelector("#secondary_color");
+  const newSecondary = document.querySelector("#event_secondary_color");
   const secondaryShow = document.querySelectorAll(".show_secondary");
   const secondaryTextShow = document.querySelectorAll(".show_secondary_text");
 
   newSecondary.addEventListener("change", (event) => {
-    let secondary = document.querySelector("#secondary_color").value;
+    let secondary = document.querySelector("#event_secondary_color").value;
     for (const element of secondaryShow) {
       element.style.backgroundColor = secondary;
     }

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'simple_form_extension'
 gem 'carrierwave', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'devise'
@@ -32,3 +33,5 @@ end
 
 gem 'cloudinary', '~> 1.9.1'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
