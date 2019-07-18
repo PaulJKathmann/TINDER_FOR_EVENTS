@@ -1,8 +1,13 @@
-.profile-content h1, h2, h3, h4, p, label {
+.profile-content h1 {
   color: white;
 }
 
 .profile-content h4 {
   margin: 16px 0 4px 0;
 }
-
+.profile-content h4 {
+  color: white;
+}
+.profile-content label {
+  color: white;
+}
