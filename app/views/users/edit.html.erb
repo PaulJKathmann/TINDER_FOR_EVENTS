@@ -1,6 +1,9 @@
 <div class="background">
   <div class="phone-container p-3 profile-content">
     <h1 class="text-center">Your Profile</h1>
+    <div class="text-center">
+      <%= cl_image_tag("myphoto_fxdkfl", style: "width: 80px; border-radius: 50%; text-align: center") %>
+    </div>
     <%= simple_form_for current_user, method: :patch, url: users_edit_path do |f| %>
       <h4 class="text-center">Personal Info:</h4>
       <%= f.input :name %>
