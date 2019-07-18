@@ -31,6 +31,12 @@ class EventsController < ApplicationController
     redirect_to event_path(@project)
   end
 
+  def available_events
+    #this logic can be changed so that it only shows the events that
+    #
+    @events = Event.all
+
+  end
 
   private
 

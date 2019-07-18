@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get 'reject_swipe/:id', to: 'swipes#reject', as: :reject
   get 'accept_swipe/:id', to: 'swipes#accept', as: :accept
-
+  get 'events_index', to: 'events#available_events', as: :available_events
 
   get 'events/:id', to: 'events#show'
 
@@ -37,4 +37,5 @@ Rails.application.routes.draw do
   patch  "users/:id", to: "users#update"
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
   get "matches", to: "matches#index"
+
 end

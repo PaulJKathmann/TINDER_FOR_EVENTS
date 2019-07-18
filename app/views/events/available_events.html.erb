@@ -1,0 +1,21 @@
+<%= render 'shared/navbar' %>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container">
+  <% @events.each do |event| %>
+    <div class="card event_card" style="width: 18rem;">
+      <%= cl_image_tag(event.logo) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= event.name %></h5>
+        <!-- <p class="card-text">event.welcome_m</p> -->
+        <% #raise %>
+        <%= link_to "Meet people", profile_path(event.id),class: "btn btn-primary"  %>
+      </div>
+    </div>
+  <% end %>
+</div>
