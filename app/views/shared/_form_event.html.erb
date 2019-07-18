@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-6 card my-3 p-3" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1); border-radius: 4px;">
+    <div class="col-6 card my-3 p-3" style="border: none; box-shadow: 0 0 8px rgba(0,0,0,.1); border-radius: 4px; z-index: 2;">
       <%= simple_form_for(@project) do |f| %>
       <div class="form-group mt-3">
         <%= f.label :event_name %>
@@ -61,6 +61,7 @@
   <div class="col-3">
     <h2 class="mt-2 mb-0 ml-1" style="color: white;">Custom design</h2>
     <div class="phone-frame" style="
+      z-index: 2;
       height: 500px;
       width: 250px;
       position: relative;
@@ -88,6 +89,8 @@
         position: absolute;
         top: 0;
         z-index: -1;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
         width: 100%;
         height: 40px;
         background-color: <% if @project.primary_color.nil? %>
@@ -142,6 +145,7 @@
         height: 100%;
         width: 100%;
         border-radius: 10px;
+        border-radius: 20px;
         background-color: <% if @project.primary_color.nil? %>
                             <%= "#333333" %>
                           <% else %>
@@ -156,6 +160,7 @@
         width: 100%;
         background-color: white;
         border-radius: 10px;
+        border-radius: 20px;
         opacity: .2;
       "></div>
 

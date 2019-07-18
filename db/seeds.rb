@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+Message.destroy_all
+Match.destroy_all
+Swipe.destroy_all
+Participant.destroy_all
+Event.destroy_all
+Picture.destroy_all
+User.destroy_all
+
+
 
 puts 'Creating fake users'
 maria = User.new(
@@ -429,21 +438,21 @@ sammyp.save!
 puts "create a swipe for maria id 1"
 
 s1 = Swipe.new(
-  participant_1_id: 1,
-  participant_2_id: 2,
+  participant_1: mariap,
+  participant_2: timp
   )
 s1.save!
 
 s2 = Swipe.new(
-  participant_1_id: 1,
-  participant_2_id: 8,
+  participant_1: mariap,
+  participant_2: sammyp
   )
 s2.save!
 
 
 s3 = Swipe.new(
-  participant_1_id: 1,
-  participant_2_id: 6,
+  participant_1: mariap,
+  participant_2: markp
   )
 s3.save!
 
