@@ -32,7 +32,9 @@
 
           <div class="uk-width-expand">
             <h3 class="uk-card-title uk-margin-remove-bottom"><%=user_show.name%></h3>
-            <p class="uk-text-meta uk-margin-remove-top">Matched on <time><%=match.created_at%></time></p>
+            <p class="uk-text-meta uk-margin-remove-top">Matched <%=match.created_at.strftime("%d of %B, %Y")%>
+            <%= match.created_at.strftime("%I:%M %p")
+            %></p>
           </div>
           <%= link_to matches_path do %>
             <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
@@ -40,41 +42,5 @@
         </div>
     </div>
   <% end %>
-
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-
-            <div class="uk-width-auto">
-              <img class="uk-border-circle" width="40" height="40" src="https://avatars0.githubusercontent.com/u/50922534?v=4">
-            </div>
-
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">Name</h3>
-                <p class="uk-text-meta uk-margin-remove-top">Matched on <time>.......</time></p>
-            </div>
-            <%= link_to  matches_path do %>
-              <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
-            <% end %>
-        </div>
-    </div>
-
-    <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-
-            <div class="uk-width-auto">
-                <img class="uk-border-circle" width="40" height="40" src="https://avatars0.githubusercontent.com/u/50922534?v=4">
-            </div>
-
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">Name</h3>
-                <p class="uk-text-meta uk-margin-remove-top">Matched on <time>.......</time></p>
-            </div>
-            <%= link_to  matches_path do %>
-              <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
-            <% end %>
-        </div>
-    </div>
-
-
-</div>
+  </div>
 </div>
