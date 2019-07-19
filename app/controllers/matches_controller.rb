@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @match = Match.new()
+    @match = Match.last
   end
 
   def create

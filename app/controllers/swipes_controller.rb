@@ -28,7 +28,6 @@ class SwipesController < ApplicationController
       @swipe = s2
     end
     @swipe.save!
-
   end
 
   # checkGender will select a new participant according to your gender Preferences
@@ -80,8 +79,16 @@ class SwipesController < ApplicationController
     elsif current_user == @swipe.participant_2.user
       @swipe.update(participant_2_liked: true)
     end
-    #redirect to new swipe
-    redirect_to new_swipe_path(@event.id)
+    # If both people liked each other a new match is created and it leads to the match new controller
+    if @swipe.participant_1_liked == true && @swipe.participant_2_liked == true
+      fit = Match.new()
+      fit.swipe_id = @swipe.id
+      fit.save
+      redirect_to new_match_path
+    else
+      #redirect to new swipe
+      redirect_to new_swipe_path(@event.id)
+    end
   end
 
   # def match_them

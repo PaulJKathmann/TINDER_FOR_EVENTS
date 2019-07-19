@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-lewagon">
+<nav class="navbar navbar-expand-lg navbar-lewagon" style="position: relative; z-index: 2; background-color: #333333;">
   <div class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
@@ -8,5 +8,16 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
    </div>
-   <%= link_to "Chaticon", "#", class: "navbar-brand" %>
+   <%= link_to "#", class: "navbar-brand" do %>
+   <div class="chat_show" style="
+        position: absolute;
+        top: 10px;
+        right: 22px;
+      ">
+        <i class="fas fa-comments show_secondary_text" style="
+        font-size: 30px;
+        color: #F0037E;
+        "></i>
+      </div>
+   <% end %>
 </nav>
