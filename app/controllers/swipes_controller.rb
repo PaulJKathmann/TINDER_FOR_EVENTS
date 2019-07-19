@@ -142,12 +142,23 @@ class SwipesController < ApplicationController
       participant_2_liked: true,
       participant_2_id: current_user_participant.id
     ))
-    all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
 
-    all_liked_swipes.count == all_participants.count
+    #all_participants_gender_filtered = all_participants.where()
+
+    all_liked_swipes.count == how_many_participants_are_likable
   end
 
   def current_user_participant
     Participant.where(user: current_user, event: current_event).first
+  end
+
+  def how_many_participants_are_likable
+    all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
+    count = 0
+    all_participants.each do |participant|
+      if participant.user.gender == (user.preferred_gender || "udefined")
+        count =+ 1
+      end
+    count
   end
 end
