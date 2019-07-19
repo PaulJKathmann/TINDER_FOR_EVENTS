@@ -1,12 +1,12 @@
 <% unless current_user.id == Event.find(params[:id]).user_id %>
-  <%= cl_image_tag("Fusion-Festival-2017_xfzslw", crop: :fill, class: "mobile-background") %>
+  <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg", crop: :fill, class: "mobile-background") %>
   <div class="phone-container welcome-content">
     <h1 class="text-center pt-3"><%= @event.name %></h1>
-    <%= cl_image_tag("fusion_logo2019_spskle", crop: :fill, class: "logo mb-3 text-center" )%>
+    <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", crop: :fill, class: "logo mb-3 text-center" )%>
     <p class="p-3 text-dark text-left"><%= @event.welcome_message %></p>
     </div>
   </div>
-  <div class="welcome-buttons">
+  <div class="welcome-buttons" style="text-decoration: none;">
       <%= link_to "Start meeting people", participants_create_path(params[:id]), method: :post, class: "btn-full-screen"%>
   </div>
 <% end %>

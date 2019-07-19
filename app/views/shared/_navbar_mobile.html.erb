@@ -7,7 +7,7 @@
           <%= image_tag current_user.pictures[0].url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "width: 40px; height: 40px; object-fit: cover;" %>
         <% end %>
           <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
-            <%= link_to "My Profile", "participants_edit_path", class: "dropdown-item" %>
+            <%= link_to "My Profile", "profile", class: "dropdown-item" %>
             <%= link_to "My Events", "projects_path", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
@@ -20,7 +20,7 @@
       ">
         <i class="fas fa-comments show_secondary_text" style="
         font-size: 30px;
-        color: #F0037E;
+        color: #fd1015;
         "></i>
       </div>
    <% end %>
