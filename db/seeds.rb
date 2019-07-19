@@ -330,7 +330,7 @@ picture.save!
 
 toni = User.new(
   name: "Toni Kenobi",
-  email: "rich_test@gmail.com",
+  email: "toni_test@gmail.com",
   bio: "Here for a good time, not a long time!",
   age: 28,
   gender: "Female",
@@ -669,7 +669,7 @@ s3.save!
 
 
 
- puts "a match for maria"
+ puts "a match for lu"
 m = Match.new(
   swipe: s1
 
