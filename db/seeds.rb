@@ -20,7 +20,6 @@ puts 'Creating fake users'
 maria = User.new(
   name: "Maria",
   email: "maria_test@gmail.com",
-
   bio: "Single and ready to mingle",
   age: rand(21...30),
   gender: "Female",
@@ -296,6 +295,25 @@ sammy = User.new(
   email: "sammy_test@gmail.com",
   bio: "i love frozen yogurt",
   age: rand(21...30),
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+sammy.save!
+picture = Picture.new(
+  user: sammy,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563457373/male4_ko0ubo.jpg")
+picture.save!
+
+rich = User.new(
+  name: "Rich",
+  email: "rich_test@gmail.com",
+  bio: "looking fantastic",
+  age: 18,
   gender: "Male",
   preferred_gender: "Both",
   preferred_match_type: "Friends",
