@@ -15,15 +15,15 @@
     width: 60px;
     object-fit: fill;
   " )%>
-<div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 6rem;">
+<div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 4rem;">
  <div class="uk-card uk-card-default uk-width-1-2@m">
   <% @matches.each do |match| %>
-  <% if match.swipe.participant_2.user_id == current_user.id %>
-    <% user_show = match.swipe.participant_1.user %>
-  <% elsif match.swipe.participant_1.user_id == current_user.id %>
-    <% user_show = match.swipe.participant_2.user %>
-  <% end %>
-   <div class="uk-card-header">
+    <% if match.swipe.participant_2.user_id == current_user.id %>
+      <% user_show = match.swipe.participant_1.user %>
+    <% elsif match.swipe.participant_1.user_id == current_user.id %>
+      <% user_show = match.swipe.participant_2.user %>
+    <% end %>
+    <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
           <div class="uk-width-auto">

@@ -7,28 +7,24 @@ class SwipesController < ApplicationController
   def new
 
     @swipe = Swipe.new
-    #set the person that you are going to see
-    @swipe.participant_2 = random_participant
-    # set the event that you are on
+    @swipe.participant_2 = not_liked_participant
     @swipe.participant_1 = current_user_participant
-    #dont show me guys or girls if i dont want to see them
-    random_gender = random_participant.user.gender
+
+    random_gender =  @swipe.participant_2.user.gender
+    # TODO check gender logic
     preferred_gender = current_user.preferred_gender
-    # we need a way check the gender
     checkGender(preferred_gender, random_gender)
-    #check if the swipes already exists and then update this swipe.
-    #now i have the two users, but i can not create new swipes always
-    s1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
-    s2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
-    event = current_event
-    #  Person.where(name: 'Spartacus'_SWi, rating: 4).exists?
-    if  s1
-      @swipe = s1
-    elsif s2
-      @swipe = s2
+
+    swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
+    swipe2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
+
+    if  swipe1
+      @swipe = swipe1
+    elsif swipe2
+      @swipe = swipe2
     end
-    @swipe.save!
-  end
+      @swipe.save!
+    end
 
   # checkGender will select a new participant according to your gender Preferences
   def checkGender(preferred_gender, random_gender)
@@ -36,11 +32,11 @@ class SwipesController < ApplicationController
     i = 0
     if i < 10
       while preferred_gender == "Female" && random_gender == "Male"
-        @swipe.participant_2 = random_participant
+        @swipe.participant_2 = not_liked_participant
         i =+ 1
       end
       while preferred_gender == "Male" && random_gender == "Female"
-        @swipe.participant_2 = random_participant
+        @swipe.participant_2 = not_liked_participant
         i =+ 1
       end
     else
@@ -86,17 +82,9 @@ class SwipesController < ApplicationController
       fit.save
       redirect_to new_match_path
     else
-      #redirect to new swipe
       redirect_to new_swipe_path(@event.id)
     end
   end
-
-  # def match_them
-  #   if @swipe.participant_2 == true && @swipe.participant_1_liked ==true
-  #     ### create the match i dont know how!
-  #   end
-
-  # end
 
   private
 
@@ -109,14 +97,51 @@ class SwipesController < ApplicationController
   end
 
   def random_participant
-    Participant
+    participant1 = Participant
       .where(event: current_event)
-      .where.not(user: current_user)
+      .where.not(user_id: current_user.id)
       .sample
   end
 
-  def current_user_participant
+  def not_liked_participant
+    participant_to_check = random_participant
+    return nil if participant_to_check.nil?
 
+    previous_liked_swipes = Swipe.where(
+      participant_2_id: participant_to_check.id,
+      participant_1_liked: true,
+      participant_1_id: current_user.id
+      ).or(Swipe.where(
+      participant_1_id: participant_to_check.id,
+      participant_2_liked: true,
+      participant_2_id: current_user.id
+      ))
+
+    if previous_liked_swipes.empty?
+      return participant_to_check
+    else
+      if liked_everyone?
+        return nil
+      else
+        return not_liked_participant
+      end
+    end
+  end
+
+  def liked_everyone?
+    all_liked_swipes = Swipe.where(
+      participant_1_liked: true,
+      participant_1_id: current_user.id
+      ).or(Swipe.where(
+      participant_2_liked: true,
+      participant_2_id: current_user.id
+    ))
+    all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
+
+    all_liked_swipes.count == all_participants.count
+  end
+
+  def current_user_participant
     Participant.where(user: current_user, event: current_event).first
   end
 end
