@@ -2,23 +2,41 @@
 <!-- TODO Later: Change the path of the icon-->
 <!-- try with seeds -->
 <!-- message notification (numbers show in the badge-->
-<div class="container pb-3" style="height: 100vh;background-color: #333;padding-top: 6rem;">
+<%= cl_image_tag("fusion_logo2019_spskle", style: "
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 30px;
+    padding: 4px 2px;
+    height: 60px;
+    width: 60px;
+    object-fit: fill;
+  " )%>
+<div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 6rem;">
  <div class="uk-card uk-card-default uk-width-1-2@m">
   <% @matches.each do |match| %>
+  <% if match.swipe.participant_2.user_id == current_user.id %>
+    <% user_show = match.swipe.participant_1.user %>
+  <% elsif match.swipe.participant_1.user_id == current_user.id %>
+    <% user_show = match.swipe.participant_2.user %>
+  <% end %>
    <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
-            <div class="uk-width-auto uk-border-circle" width="40" height="40" >
-                <%= match.photo%>
-            </div>
+          <div class="uk-width-auto">
+            <img class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;" src="<%= user_show.pictures[0].url %>">
+          </div>
 
-            <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom"><%=match.name%></h3>
-                <p class="uk-text-meta uk-margin-remove-top">Matched on <time><%=match.create_at%></time></p>
-            </div>
-            <%= link_to matches_path do %>
-              <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
-            <% end %>
+          <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom"><%=user_show.name%></h3>
+            <p class="uk-text-meta uk-margin-remove-top">Matched on <time><%=match.created_at%></time></p>
+          </div>
+          <%= link_to matches_path do %>
+            <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
+          <% end %>
         </div>
     </div>
   <% end %>
