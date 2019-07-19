@@ -28,7 +28,11 @@
         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
           <div class="uk-width-auto">
-            <img class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;" src="<%= user_show.pictures[0].url %>">
+            <% if user_show.pictures.empty? %>
+              <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;">
+            <% else %>
+              <img class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;" src="<%= user_show.pictures[0].url %>">
+            <% end %>
           </div>
 
           <div class="uk-width-expand">
