@@ -6,14 +6,19 @@ class SwipesController < ApplicationController
 
   def new
 
-    @swipe = Swipe.new
-    @swipe.participant_2 = not_liked_participant
-    @swipe.participant_1 = current_user_participant
+    @swipe = Swipe.new(
+      participant_1: current_user_participant,
+      participant_2: not_liked_participant
+    )
+    if @swipe.participant_2.nil?
+      redirect_to root_path
+      return
+    end
 
-    random_gender =  @swipe.participant_2.user.gender
+    participant_2_gender =  @swipe.participant_2.user.gender
     # TODO check gender logic
     preferred_gender = current_user.preferred_gender
-    checkGender(preferred_gender, random_gender)
+    checkGender(preferred_gender, participant_2_gender)
 
     swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
     swipe2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
@@ -24,7 +29,7 @@ class SwipesController < ApplicationController
       @swipe = swipe2
     end
       @swipe.save!
-    end
+  end
 
   # checkGender will select a new participant according to your gender Preferences
   def checkGender(preferred_gender, random_gender)
@@ -110,12 +115,13 @@ class SwipesController < ApplicationController
     previous_liked_swipes = Swipe.where(
       participant_2_id: participant_to_check.id,
       participant_1_liked: true,
-      participant_1_id: current_user.id
+      participant_1_id: current_user_participant.id
       ).or(Swipe.where(
       participant_1_id: participant_to_check.id,
       participant_2_liked: true,
-      participant_2_id: current_user.id
+      participant_2_id: current_user_participant.id
       ))
+
 
     if previous_liked_swipes.empty?
       return participant_to_check
@@ -131,10 +137,10 @@ class SwipesController < ApplicationController
   def liked_everyone?
     all_liked_swipes = Swipe.where(
       participant_1_liked: true,
-      participant_1_id: current_user.id
+      participant_1_id: current_user_participant.id
       ).or(Swipe.where(
       participant_2_liked: true,
-      participant_2_id: current_user.id
+      participant_2_id: current_user_participant.id
     ))
     all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
 
