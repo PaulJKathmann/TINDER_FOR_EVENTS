@@ -38,6 +38,6 @@ Rails.application.routes.draw do
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
   get "matches", to: "matches#index"
 
-  get 'events/:id/matches/new', to: 'matches#new'
+  get 'events/:id/matches/new', to: 'matches#new', as: :new_match
   post 'events/:id/matches', to: 'matches#create'
 end
