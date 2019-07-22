@@ -60,10 +60,8 @@ class SwipesController < ApplicationController
     end
     # If both people liked each other a new match is created and it leads to the match new controller
     if @swipe.participant_1_liked == true && @swipe.participant_2_liked == true
-      fit = Match.new()
-      fit.swipe_id = @swipe.id
-      fit.save
-      redirect_to new_match_path
+      match = Match.create!(swipe_id: @swipe.id)
+      redirect_to show_match_path(match.id)
     else
       redirect_to new_swipe_path(@event.id)
     end

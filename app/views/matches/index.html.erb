@@ -16,7 +16,7 @@
     object-fit: fill;
   " )%>
 <div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 4rem;">
-     <%= link_to "Keep Swiping", swipes_path(params[:id])%>
+     <%= link_to "Keep Swiping", swipes_path()%>
  <div class="uk-card uk-card-default uk-width-1-2@m">
   <% @matches.each do |match| %>
     <% if match.swipe.participant_2.user_id == current_user.id %>
