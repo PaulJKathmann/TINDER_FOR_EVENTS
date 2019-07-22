@@ -1,4 +1,30 @@
-<div class="message">
-  <%= image_tag message.author.pictures.first.url, class: "avatar" %>
-  <div class="message-content"><%= message.content %></div>
-</div>
+
+<section id="chat-box" class="clearfix">
+    <ul class="messages clearfix">
+      <% if message.author == current_user %>
+        <li class="messages clearfix" style="
+            display: block;
+            position: relative;
+            float: left;
+            min-width: 250px;
+            background: #a6acba;
+            border: 4px solid transparent;
+            border-radius: 4px;
+            padding: 5px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+            "><%= message.content %></li>
+     <% else%>
+       <%= image_tag message.user.avatar_url, class: "avatar" %>
+       <li class="messages text-left"><%= message.content %></li>
+     <% end %>
+  </ul>
+</section>
+
+
+
+
+
+
+

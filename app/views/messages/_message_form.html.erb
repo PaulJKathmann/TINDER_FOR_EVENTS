@@ -1,7 +1,6 @@
-<%= form_for message, remote: true, authenticity_token: true do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
-
+<%= simple_form_for message, html: { class: "row d-inline-flex" }, remote: true, authenticity_token: true do |f| %>
+  <%= f.text_area :content, class: "mr-2", data: {textarea: "message"} %>
   <%= f.hidden_field :match_id, value: match.id %>
-  <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
+  <%= f.submit 'send', class: "btn btn-primary", data: {send: "message"} %>
 <% end %>
+
