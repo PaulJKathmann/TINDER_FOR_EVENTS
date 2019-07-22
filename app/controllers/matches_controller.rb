@@ -10,11 +10,9 @@ class MatchesController < ApplicationController
     else
       @match = Match.where(swipe_id: Match.last.swipe_id)[0]
     end
-    raise
   end
 
   def show
-    raise
     @match
   end
 
