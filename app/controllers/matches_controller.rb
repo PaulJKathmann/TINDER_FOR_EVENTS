@@ -13,7 +13,7 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
   end
-
+  
   def create
     @match = Match.new(match_params)
   end
