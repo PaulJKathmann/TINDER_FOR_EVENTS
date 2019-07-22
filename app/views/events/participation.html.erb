@@ -7,7 +7,7 @@
   <h1 style="color: white;">Your Events</h1>
   <% @participations.each do |participator| %>
     <% event = participator.event %>
-    <%= link_to event_path(event), class: "index-list-event" do %>
+    <%= link_to event_path(event.token), class: "index-list-event" do %>
     <div style="
       margin-top: 30px;
       position: relative;

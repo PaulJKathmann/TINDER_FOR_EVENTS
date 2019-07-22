@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @project.token = SecureRandom.hex(10)
     @project.user = current_user
     if @project.save
-      redirect_to event_path(@project)
+      redirect_to event_path(@project.token)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @project = Event.find(params[:id])
     @project.update(event_params)
-    redirect_to event_path(@project)
+    redirect_to event_path(@project.token)
   end
 
 
