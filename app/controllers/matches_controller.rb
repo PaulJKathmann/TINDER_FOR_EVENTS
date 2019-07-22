@@ -8,12 +8,15 @@ class MatchesController < ApplicationController
         @matches << Match.where(swipe_id: swipe.id)[0]
       end
     end
+    @event = current_participant.event
   end
 
   def show
+    current_participant = Participant.where(user: current_user, event: params[:id]).first
     @match = Match.find(params[:id])
+    @event = current_participant.event
   end
-  
+
   def create
     @match = Match.new(match_params)
   end

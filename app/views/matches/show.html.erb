@@ -1,5 +1,5 @@
- <%= render 'shared/navbar_mobile' %>
- <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", style: "
+<%= render 'shared/navbar_mobile', locals: {event: @event} %>
+ <%= cl_image_tag( @event.logo, style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -12,15 +12,15 @@
     width: 60px;
     object-fit: fill;
   " )%>
- <div class="container" style="height: 100vh; background: rgb(100,100,100);">
+ <div class="container" style="height: 100vh; background: #<%=@event.primary_color%> ;">
   <div class="d-flex justify-content-around align-item-center" style="padding-top: 90px;">
    <div class="card" style="width: 70vh;height: 60vh;" >
      <div class="card-body pt-3">
       <div class = "d-flex justify-content-around align-item-center">
-        <i class="far fa-surprise" style="font-size: 48px;color: #fd1015;"></i>
+        <i class="far fa-surprise" style="font-size: 48px;color: #<%=@event.secondary_color%>;"></i>
       </div>
-      <h5 class="match_card-title" style="color: red;">BOOM!</h5>
-      <p class="card-text text-center" style="color: red;">You both liked each other. <br>You are connected!</p>
+      <h5 class="match_card-title" style="color: #<%=@event.secondary_color%>;">BOOM!</h5>
+      <p class="card-text text-center" style="color: #<%=@event.secondary_color%>;">You both liked each other. <br>You are connected!</p>
 
       <div class = "d-flex justify-content-around align-item-center">
         <% if @match.swipe.participant_1.user.pictures.empty? %>

@@ -1,8 +1,8 @@
- <%= render 'shared/navbar_mobile' %>
+<%= render 'shared/navbar_mobile', locals: {event: @event} %>
 <!-- TODO Later: Change the path of the icon-->
 <!-- try with seeds -->
 <!-- message notification (numbers show in the badge-->
-<%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", style: "
+<%= cl_image_tag(@event.logo, style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -15,9 +15,12 @@
     width: 60px;
     object-fit: fill;
   " )%>
-<div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 4rem;">
+<div class="white-filter">
+
+</div>
+<div class="match-index-container container pb-3" style="height: 100vh;background-color:#<%=@event.primary_color%>;padding-top: 4rem;">
      <%= link_to "Keep Swiping", swipes_path()%>
- <div class="uk-card uk-card-default uk-width-1-2@m">
+ <div class="uk-card uk-card-default uk-width-1-2@m front">
   <% @matches.each do |match| %>
     <% if match.swipe.participant_2.user_id == current_user.id %>
       <% user_show = match.swipe.participant_1.user %>
@@ -42,11 +45,10 @@
             %></p>
           </div>
           <%= link_to matches_path do %>
-            <i class="fas fa-comments" style = "color:#fd1015;font-size: xx-large;"></i>
+            <i class="fas fa-comments" style = "color:#<%=@event.secondary_color%>;font-size: xx-large;"></i>
           <% end %>
         </div>
     </div>
   <% end %>
-
-</div>
+ </div>
 </div>
