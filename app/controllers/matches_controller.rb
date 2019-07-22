@@ -11,14 +11,20 @@ class MatchesController < ApplicationController
     @event = current_participant.event
   end
 
-  def show
-    current_participant = Participant.where(user: current_user, event: params[:id]).first
+
+  def popup
+
     @match = Match.find(params[:id])
     @event = current_participant.event
   end
 
   def create
     @match = Match.new(match_params)
+  end
+
+  def show
+    @match = Match.find(params[:match_id])
+    @message = Message.new
   end
 
   private

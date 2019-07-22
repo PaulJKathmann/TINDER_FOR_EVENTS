@@ -650,38 +650,38 @@ puts "create a swipe for lu"
 
 s1 = Swipe.new(
   participant_1: lup,
-  participant_2: nimp
+  participant_2: nimp,
+  participant_1_liked: true,
+  participant_2_liked: true
   )
 s1.save!
 
 s2 = Swipe.new(
   participant_1: lup,
-  participant_2: mariap
+  participant_2: mariap,
+  participant_1_liked: true,
+  participant_2_liked: true
   )
 s2.save!
 
 
 s3 = Swipe.new(
   participant_1: lup,
-  participant_2: markp
+  participant_2: markp,
+  participant_1_liked: true,
+  participant_2_liked: true
   )
 s3.save!
 
 
 
  puts "a match for lu"
-m = Match.new(
-  swipe: s1
-
-  )
-m = Match.new(
-  swipe: s2
-
-  )
-m = Match.new(
-  swipe: s3
-
-  )
+m1 = Match.new(swipe: s1)
+m1.save!
+m2 = Match.new(swipe: s2)
+m2.save!
+m3 = Match.new(swipe: s3)
+m3.save!
 
 
 
