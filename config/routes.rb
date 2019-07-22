@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'events/show'
   get 'participants/new'
-  post 'events/:id/participants/create', to: 'participants#create', as: "participants_create"
+  post 'events/:id/participants/create', to: 'participants#create', as: :participants_create
   get 'participants/edit'
   get 'participants/update'
   get 'participants/show'
@@ -23,15 +23,14 @@ Rails.application.routes.draw do
   get 'projects/:id', to: 'events#show'
   get 'projects', to: 'events#index'
 
-
   get 'events/:id/swipes', to: 'swipes#new', as: :new_swipe
   post 'events/:id/swipes', to: 'swipes#create'
 
   get 'reject_swipe/:id', to: 'swipes#reject', as: :reject
   get 'accept_swipe/:id', to: 'swipes#accept', as: :accept
 
-
   get 'events/:id', to: 'events#show'
+  get 'participant', to: 'events#participation', as: :event_participation
 
   get "events/:id/profile", to: "users#edit", as: "profile"
   patch "events/:id/profile/update", to: "users#update", as: :update_user
