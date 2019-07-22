@@ -11,12 +11,7 @@ class MatchesController < ApplicationController
       @match = Match.where(swipe_id: Match.last.swipe_id)[0]
     end
   end
-
-  def show
-    @match
-  end
-
-
+  
   def create
     @match = Match.new(match_params)
   end
