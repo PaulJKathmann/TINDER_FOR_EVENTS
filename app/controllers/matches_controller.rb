@@ -10,10 +10,10 @@ class MatchesController < ApplicationController
     end
   end
 
-  def show
+  def popup
     @match = Match.find(params[:id])
   end
-  
+
   def create
     @match = Match.new(match_params)
   end
