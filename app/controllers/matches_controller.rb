@@ -1,16 +1,19 @@
 class MatchesController < ApplicationController
   def index
-   @matches = Match.all
-  end
-
-  def new
-    if Match.where(swipe_id: Match.last.swipe_id).empty?
-      @match = Match.last
-    else
-      @match = Match.where(swipe_id: Match.last.swipe_id)[0]
+    current_participant = Participant.where(user: current_user, event: params[:id]).first
+    swipes = Swipe.where(participant_1_id: current_participant.id).or(Swipe.where(participant_2_id: current_participant.id))
+    @matches = []
+    swipes.each do |swipe|
+      unless Match.where(swipe_id: swipe.id).empty?
+        @matches << Match.where(swipe_id: swipe.id)[0]
+      end
     end
   end
 
+  def show
+    @match = Match.find(params[:id])
+  end
+  
   def create
     @match = Match.new(match_params)
   end
