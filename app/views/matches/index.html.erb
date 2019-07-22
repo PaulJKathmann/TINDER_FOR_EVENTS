@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-lewagon" style="position: relative; z-index: 2; background-color: #333333;">
   <div class="nav-item dropdown">
         <% if current_user.pictures.empty? %>
@@ -24,10 +25,11 @@
       </div>
    <% end %>
 </nav>
+
 <!-- TODO Later: Change the path of the icon-->
 <!-- try with seeds -->
 <!-- message notification (numbers show in the badge-->
-<%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", style: "
+<%= cl_image_tag(@event.logo, style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -66,12 +68,12 @@
             <%= match.created_at.strftime("%I:%M %p")
             %></p>
           </div>
+
           <%= link_to chat_path(params[:id], match.id) do %>
             <i class="fas fa-comments" style = "color:#fd1015;font-size: xx-large;"></i>
           <% end %>
         </div>
     </div>
   <% end %>
-
-</div>
+ </div>
 </div>

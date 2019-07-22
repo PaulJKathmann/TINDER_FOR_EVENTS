@@ -8,10 +8,14 @@ class MatchesController < ApplicationController
         @matches << Match.where(swipe_id: swipe.id)[0]
       end
     end
+    @event = current_participant.event
   end
 
+
   def popup
+
     @match = Match.find(params[:id])
+    @event = current_participant.event
   end
 
   def create
