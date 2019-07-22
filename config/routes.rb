@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   get 'swipes/new'
   get 'swipes/create'
   get 'swipes/edit'
@@ -40,4 +41,9 @@ Rails.application.routes.draw do
 
   get 'popup/:id', to: 'matches#popup', as: :popup_match
   post 'events/:id/matches', to: 'matches#create'
+  get 'events/:id/matches/:match_id', to: 'matches#show', as: :chat
+
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+  post 'events/:id/matches/:id', to: 'messages#create', as: :messages
 end
