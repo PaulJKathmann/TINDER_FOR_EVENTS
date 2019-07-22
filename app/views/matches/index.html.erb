@@ -41,7 +41,7 @@
             <%= match.created_at.strftime("%I:%M %p")
             %></p>
           </div>
-          <%= link_to matches_path do %>
+          <%= link_to chat_path(params[:id], match.id) do %>
             <i class="fas fa-comments" style = "color:#fd1015;font-size: xx-large;"></i>
           <% end %>
         </div>
