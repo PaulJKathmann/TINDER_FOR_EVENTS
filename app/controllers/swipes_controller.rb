@@ -8,18 +8,12 @@ class SwipesController < ApplicationController
 
     @swipe = Swipe.new(
       participant_1: current_user_participant,
-      participant_2: not_liked_participant
+      participant_2: set_participant_2
     )
     if @swipe.participant_2.nil?
       redirect_to root_path
       return
     end
-
-    participant_2_gender =  @swipe.participant_2.user.gender
-    # TODO check gender logic
-    preferred_gender = current_user.preferred_gender
-    checkGender(preferred_gender, participant_2_gender)
-
     swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
     swipe2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
 
@@ -29,25 +23,9 @@ class SwipesController < ApplicationController
       @swipe = swipe2
     end
       @swipe.save!
+
   end
 
-  # checkGender will select a new participant according to your gender Preferences
-  def checkGender(preferred_gender, random_gender)
-    #we need a way to stop infinite loops
-    i = 0
-    if i < 10
-      while preferred_gender == "Female" && random_gender == "Male"
-        @swipe.participant_2 = not_liked_participant
-        i =+ 1
-      end
-      while preferred_gender == "Male" && random_gender == "Female"
-        @swipe.participant_2 = not_liked_participant
-        i =+ 1
-      end
-    else
-      redirect_to root_path
-    end
-  end
 
   def reject
     # get swipe by ide from params
@@ -101,40 +79,25 @@ class SwipesController < ApplicationController
     params[:swipe].permit(:user, :participant_2_liked, )
   end
 
-  def random_participant
-    participant1 = Participant
-      .where(event: current_event)
-      .where.not(user_id: current_user.id)
-      .sample
+
+  def current_user_participant
+    Participant.where(user: current_user, event: current_event).first
   end
 
-  def not_liked_participant
-    participant_to_check = random_participant
-    return nil if participant_to_check.nil?
-
-    previous_liked_swipes = Swipe.where(
-      participant_2_id: participant_to_check.id,
-      participant_1_liked: true,
-      participant_1_id: current_user_participant.id
-      ).or(Swipe.where(
-      participant_1_id: participant_to_check.id,
-      participant_2_liked: true,
-      participant_2_id: current_user_participant.id
-      ))
-
-
-    if previous_liked_swipes.empty?
-      return participant_to_check
-    else
-      if liked_everyone?
-        return nil
+  def all_likable_participants
+    all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
+    participants = []
+    all_participants.each do |participant|
+      if current_user.preferred_gender == "Male" || current_user.preferred_gender == "Female"
+        participants << participant if current_user.preferred_gender == participant.user.gender
       else
-        return not_liked_participant
+        participants << participant
       end
     end
+    return participants
   end
 
-  def liked_everyone?
+  def already_liked_participants
     all_liked_swipes = Swipe.where(
       participant_1_liked: true,
       participant_1_id: current_user_participant.id
@@ -142,12 +105,23 @@ class SwipesController < ApplicationController
       participant_2_liked: true,
       participant_2_id: current_user_participant.id
     ))
-    all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
+    participants = []
+    all_liked_swipes.each do |swipe|
+      if swipe.participant_1 == current_user_participant
+         participants << swipe.participant_2
+      elsif swipe.participant_2 == current_user_participant
+         participants << swipe.participant_1
+      end
+    end
+    return participants
 
-    all_liked_swipes.count == all_participants.count
   end
 
-  def current_user_participant
-    Participant.where(user: current_user, event: current_event).first
+  def set_participant_2
+    options = all_likable_participants - already_liked_participants
+    options.sample
+
   end
 end
+
+

@@ -6,6 +6,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new
     @participant.event = Event.find(params[:id])
     @participant.user = current_user
+    
     if @participant.save
       redirect_to profile_path
     else

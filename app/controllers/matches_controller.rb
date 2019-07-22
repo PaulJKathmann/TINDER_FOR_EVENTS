@@ -4,13 +4,14 @@ class MatchesController < ApplicationController
   end
 
   def new
+
     if Match.where(swipe_id: Match.last.swipe_id).empty?
       @match = Match.last
     else
       @match = Match.where(swipe_id: Match.last.swipe_id)[0]
     end
   end
-
+  
   def create
     @match = Match.new(match_params)
   end
