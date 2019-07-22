@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'reject_swipe/:id', to: 'swipes#reject', as: :reject
   get 'accept_swipe/:id', to: 'swipes#accept', as: :accept
 
-  get 'events/:id', to: 'events#show'
+  get 'events/:token', to: 'events#show'
   get 'participant', to: 'events#participation', as: :event_participation
 
   get "events/:id/profile", to: "users#edit", as: "profile"

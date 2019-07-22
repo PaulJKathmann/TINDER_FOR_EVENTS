@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(token: params[:token])
   end
 
   def new
@@ -17,10 +17,10 @@ class EventsController < ApplicationController
 
   def create
     @project = Event.new(event_params)
-    @project.event_code = SecureRandom.hex(10)
+    @project.token = SecureRandom.hex(10)
     @project.user = current_user
     if @project.save
-      redirect_to event_path(@project)
+      redirect_to event_path(@project.token)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @project = Event.find(params[:id])
     @project.update(event_params)
-    redirect_to event_path(@project)
+    redirect_to event_path(@project.token)
   end
 
 
