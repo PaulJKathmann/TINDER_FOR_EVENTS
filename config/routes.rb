@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'accept_swipe/:id', to: 'swipes#accept', as: :accept
 
 
-  get 'events/:id', to: 'events#show'
+  get 'events/:token', to: 'events#show'
 
   get "events/:id/profile", to: "users#edit", as: "profile"
   patch "events/:id/profile/update", to: "users#update", as: :update_user
