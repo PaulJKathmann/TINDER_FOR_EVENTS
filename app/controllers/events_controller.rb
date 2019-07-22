@@ -3,6 +3,10 @@ class EventsController < ApplicationController
     @events = Event.where(user: current_user)
   end
 
+  def participation
+    @participations = Participant.where(user_id: current_user.id)
+  end
+
   def show
     @event = Event.find_by(token: params[:token])
   end
