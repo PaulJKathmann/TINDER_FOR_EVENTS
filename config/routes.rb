@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get "events/:id/swipes", to: "swipes#new", as: "swipes"
   get "events/:id/matches", to: "matches#index", as: "matches"
 
-  get 'matches/:id', to: 'matches#show', as: :show_match
+  get 'popup/:id', to: 'matches#popup', as: :popup_match
   post 'events/:id/matches', to: 'matches#create'
   get 'events/:id/matches/:match_id', to: 'matches#show', as: :chat
 
