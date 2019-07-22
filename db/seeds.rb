@@ -20,7 +20,6 @@ puts 'Creating fake users'
 maria = User.new(
   name: "Maria",
   email: "maria_test@gmail.com",
-
   bio: "Single and ready to mingle",
   age: rand(21...30),
   gender: "Female",
@@ -310,7 +309,157 @@ picture = Picture.new(
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563457373/male4_ko0ubo.jpg")
 picture.save!
 
+rich = User.new(
+  name: "Rich",
+  email: "rich_test@gmail.com",
+  bio: "looking fantastic",
+  age: 18,
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+rich.save!
+picture = Picture.new(
+  user: rich,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533354/Rich_rohsxa.jpg")
+picture.save!
 
+toni = User.new(
+  name: "Toni Kenobi",
+  email: "toni_test@gmail.com",
+  bio: "Here for a good time, not a long time!",
+  age: 28,
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+toni.save!
+picture = Picture.new(
+  user: toni,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/toni_fhrwle.jpg")
+picture.save!
+
+lu = User.new(
+  name: "Lu Zhu",
+  email: "lu_test@gmail.com",
+  bio: "Rock'n Roll!",
+  age: 25,
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+lu.save!
+picture = Picture.new(
+  user: lu,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533784/luzhu_gko9ay.jpg")
+picture.save!
+
+luis = User.new(
+  name: "Luis",
+  email: "luis_test@gmail.com",
+  bio: "young and wild ;)",
+  age: 19,
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+luis.save!
+picture = Picture.new(
+  user: luis,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/luis_2_fy316u.jpg")
+picture.save!
+
+andy = User.new(
+  name: "Andy",
+  email: "andy_test@gmail.com",
+  bio: "1984",
+  age: 34,
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+andy.save!
+picture = Picture.new(
+  user: andy,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/Andy_czwgx4.jpg")
+picture.save!
+
+dimitri = User.new(
+  name: "Dimitri",
+  email: "dimitri_test@gmail.com",
+  bio: "Viva la France!",
+  age: 32,
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+dimitri.save!
+picture = Picture.new(
+  user: dimitri,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533011/Dimitri_btefya.png")
+picture.save!
+
+nim = User.new(
+  name: "Nim",
+  email: "nim_test@gmail.com",
+  bio: "Work hard, party hard!",
+  age: 24,
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+nim.save!
+picture = Picture.new(
+  user: nim,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
+picture.save!
+
+leon = User.new(
+  name: "Leon",
+  email: "leon_test@gmail.com",
+  bio: "No Questions?",
+  age: 24,
+  gender: "Male",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+leon.save!
+picture = Picture.new(
+  user: leon,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/Leon_freee7.jpg")
+picture.save!
 
 puts "Create Organisor"
 
@@ -344,121 +493,183 @@ fusion = Event.new(
   )
 fusion.save!
 
+puts "Creating fake events"
+lewagon_demo_day = Event.new(
+  name: "Demo Day",
+  background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg",
+  start_date: "26/06/2019",
+  end_date: "27/06/2019",
+  logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
+  welcome_message: "Welcome to Le Wagon Demo Day! Use this app to connect with other participants ahead of the event.",
+  user: organizer,
+  primary_color: "232323",
+  secondary_color: "F0037E"
+  )
+lewagon_demo_day.save!
+
 puts 'creating new participants, all going to fusion'
 
 annap = Participant.new(
   user: anna,
-  event: fusion
+  event: lewagon_demo_day
   )
   annap.save!
 mariap = Participant.new(
   user: maria,
-  event: fusion
+  event: lewagon_demo_day
   )
   mariap.save!
 franp = Participant.new(
   user: fran,
-  event: fusion
+  event: lewagon_demo_day
   )
   franp.save!
 
 ninap = Participant.new(
   user: nina,
-  event: fusion
+  event: lewagon_demo_day
   )
   ninap.save!
 
 leilap = Participant.new(
   user: leila,
-  event: fusion
+  event: lewagon_demo_day
   )
  leilap.save!
 
 sabrinap = Participant.new(
   user: sabrina,
-  event: fusion
+  event: lewagon_demo_day
   )
   sabrina.save!
 
 alexp = Participant.new(
   user: alex,
-  event: fusion
+  event: lewagon_demo_day
   )
   alex.save!
 
 hannahp = Participant.new(
   user: hannah,
-  event: fusion
+  event: lewagon_demo_day
   )
   hannah.save!
 
 
 timp = Participant.new(
   user: tim,
-  event: fusion
+  event: lewagon_demo_day
   )
 timp.save!
 
 danp = Participant.new(
   user: dan,
-  event: fusion
+  event: lewagon_demo_day
   )
 danp.save!
 
 mikep = Participant.new(
   user: mike,
-  event: fusion
+  event: lewagon_demo_day
   )
 mikep.save!
 
 markp = Participant.new(
   user: mark,
-  event: fusion
+  event: lewagon_demo_day
   )
 markp.save!
 
 philp = Participant.new(
   user: dan,
-  event: fusion
+  event: lewagon_demo_day
   )
 philp.save!
 
 tomp = Participant.new(
   user: tom,
-  event: fusion
+  event: lewagon_demo_day
   )
 tomp.save!
 
 sammyp = Participant.new(
   user: sammy,
-  event: fusion
+  event: lewagon_demo_day
   )
 sammyp.save!
 
-puts "create a swipe for maria id 1"
+andyp = Participant.new(
+  user: andy,
+  event: lewagon_demo_day
+  )
+andyp.save!
+
+dimitrip = Participant.new(
+  user: dimitri,
+  event: lewagon_demo_day
+  )
+dimitrip.save!
+
+nimp = Participant.new(
+  user: nim,
+  event: lewagon_demo_day
+  )
+nimp.save!
+
+leonp = Participant.new(
+  user: leon,
+  event: lewagon_demo_day
+  )
+leonp.save!
+
+tonip = Participant.new(
+  user: toni,
+  event: lewagon_demo_day
+  )
+tonip.save!
+
+richp = Participant.new(
+  user: rich,
+  event: lewagon_demo_day
+  )
+richp.save!
+
+luisp = Participant.new(
+  user: luis,
+  event: lewagon_demo_day
+  )
+luisp.save!
+
+lup = Participant.new(
+  user: lu,
+  event: lewagon_demo_day
+  )
+lup.save!
+
+puts "create a swipe for lu"
 
 s1 = Swipe.new(
-  participant_1: mariap,
-  participant_2: timp
+  participant_1: lup,
+  participant_2: nimp
   )
 s1.save!
 
 s2 = Swipe.new(
-  participant_1: mariap,
-  participant_2: sammyp
+  participant_1: lup,
+  participant_2: mariap
   )
 s2.save!
 
 
 s3 = Swipe.new(
-  participant_1: mariap,
+  participant_1: lup,
   participant_2: markp
   )
 s3.save!
 
 
 
- puts "a match for maria"
+ puts "a match for lu"
 m = Match.new(
   swipe: s1
 

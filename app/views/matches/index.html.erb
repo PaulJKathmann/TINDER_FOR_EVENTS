@@ -2,7 +2,7 @@
 <!-- TODO Later: Change the path of the icon-->
 <!-- try with seeds -->
 <!-- message notification (numbers show in the badge-->
-<%= cl_image_tag("fusion_logo2019_spskle", style: "
+<%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -16,6 +16,7 @@
     object-fit: fill;
   " )%>
 <div class="container pb-3" style="height: 100vh;background-color: rgb(100,100,100);padding-top: 4rem;">
+     <%= link_to "Keep Swiping", swipes_path(params[:id])%>
  <div class="uk-card uk-card-default uk-width-1-2@m">
   <% @matches.each do |match| %>
     <% if match.swipe.participant_2.user_id == current_user.id %>
@@ -27,7 +28,11 @@
         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
           <div class="uk-width-auto">
-            <img class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;" src="<%= user_show.pictures[0].url %>">
+            <% if user_show.pictures.empty? %>
+              <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;">
+            <% else %>
+              <img class="uk-border-circle" style="width: 40px; height: 40px; object-fit: cover;" src="<%= user_show.pictures[0].url %>">
+            <% end %>
           </div>
 
           <div class="uk-width-expand">
@@ -37,10 +42,11 @@
             %></p>
           </div>
           <%= link_to matches_path do %>
-            <i class="fas fa-comments" style = "color:#F0037E;font-size: xx-large;"></i>
+            <i class="fas fa-comments" style = "color:#fd1015;font-size: xx-large;"></i>
           <% end %>
         </div>
     </div>
   <% end %>
-  </div>
+
+</div>
 </div>
