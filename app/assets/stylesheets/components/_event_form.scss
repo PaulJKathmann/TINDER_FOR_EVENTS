@@ -1,0 +1,201 @@
+.page_background {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height:100%;
+  background-color: #1c2938;
+  z-index: 1;
+}
+
+.form_back {
+  border: none;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.phone-frame {
+  z-index: 2;
+  height: 500px;
+  width: 250px;
+  position: relative;
+  top: 20px;
+  border-top: 15px solid black;
+  border-bottom: 10px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-radius: 30px;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+}
+
+.iphone_layout {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 110px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.nav_show {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  width: 100%;
+  height: 40px;
+}
+
+.nav_avatar_show {
+  position: absolute;
+  top: 4.5px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chat_show {
+  position: absolute;
+  top: 6px;
+  right: 22px;
+}
+
+.logo_show {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 26px;
+  padding: 4px 2px;
+  width: 59px;
+  border-radius: 20px;
+  border: 2px dotted black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.background_show {
+  position: absolute;
+  top: 0;
+  z-index: -5;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  border-radius: 20px;
+}
+
+.lighter_background_show {
+  position: absolute;
+  top: 0;
+  z-index: -4;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border-radius: 20px;
+  opacity: .15;
+}
+
+.swipe_pic_show {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card_show {
+  position: absolute;
+  z-index: -1;
+  top: 90px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+}
+
+.username_show {
+  position: absolute;
+  z-index: -1;
+  top: 328px;
+  left: 34px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.age_show {
+  position: absolute;
+  z-index: -1;
+  top: 328px;
+  left: 180px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.bio_show {
+  position: absolute;
+  z-index: -1;
+  top: 360px;
+  left: 34px;
+  font-size: 13px;
+}
+
+.bnt_reject_show {
+  position: absolute;
+  z-index: -1;
+  top: 410px;
+  left: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.symbol_reject {
+  font-size: 35px;
+  position: absolute;
+  left: 10.5px;
+  top: 5px;
+}
+
+.bnt_love_show {
+  position: absolute;
+  z-index: -1;
+  top: 410px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.symbol_love {
+  font-size: 30px;
+  position: absolute;
+  left: 7.5px;
+  top: 9px;
+}
+
+.pic_upload {
+  border: none;
+}
