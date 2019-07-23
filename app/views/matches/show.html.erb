@@ -36,7 +36,6 @@
   </div>
 </div>
 </div>
-
 <% content_for :after_js do %>
   <script>
     App['match_<%= @match.id %>'] = App.cable.subscriptions.create(

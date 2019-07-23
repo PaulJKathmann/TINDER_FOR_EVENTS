@@ -50,7 +50,7 @@
       <% end %>
     </div>
   </div>
-  <%=user_show.pictures[1..5].each do |picture| %>
+  <% user_show.pictures[1..5].each do |picture| %>
     <%= cl_image_tag(pictures.url, class: "user-pictures mt-2") %>
   <% end %>
 </div>
