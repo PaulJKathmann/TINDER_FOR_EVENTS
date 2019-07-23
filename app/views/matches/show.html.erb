@@ -13,35 +13,41 @@
     object-fit: fill;
   " )%>
  <div class="container" style="height: 100vh; background: #<%=@event.primary_color%> ;">
-  <div class="d-flex justify-content-around align-item-center" style="padding-top: 90px;">
-   <div class="card" style="width: 70vh;height: 60vh;" >
-     <div class="card-body pt-3">
-      <div class = "d-flex justify-content-around align-item-center">
-        <i class="far fa-surprise" style="font-size: 48px;color: #<%=@event.secondary_color%>;"></i>
-      </div>
-      <h5 class="match_card-title" style="color: #<%=@event.secondary_color%>;">BOOM!</h5>
-      <p class="card-text text-center" style="color: #<%=@event.secondary_color%>;">You both liked each other. <br>You are connected!</p>
-
-      <div class = "d-flex justify-content-around align-item-center">
-        <% if @match.swipe.participant_1.user.pictures.empty? %>
-          <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" alt="Default avatar" class="mobile_avatar">
-        <% else %>
-          <img src="<%= @match.swipe.participant_1.user.pictures[0].url %>" alt="" class="mobile_avatar">
-        <% end %>
-        <% if @match.swipe.participant_2.user.pictures.empty? %>
-          <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" alt="Default avatar" class="mobile_avatar">
-        <% else %>
-          <img src="<%= @match.swipe.participant_2.user.pictures[0].url %>" alt="" class="mobile_avatar">
+  <div class="row col-md-8 col-md-offset-2">
+  <h1><%= @match.swipe.participant_2 %></h1>
+  <div class="panel panel-default">
+    <% if @match.messages.any? %>
+      <div class="messages">
+        <% @match.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.author == current_user %>
         <% end %>
       </div>
-      <%= link_to matches_path(@match.event.id) do %>
-        <button class="btn btn-outline-danger btn-sm btn-block mt-5">Send a Message</button>
-      <% end %>
-      <%= link_to new_swipe_path(@match.event) do %>
-        <button class="btn btn-outline-danger btn-sm btn-block mt-3">Keep Swiping</button>
-      <% end %>
+    <%else%>
+      <div class="panel-body hidden" id="messages">
       </div>
-
-    </div>
+    <% end %>
   </div>
- </div>
+  <div id="create-message">
+    <%= simple_form_for @message, remote: true, html: {autocomplete: "off" }, authenticity_token: true do |f| %>
+      <%= f.input :content, label: false %>
+      <%= f.hidden_field :match_id, value: @match.id %>
+      <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    App['match_<%= @match.id %>'] = App.cable.subscriptions.create(
+      { channel: 'MessagesChannel', match_id: <%= @match.id %> },
+      { received: (data) =>  {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      });
+  </script>
+<% end %>
