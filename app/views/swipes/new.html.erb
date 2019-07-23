@@ -1,58 +1,66 @@
 
 <%= render 'shared/navbar_mobile', locals: {event: @event} %>
 
-  <div class="background_show show_primary" style="background-color: #<%=@event.primary_color%>">
+<!--   <div class="lighter_background">
+  </div> -->
+<div style="background-color:<%=@event.primary_color%>">
+  <div id="swiper_card" class="container animated " style="background-color:<%=@event.primary_color%>">
+    <%= cl_image_tag(@event.logo, class: "event_img row" )%>
+    <div id="scroll-card" class="swipe_card white-bottom-shadow" >
+      <div class="main-picture" id="image-swiper">
+        <% if @swipe.participant_2.user.id == current_user.id %>
+          <% user_show = @swipe.participant_1.user %>
+        <% else %>
+          <% user_show = @swipe.participant_2.user %>
+        <% end %>
+
+        <% if user_show.pictures.empty? %>
+          <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="user-pictures">
+        <% else %>
+        <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
+        <% end %>
+
+        <div id="white_shadow" class="white-bottom-shadow other">
+        </div>
+          <div class="name-age" >
+            <p ><%= user_show.name %></p>
+            <p><%= user_show.age %></p>
+          </div>
+           <!--  <i id="arrowswipe" class="fas fa-chevron-down"></i> -->
+          <div class="description card-body">
+            <p class="card-text"><%= user_show.bio %></p>
+          </div>
+      </div>
+    </div>
+    <%user_show.pictures[1..5].each do |picture| %>
+      <%= cl_image_tag(picture.url, class: "user-pictures main-picture pt-2") %>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
-  <div class="lighter_background_show">
-  </div>
-  <%= cl_image_tag(@event.logo, class: "event-img" )%>
+</div>
 
 <div class="container">
-  <div class="swipe_card" >
-    <div class="main-picture" >
-      <% if @swipe.participant_2.user.id == current_user.id %>
-        <% user_show = @swipe.participant_1.user %>
-      <% else %>
-        <% user_show = @swipe.participant_2.user %>
-      <% end %>
 
-      <% if user_show.pictures.empty? %>
-        <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="user-pictures">
-      <% else %>
-      <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
-      <% end %>
-
-      <div class="name-age" >
-        <p ><%= user_show.name %></p>
-        <p><%= user_show.age %></p>
-      </div>
-    </div>
-
-    <div class="desc-pictures" style="margin-left: 20px;">
-      <div class="description">
-        <p><%= user_show.bio %></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="buttons-box">
-    <div class="bnt_love_show">
+  <div id="buttons-box" style="background-color:<%=@event.primary_color%>">
+    <div class="btn-love">
       <%= link_to reject_path(@swipe.id) do %>
-      <i id="reject-btn" class="fas fa-times show_secondary_text" style="color:#<%=@event.secondary_color%>;">
+      <i id="reject-btn" class="fas fa-times" style="color:<%=@event.secondary_color%>;">
       </i>
       <% end %>
     </div>
 
-    <div class="bnt_love_show">
+    <div class="btn-love">
       <%= link_to accept_path(@swipe.id) do %>
-      <i id="accept-btn" class="fas fa-heart show_secondary_text" style="color:#<%=@event.secondary_color%>;">
+      <i id="accept-btn" class="fas fa-heart" style="color:<%=@event.secondary_color%>;">
       </i>
       <% end %>
     </div>
   </div>
-  <%=user_show.pictures[1..5].each do |picture| %>
-    <%= cl_image_tag(pictures.url, class: "user-pictures mt-2") %>
-  <% end %>
 </div>
+
 
 

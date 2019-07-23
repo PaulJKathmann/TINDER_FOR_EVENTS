@@ -29,6 +29,7 @@ class SwipesController < ApplicationController
 
 
   def reject
+    sleep(0.3)
     # get swipe by ide from params
     @swipe = Swipe.find(params[:id])
     @event = @swipe.participant_1.event
@@ -48,6 +49,7 @@ class SwipesController < ApplicationController
   end
 
   def accept
+    sleep(0.3)
      # get swipe by ide from params
     @swipe = Swipe.find(params[:id])
     @event = @swipe.participant_1.event
