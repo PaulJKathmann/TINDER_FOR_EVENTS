@@ -1,141 +1,145 @@
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-6 card p-3 form_back">
-      <%= simple_form_for(@project) do |f| %>
-      <div class="form-group">
-        <%= f.label :event_name %>
-        <%= f.text_field :name, class: 'form-control', id: "new_name", placeholder: "Event" %>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        </div>
-        <div class="col">
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-6">
-          <div class="form-group row">
-            <label for="primary_color" class="col-form-label ml-3">Background</label>
-            <div>
-              <input class="color-control ml-2" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value=<% if @project.primary_color.nil? %>
-                                                <%= "#333333" %>
-                                              <% else %>
-                                                <%= @project.primary_color %>
-                                              <% end %>
-              ;>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6">
-          <div class="form-group row">
-            <label for="secondary_color" class="col-form-label ml-3">Buttons</label>
-            <div>
-              <input class="color-control ml-2" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value=<% if @project.secondary_color.nil? %>
-                                                <%= "#F0037E" %>
-                                              <% else %>
-                                                <%= @project.secondary_color %>
-                                              <% end %>
-              ;>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group file optional event_logo">
-            <label class="form-control-label file optional" for="event_logo">Logo</label><br>
-            <div class="upload-btn-wrapper">
-              <button class="upload-btn">Choose file</button>
-              <input class="file optional" type="file" name="event[logo]" id="event_logo">
-            </div>
-          </div>
-          <div class="form-group hidden event_logo_cache">
-            <input class="form-control hidden" type="hidden" name="event[logo_cache]" id="event_logo_cache">
-          </div>
-        </div>
-
-        <div class="col-6">
-          <div class="form-group file optional event_background_image">
-            <label class="form-control-label file optional" for="event_background_image">Background image</label><br>
-            <div class="upload-btn-wrapper">
-              <button class="upload-btn">Choose file</button>
-              <input class="file optional" type="file" name="event[background_image]" id="event_background_image">
-            </div>
-          </div>
-          <div class="form-group hidden event_background_image_cache">
-            <input class="form-control hidden" type="hidden" name="event[background_image_cache]" id="event_background_image_cache">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :welcome_message %>
-        <%= f.text_area :welcome_message, class: 'form-control' %>
-      </div>
-
-      <%= f.submit "Ready!", class: "btn btn-dark mt-2" %>
-    <% end %>
-  </div>
-
+<div class="row">
   <div class="col-1"></div>
-
-  <div class="col-3">
-    <div class="phone-frame">
-      <div class="iphone_layout"></div>
-      <div class="nav_show show_primary" style="
-        background-color: <% if @project.primary_color.nil? %>
-                            <%= "#333333" %>
-                          <% else %>
-                            <%= @project.primary_color %>
-                          <% end %>;
-      "></div>
-      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show"></img>
-      <div class="chat_show">
-        <i class="fas fa-comments show_secondary_text" style="
-        font-size: 25px;
-        color: <% if @project.secondary_color.nil? %>
-                  <%= "#F0037E" %>
-                <% else %>
-                  <%= @project.secondary_color %>
-                <% end %>;
-        "></i>
-      </div>
-      <div class="logo_show">LOGO</div>
-      <div class="background_show show_primary" style="
-        background-color: <% if @project.primary_color.nil? %>
-                            <%= "#333333" %>
-                          <% else %>
-                            <%= @project.primary_color %>
-                          <% end %>;
-      "></div>
-      <div class="lighter_background_show"></div>
-
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" class="swipe_pic_show">
-      <div class="card_show"></div>
-      <div class="username_show">Mara</div>
-      <div class="age_show">21</div>
-      <div class="bio_show">Live & Laugh</div>
-      <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
-        color: <% if @project.secondary_color.nil? %>
-                  <%= "#F0037E" %>
-                <% else %>
-                  <%= @project.secondary_color %>
-                <% end %>;
-      "></i></div>
-      <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
-        color: <% if @project.secondary_color.nil? %>
-                  <%= "#F0037E" %>
-                <% else %>
-                  <%= @project.secondary_color %>
-                <% end %>;
-      "></i></div>
+  <div class="col-6 card p-3 form_back">
+    <%= simple_form_for(@project) do |f| %>
+    <div class="form-group">
+      <%= f.label :event_name %>
+      <%= f.text_field :name, class: 'form-control', id: "new_name", placeholder: "Event" %>
     </div>
+
+    <div class="row">
+      <div class="col">
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      </div>
+      <div class="col">
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-6">
+        <div class="form-group row">
+          <label for="primary_color" class="col-form-label ml-3">Background</label>
+          <div>
+            <input class="color-control ml-2" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value=<% if @project.primary_color.nil? %>
+                                              <%= "#333333" %>
+                                            <% else %>
+                                              <%= @project.primary_color %>
+                                            <% end %>
+            ;>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group row">
+          <label for="secondary_color" class="col-form-label ml-3">Buttons</label>
+          <div>
+            <input class="color-control ml-2" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value=<% if @project.secondary_color.nil? %>
+                                              <%= "#F0037E" %>
+                                            <% else %>
+                                              <%= @project.secondary_color %>
+                                            <% end %>
+            ;>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row photo_upload_row">
+      <div class="col-6 m-0 p-0">
+        <div class="form-group file optional event_logo">
+          <label class="form-control-label file optional" for="event_logo">Logo</label><br>
+          <div class="upload-btn-wrapper">
+            <button class="upload-btn">Choose file</button>
+            <input class="file optional" type="file" name="event[logo]" id="event_logo">
+          </div>
+        </div>
+        <div class="form-group hidden event_logo_cache">
+          <input class="form-control hidden" type="hidden" name="event[logo_cache]" id="event_logo_cache">
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group file optional event_background_image">
+          <label class="form-control-label file optional" for="event_background_image">Background image</label><br>
+          <div class="upload-btn-wrapper">
+            <button class="upload-btn">Choose file</button>
+            <input class="file optional" type="file" name="event[background_image]" id="event_background_image">
+          </div>
+        </div>
+        <div class="form-group hidden event_background_image_cache">
+          <input class="form-control hidden" type="hidden" name="event[background_image_cache]" id="event_background_image_cache">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :welcome_message %>
+      <%= f.text_area :welcome_message, class: 'form-control' %>
+    </div>
+
+    <div class="button_align_left mt-2">
+      <%= f.submit "Okay", class: "btn btn-okay" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="col-1"></div>
+
+<div class="col-3">
+  <div class="phone-frame">
+    <div class="iphone_layout"></div>
+    <div class="nav_show show_primary" style="
+      background-color: <% if @project.primary_color.nil? %>
+                          <%= "#333333" %>
+                        <% else %>
+                          <%= @project.primary_color %>
+                        <% end %>;
+    "></div>
+    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show"></img>
+    <div class="chat_show">
+      <i class="fas fa-comments show_secondary_text" style="
+      font-size: 25px;
+      color: <% if @project.secondary_color.nil? %>
+                <%= "#F0037E" %>
+              <% else %>
+                <%= @project.secondary_color %>
+              <% end %>;
+      "></i>
+    </div>
+    <div class="logo_show">LOGO</div>
+    <div class="background_show show_primary" style="
+      background-color: <% if @project.primary_color.nil? %>
+                          <%= "#333333" %>
+                        <% else %>
+                          <%= @project.primary_color %>
+                        <% end %>;
+    "></div>
+    <div class="lighter_background_show"></div>
+
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" class="swipe_pic_show">
+    <div class="card_show"></div>
+    <div class="username_show">Mara</div>
+    <div class="age_show">21</div>
+    <div class="bio_show">Live & Laugh</div>
+    <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
+      color: <% if @project.secondary_color.nil? %>
+                <%= "#F0037E" %>
+              <% else %>
+                <%= @project.secondary_color %>
+              <% end %>;
+    "></i></div>
+    <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
+      color: <% if @project.secondary_color.nil? %>
+                <%= "#F0037E" %>
+              <% else %>
+                <%= @project.secondary_color %>
+              <% end %>;
+    "></i></div>
   </div>
+</div>
+
+
 
 <%= javascript_pack_tag 'event_new_form' %>
