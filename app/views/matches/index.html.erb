@@ -43,7 +43,10 @@
     object-fit: fill;
   " )%>
 
-<div class="container pb-3" style="height: 100vh;background-color:<%=@event.primary_color%>;padding-top: 4rem;">
+<div class="container pb-3" style="height: 100vh;background-color:<%=@event.primary_color%>;padding-top: 4rem;filter: brightness(115%);">
+  <% if @matches.first.nil? %>
+   <p> Keep Swiping!!! What are u waiting for?;)</p>
+  <% else %>
  <div class="uk-card uk-card-default uk-width-1-2@m">
   <% @matches.each do |match| %>
     <% if match.swipe.participant_2.user_id == current_user.id %>
@@ -51,7 +54,7 @@
     <% elsif match.swipe.participant_1.user_id == current_user.id %>
       <% user_show = match.swipe.participant_2.user %>
     <% end %>
-    <div class="uk-card-header">
+    <div class="uk-card-header"style="border-bottom: 1px solid gray">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
           <div class="uk-width-auto">
@@ -70,10 +73,10 @@
           </div>
 
           <%= link_to chat_path(params[:id], match.id) do %>
-            <i class="fas fa-comments" style = "color:#fd1015;font-size: xx-large;"></i>
+            <i class="fas fa-comments" style = "color:<%=@event.secondary_color%>;font-size: xx-large;"></i>
           <% end %>
         </div>
     </div>
   <% end %>
+  <% end %>
  </div>
-</div>
