@@ -1,7 +1,8 @@
 <%= render 'shared/navbar_mobile', locals: {event: @match.event} %>
 <div style="height: 100%; background:<%=@match.event.primary_color%>;">
  <div>
-    <h6 class="text-center"style= "padding-top: 16px;">-You now can chat with <%= @match.swipe.participant_2.user.name %>-</h6>
+    <div><h6 class="text-center"style= "padding-top: 8px;">
+           -You now chat with <%= @match.swipe.participant_2.user.name %>- </h6></div>
     <div class="panel" style="position: relative;">
     <% if @match.messages.any? %>
        <div class="messages">
@@ -16,16 +17,17 @@
     </div>
  </div>
 
-   <div>
-      <div class="text-center" style="position: fixed;bottom: 10px;margin-left: 20px;">
+   <div class="mt-1">
+      <div class="text-center" style="position: fixed;bottom: 10px;margin-left: 20px;" >
         <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex" }, authenticity_token: true do |f| %>
         <%= f.input :content, class: "message_content", label: false %>
         <%= f.hidden_field :match_id, value: @match.id %>
-        <%= f.submit "send", class: "btn_message",data: {send: "message"} %>
+        <%= f.submit "Send", class: "btn_message",data: {send: "message"} %>
         <% end %>
      </div>
    </div>
 </div>
+
 <% content_for :after_js do %>
   <script>
     App['match_<%= @match.id %>'] = App.cable.subscriptions.create(
