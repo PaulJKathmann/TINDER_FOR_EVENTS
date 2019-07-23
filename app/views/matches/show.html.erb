@@ -1,5 +1,5 @@
-<%= render 'shared/navbar_mobile', locals: {event: @event} %>
- <%= cl_image_tag( @event.logo, style: "
+
+ <%= cl_image_tag( @match.event.logo, style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -12,9 +12,8 @@
     width: 60px;
     object-fit: fill;
   " )%>
- <div class="container" style="height: 100vh; background: #<%=@event.primary_color%> ;">
-  <div class="row col-md-8 col-md-offset-2">
-  <h3>You now can chat with <%= @match.swipe.participant_2 %></h3>
+ <div class="container" style="height: 100vh; background: #<%=@match.event.primary_color%> ;">
+  <h6 class="text-center"style= "padding-top: 48px;">You now can chat with <%= @match.swipe.participant_2.user.name %></h6>
   <div class="panel" style="position: relative;">
     <% if @match.messages.any? %>
       <div class="messages">
@@ -35,7 +34,6 @@
       <% end %>
   </div>
 </div>
-</div>
 
 <% content_for :after_js do %>
   <script>
@@ -51,4 +49,3 @@
       });
   </script>
 <% end %>
->>>>>>> master
