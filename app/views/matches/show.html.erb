@@ -1,8 +1,10 @@
-<%= render 'shared/navbar_mobile', locals: {event: @match.event} %>
+<%= render 'shared/navbar_message', locals: {event: @match.event} %>
 <div style="min-height: 85vh; background:<%=@match.event.primary_color%>;">
  <div>
-    <div><h6 class="text-center"style= "padding-top: 8px;">
-           -You now chat with <%= @match.swipe.participant_2.user.name %>- </h6></div>
+    <div class="text-center" style ="padding-top: 32px;">
+      <h7>A match from <%=@match.event.name%></h7>
+      <h6 style="font-family: inherit;">-You now chat with <%= @match.swipe.participant_2.user.name %>- </h6>
+    </div>
     <div class="panel" style="position: relative;">
     <% if @match.messages.any? %>
        <div class="messages" style="min-height: 75vh">

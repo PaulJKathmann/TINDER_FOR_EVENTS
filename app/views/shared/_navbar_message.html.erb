@@ -1,0 +1,28 @@
+<nav class="navbar navbar-lewagon" style="position: relative; z-index: 2; background-color:<%=@match.event.primary_color%>;">
+
+   <%= link_to swipes_path do %>
+   <div style="
+        position: absolute;
+        top: 10px;
+        left: : 22px;
+      ">
+        <i class="fas fa-undo-alt" style="
+        font-size: 30px;
+        color: <%=@match.event.secondary_color%>;
+        "></i>
+      </div>
+   <% end %>
+
+      <%= link_to matches_path do %>
+   <div  style="
+        position: absolute;
+        top: 10px;
+        right: 22px;
+      ">
+        <i class="fas fa-comments show_secondary_text" style="
+        font-size: 30px;
+        color: <%=@match.event.secondary_color%>;
+        "></i>
+      </div>
+   <% end %>
+</nav>
