@@ -21,7 +21,8 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @match = Match.find(params[:id])
+    @match = Match.find(params[:match_id])
+    @event = Event.find(params[:id])
     @message = Message.new
   end
 
