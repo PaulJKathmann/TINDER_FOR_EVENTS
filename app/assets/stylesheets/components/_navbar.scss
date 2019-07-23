@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  background: transparent;
+  background: white;
   box-shadow: none;
   position: absolute;
   width:100%;
@@ -9,7 +9,7 @@
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   .nav-link {
-   color:white;
+   color: rgb(40,40,40);
    transition: 1s;
   }
 }
@@ -19,5 +19,5 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover{
-  color:orange;
+  color: purple;
 }

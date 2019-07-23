@@ -19,9 +19,9 @@
       <div class="form-group row">
         <div class="col-6">
           <div class="form-group row">
-            <label for="primary_color" class="col-6 col-form-label">Background</label>
-            <div class="col-6">
-              <input class="form-control" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value=<% if @project.primary_color.nil? %>
+            <label for="primary_color" class="col-form-label ml-3">Background</label>
+            <div>
+              <input class="color-control ml-2" data-align="right" type="color" name="event[primary_color]" id="event_primary_color" value=<% if @project.primary_color.nil? %>
                                                 <%= "#333333" %>
                                               <% else %>
                                                 <%= @project.primary_color %>
@@ -33,9 +33,9 @@
 
         <div class="col-6">
           <div class="form-group row">
-            <label for="secondary_color" class="col-6 col-form-label">Buttons</label>
-            <div class="col-6">
-              <input class="form-control" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value=<% if @project.secondary_color.nil? %>
+            <label for="secondary_color" class="col-form-label ml-3">Buttons</label>
+            <div>
+              <input class="color-control ml-2" data-align="right" type="color" name="event[secondary_color]" id="event_secondary_color" value=<% if @project.secondary_color.nil? %>
                                                 <%= "#F0037E" %>
                                               <% else %>
                                                 <%= @project.secondary_color %>
@@ -49,8 +49,11 @@
       <div class="row">
         <div class="col-6">
           <div class="form-group file optional event_logo">
-            <label class="form-control-label file optional" for="event_logo">Logo</label>
-            <input class="file optional" type="file" name="event[logo]" id="event_logo">
+            <label class="form-control-label file optional" for="event_logo">Logo</label><br>
+            <div class="upload-btn-wrapper">
+              <button class="upload-btn">Choose file</button>
+              <input class="file optional" type="file" name="event[logo]" id="event_logo">
+            </div>
           </div>
           <div class="form-group hidden event_logo_cache">
             <input class="form-control hidden" type="hidden" name="event[logo_cache]" id="event_logo_cache">
@@ -59,8 +62,11 @@
 
         <div class="col-6">
           <div class="form-group file optional event_background_image">
-            <label class="form-control-label file optional" for="event_background_image">Background image</label>
-            <input class="file optional" type="file" name="event[background_image]" id="event_background_image">
+            <label class="form-control-label file optional" for="event_background_image">Background image</label><br>
+            <div class="upload-btn-wrapper">
+              <button class="upload-btn">Choose file</button>
+              <input class="file optional" type="file" name="event[background_image]" id="event_background_image">
+            </div>
           </div>
           <div class="form-group hidden event_background_image_cache">
             <input class="form-control hidden" type="hidden" name="event[background_image_cache]" id="event_background_image_cache">
