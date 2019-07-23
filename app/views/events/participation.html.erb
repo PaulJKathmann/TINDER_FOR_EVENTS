@@ -4,13 +4,14 @@
 <br>
 <br>
 <div style="position: relative; z-index: 2; width: 700px; margin: 20px auto; margin-bottom: 40px;">
-  <h1 style="color: white;">Your Projects</h1>
-  <% @events.each do |event| %>
+  <h1 style="color: white;">Your Events</h1>
+  <% @participations.each do |participator| %>
+    <% event = participator.event %>
     <%= link_to event_path(event.token), class: "index-list-event" do %>
     <div style="
       margin-top: 30px;
       position: relative;
-      <% unless event == @events.last %>
+      <% unless event == @participations.last.event %>
         border-bottom: 2px solid rgba(180,180,180,.6);
       <% end %>
     ">

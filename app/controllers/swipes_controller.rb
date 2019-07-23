@@ -16,6 +16,7 @@ class SwipesController < ApplicationController
     end
     swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
     swipe2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
+    @event = Event.find(params[:id])
 
     if  swipe1
       @swipe = swipe1
@@ -61,7 +62,7 @@ class SwipesController < ApplicationController
     # If both people liked each other a new match is created and it leads to the match new controller
     if @swipe.participant_1_liked == true && @swipe.participant_2_liked == true
       match = Match.create!(swipe_id: @swipe.id)
-      redirect_to show_match_path(match.id)
+      redirect_to popup_match_path(match.id)
     else
       redirect_to new_swipe_path(@event.id)
     end
@@ -85,22 +86,19 @@ class SwipesController < ApplicationController
   def all_likable_participants
     all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
     participants = []
-    all_participants.each do |participant|
-      if current_user.preferred_gender == "Male" || current_user.preferred_gender == "Female"
-        participants << participant if current_user.preferred_gender == participant.user.gender
-      else
-        participants << participant
-      end
+    return all_participants if current_user.preferred_gender.in?([nil, "Both"])
+
+    all_participants.select do |participant|
+      current_user.preferred_gender == participant.user.gender
     end
-    return participants
   end
 
   def already_liked_participants
     all_liked_swipes = Swipe.where(
-      participant_1_liked: true,
+      participant_1_liked: true, #true or false to make the program only show new people.
       participant_1_id: current_user_participant.id
       ).or(Swipe.where(
-      participant_2_liked: true,
+      participant_2_liked: true, # true or false to make the program only show new people.
       participant_2_id: current_user_participant.id
     ))
     participants = []

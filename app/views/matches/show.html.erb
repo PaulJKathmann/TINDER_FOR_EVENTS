@@ -1,5 +1,5 @@
- <%= render 'shared/navbar_mobile' %>
- <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", style: "
+<%= render 'shared/navbar_mobile', locals: {event: @event} %>
+ <%= cl_image_tag( @event.logo, style: "
     position: absolute;
     z-index: 2;
     left: 0;
@@ -12,19 +12,43 @@
     width: 60px;
     object-fit: fill;
   " )%>
-<div class="mt-4" style="height: 100vh;">
-<div class="panel">
-  <% if @match.messages.any? %>
-    <div class="panel-body" style="position: relative;">
-      <%= render partial: 'messages/message', collection: @match.messages%>
-    </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
-    </div>
-  <% end %>
-</div>
-<div class="text-center" style="position: fixed;bottom: 16px;width: 100%;">
-  <%= render partial: 'messages/message_form', locals: {message: @message, match: @match}%>
+ <div class="container" style="height: 100vh; background: #<%=@event.primary_color%> ;">
+  <div class="row col-md-8 col-md-offset-2">
+  <h3>You now can chat with <%= @match.swipe.participant_2 %></h3>
+  <div class="panel" style="position: relative;">
+    <% if @match.messages.any? %>
+      <div class="messages">
+        <% @match.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.author == current_user %>
+        <% end %>
+      </div>
+    <%else%>
+      <div class="panel-body hidden" id="messages">
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center" style="position: fixed;bottom: 16px;width: 100%;">
+    <%= simple_form_for @message, remote: true, html: { class: "row d-inline-flex" },html: {autocomplete: "off" }, authenticity_token: true do |f| %>
+      <%= f.input :content, class: "mr-2", label: false %>
+      <%= f.hidden_field :match_id, value: @match.id %>
+      <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
+      <% end %>
+  </div>
 </div>
 </div>
 
+<% content_for :after_js do %>
+  <script>
+    App['match_<%= @match.id %>'] = App.cable.subscriptions.create(
+      { channel: 'MessagesChannel', match_id: <%= @match.id %> },
+      { received: (data) =>  {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      });
+  </script>
+<% end %>
+>>>>>>> master
