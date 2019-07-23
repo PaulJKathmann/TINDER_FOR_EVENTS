@@ -487,9 +487,9 @@ fusion = Event.new(
   logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563362331/fusion_logo2019_spskle.png",
   welcome_message: "Welcome to Fusion! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
   user: organizer,
-  primary_color: "232323",
-  secondary_color: "F0037E"
-
+  primary_color: "#232323",
+  secondary_color: "#F0037E",
+  token: "7f727fe0c4cd86a1402d"
   )
 fusion.save!
 
@@ -502,8 +502,9 @@ lewagon_demo_day = Event.new(
   logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
   welcome_message: "Welcome to Le Wagon Demo Day! Use this app to connect with other participants ahead of the event.",
   user: organizer,
-  primary_color: "232323",
-  secondary_color: "F0037E"
+  primary_color: "#866B6B",
+  secondary_color: "#FF0000",
+  token: "bcd80dd95c14c6a985b3"
   )
 lewagon_demo_day.save!
 
