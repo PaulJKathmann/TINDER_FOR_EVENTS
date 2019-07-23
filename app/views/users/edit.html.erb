@@ -3,68 +3,10 @@
     <h1 class="text-center">Your Profile</h1>
     <div class="text-center">
       <% if current_user.pictures.empty? %>
-            <%= image_tag "http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png", class: "profile-picture" %>
+            <%= image_tag "http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png", style: "width: 80px; border-radius: 50%; text-align: center" %>
         <% else %>
-            <%= cl_image_tag current_user.pictures[0].url, class: "profile-picture" %>
+            <%= image_tag current_user.pictures[0].url, style: "width: 80px; border-radius: 50%; text-align: center"%>
        <% end %>
-    </div>
-    <div class="row justify-content-around">
-      <div class="box">
-        <div class="js--image-preview"></div>
-        <div class="upload-options" style="background-color:<%= @event.secondary_color %>">
-          <label class="text-center">
-            <i class="fas fa-camera">
-              <input type="file" class="image-upload" accept="image/*" />
-            </i>
-          </label>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="js--image-preview"></div>
-        <div class="upload-options" style="background-color:<%= @event.secondary_color %>">
-          <label>
-            <i class="fas fa-camera">
-              <input type="file" class="image-upload" accept="image/*" />
-            </i>
-          </label>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="js--image-preview"></div>
-        <div class="upload-options" style="background-color:<%= @event.secondary_color %>">
-          <label class="text-center">
-            <i class="fas fa-camera">
-              <input type="file" class="image-upload" accept="image/*" />
-            </i>
-          </label>
-        </div>
-      </div>
-      <div class="box">
-        <div class="js--image-preview"></div>
-        <div class="upload-options" style="background-color:<%= @event.secondary_color %>">
-          <label class="text-center">
-            <i class="fas fa-camera">
-              <input type="file" class="image-upload" accept="image/*" />
-            </i>
-          </label>
-        </div>
-      </div>
-<!--
-      <%= link_to pictures_path do %>
-        <div class="profile-preview"></div>
-      <% end %>
-      <%= link_to pictures_path do %>
-        <div class="profile-preview"></div>
-      <% end %>
-      <%= link_to pictures_path do %>
-        <div class="profile-preview"></div>
-      <% end %>
-      <%= link_to pictures_path do %>
-        <div class="profile-preview"></div>
-      <% end %>
-       -->
     </div>
     <%= simple_form_for current_user, url: update_user_path do |f| %>
       <h4 class="text-center">Personal Info:</h4>
@@ -76,8 +18,8 @@
       <h4 class="text-center">Filters:</h4>
       <%= f.input :preferred_gender, collection: [ "Male", "Female", "I don't care"] %>
   </div>
-  <%= f.submit "Update Profile", class: "btn-full-screen", style: "background-color:#{@event.secondary_color}" %>
+  <%= f.submit "Update Profile", class: "btn-full-screen" %>
   <% end %>
 </div>
-<%= javascript_pack_tag 'photouploader' %>
+
 
