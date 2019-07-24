@@ -8,37 +8,24 @@ const whole_swiper= document.getElementById('scroll-card');
 const white_shadow = document.getElementById('white_shadow');
 
 reject_btn.addEventListener('click', (event) => {
-
-  console.log("hi !");
-
   swiper_card.classList.add("rotateOutUpLeft");
-
 });
 
 accept_btn.addEventListener('click', (event) => {
-  console.log("hi !");
   swiper_card.classList.add("rotateOutUpRight");
-
 });
 
 whole_swiper.addEventListener('ontouchmove', (event) => {
-  console.log("hitouch event !");
-
   btn_box.classList.add("transparent-box");
   white_shadow.classList.remove("white-bottom-shadow");
-
 });
 
 whole_swiper.addEventListener('onscroll', (event) => {
-  console.log("hi scroll event !");
-
   btn_box.classList.add("transparent-box");
   white_shadow.classList.remove("white-bottom-shadow");
 });
 
 whole_swiper.addEventListener('wheel', (event) => {
-  console.log("hi scroll event !");
-
   btn_box.classList.add("transparent-box");
   white_shadow.classList.remove("white-bottom-shadow");
 });
