@@ -480,7 +480,7 @@ organizer = User.new(
   bio: "Organising Fusion 2019",
   age: 21,
   gender: "Male",
-  preferred_gender: "Female",
+  preferred_gender: "Male",
   preferred_match_type: "Friends",
   role: "organizer",
   lower_age_preference: 18,
@@ -492,10 +492,10 @@ organizer.save!
 puts "Creating fake events"
 fusion = Event.new(
   name: "Fusion",
-  background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563359484/Fusion-Festival-2017_xfzslw.jpg",
+  remote_url_background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563359484/Fusion-Festival-2017_xfzslw.jpg",
   start_date: "26/06/2019",
   end_date: "30/06/2019",
-  logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563362331/fusion_logo2019_spskle.png",
+  remote_url_logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563362331/fusion_logo2019_spskle.png",
   welcome_message: "Welcome to Fusion! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
   user: organizer,
   primary_color: "#232323",
@@ -507,10 +507,10 @@ fusion.save!
 puts "Creating fake events"
 lewagon_demo_day = Event.new(
   name: "Demo Day",
-  background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg",
+  remote_url_background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg",
   start_date: "27/07/2019",
   end_date: "28/07/2019",
-  logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
+  remote_url_logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
   welcome_message: "Welcome to Le Wagon Demo Day! Use this app to connect with other participants ahead of the event.",
   user: organizer,
   primary_color: "#866B6B",
