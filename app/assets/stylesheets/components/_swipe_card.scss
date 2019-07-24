@@ -1,0 +1,193 @@
+
+.event_img {
+  height: 60px;
+  width: 60px;
+  object-fit: fill;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+
+}
+#swiper_card{
+  filter: brightness(115%);
+}
+.swipe_card {
+  width: 100%;
+  border-radius: 8px;
+
+  background-color: white;
+
+}
+
+.main-picture {
+  text-align: center;
+  filter: brightness(85%);
+  border-radius: 8px;
+}
+
+#image-swiper{
+  background-color:white;
+
+}
+
+
+.user-pictures {
+ width: 100%;
+ border-top-left-radius: 8px;
+ border-top-right-radius: 8px;
+ object-fit: cover;
+ margin: auto;
+
+}
+.name-age {
+  margin: 20px;
+  margin-bottom: 0;
+  font-size: 26px;
+  display: flex;
+  justify-content: space-between;
+}
+#arrowswipe{
+  margin-left:auto;
+  margin-right:auto;
+  -webkit-box-shadow: 5px 5px 15px 5px #FFFFFF;
+  box-shadow: 5px 5px 15px 5px #FFFFFF;
+}
+.description{
+
+    margin: 0px;
+
+
+}
+
+#buttons-box{
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  border-radius-top: 8px;
+  transition: 1s ;
+  filter: brightness(115%);
+
+}
+
+.btn-love {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 16px;
+}
+
+#reject-btn{
+  font-size: 58px;
+  top: 6px;
+  position: absolute;
+  left: 15px;
+}
+
+#accept-btn{
+  font-size: 58px;
+  top: 10px;
+  position: absolute;
+  left: 6px;
+}
+
+.transparent-box{
+  background-color: rgba(255, 255, 255, 0) !important;
+  box-shadow: none;
+}
+
+.white-bottom-shadow {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#white_shadow {
+  z-index:2;
+  height: 600px;
+  width:100%;
+  position: absolute;
+  transition: 1.3s ;
+}
+
+@-webkit-keyframes rotateOutUpLeft {
+  from {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    opacity: 0.80;
+  }
+
+  to {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpLeft {
+  from {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    opacity: 0.80;
+  }
+
+  to {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutUpLeft {
+  -webkit-animation-name: rotateOutUpLeft;
+  animation-name: rotateOutUpLeft;
+}
+
+@-webkit-keyframes rotateOutUpRight {
+  from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    opacity: 0.80;
+  }
+
+  to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutUpRight {
+  from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    opacity: 0.80;
+  }
+
+  to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    transform: rotate3d(0, 0, 1, 90deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutUpRight {
+  -webkit-animation-name: rotateOutUpRight;
+  animation-name: rotateOutUpRight;
+}
+
+

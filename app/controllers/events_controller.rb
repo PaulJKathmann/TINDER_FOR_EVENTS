@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   end
 
   def participation
+
     @participations = Participant.where(user_id: current_user.id)
   end
 
