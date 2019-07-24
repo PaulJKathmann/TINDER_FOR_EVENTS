@@ -11,7 +11,6 @@ class SwipesController < ApplicationController
       participant_2: set_participant_2
     )
     if @swipe.participant_2.nil?
-      raise
       redirect_to projects_new_path
       return
     end
