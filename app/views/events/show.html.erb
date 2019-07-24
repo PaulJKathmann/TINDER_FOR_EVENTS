@@ -1,37 +1,39 @@
 <% unless current_user.id == @event.user_id %>
-  <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg", crop: :fill, class: "mobile-background") %>
-  <div class="phone-container welcome-content" style="margin-top: 32px;">
-    <h1 class="text-center pt-3"><%= @event.name %></h1>
-    <%= cl_image_tag("https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png", crop: :fill, class: "logo mb-2 text-center" )%>
-    <div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date:<%=@event.start_date.to_time.iso8601%>" style="justify-content: center;">
-    <div>
-        <div class="uk-countdown-number uk-countdown-days"></div>
-        <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Days</div>
-    </div>
-    <div class="uk-countdown-separator">:</div>
-    <div>
-        <div class="uk-countdown-number uk-countdown-hours"></div>
-        <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Hours</div>
-    </div>
-    <div class="uk-countdown-separator">:</div>
-    <div>
-        <div class="uk-countdown-number uk-countdown-minutes"></div>
-        <div class="uk-countdown-label  uk-text-center" style="margin-top: -15px;font-size: small;">Minutes</div>
-    </div>
-    <div class="uk-countdown-separator">:</div>
-    <div>
-        <div class="uk-countdown-number uk-countdown-seconds"></div>
-        <div class="uk-countdown-labeluk-text-center" style="margin-top: -15px;font-size: small;">Seconds</div>
-    </div>
-    </div>
-    <p class="p-3 text-dark text-center mt-2"><%= @event.welcome_message %></p>
+<div style="background-color: rgba(0,0,0,0);">
+  <%= cl_image_tag(@event.background_image, class: "background_image_show") %>
+    <div class="container_for_event_show_user welcome-content" style="margin-top: 32px;">
+      <h1 class="text-center pt-3", style="color: white;"><%= @event.name %></h1>
+      <%= cl_image_tag(@event.logo, crop: :fill, class: "logo mb-2 text-center" )%>
+      <div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date:<%=@event.start_date.to_time.iso8601%>" style="justify-content: center;">
+        <div>
+            <div class="uk-countdown-number uk-countdown-days"></div>
+            <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Days</div>
+        </div>
+        <div class="uk-countdown-separator">:</div>
+        <div>
+            <div class="uk-countdown-number uk-countdown-hours"></div>
+            <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Hours</div>
+        </div>
+        <div class="uk-countdown-separator">:</div>
+        <div>
+            <div class="uk-countdown-number uk-countdown-minutes"></div>
+            <div class="uk-countdown-label  uk-text-center" style="margin-top: -15px;font-size: small;">Minutes</div>
+        </div>
+        <div class="uk-countdown-separator">:</div>
+        <div>
+            <div class="uk-countdown-number uk-countdown-seconds"></div>
+            <div class="uk-countdown-labeluk-text-center" style="margin-top: -15px;font-size: small;">Seconds</div>
+        </div>
+      </div>
+      <p class="p-3 text-center mt-2"><%= @event.welcome_message %></p>
+  </div>
 </div>
 
   <div class="welcome-buttons" style="text-decoration: none;">
-      <%= link_to "Start meeting people", participants_create_path(@event.id), method: :post, class: "btn-full-screen"%>
+      <%= link_to "Start meeting people", participants_create_path(@event.id), method: :post, class: "btn-full-screen", style:"background-color:#{@event.secondary_color};";%>
   </div>
 <% end %>
-
+<%  %>
 <% if current_user.id == @event.user_id %>
   <%= render 'shared/navbar' %>
   <div class="page_background"></div>
