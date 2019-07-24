@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'pictures/edit'
+  get 'pictures/update'
+  get 'pictures/destroy'
   get 'messages/create'
   get 'swipes/new'
   get 'swipes/create'
@@ -44,5 +47,8 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
-  post 'events/:id/matches/:id', to: 'messages#create', as: :messages
+  post 'events/:id/matches/:match_id', to: 'messages#create', as: :messages
+
+  get 'events/:id/profile/pictures', to: 'pictures#new', as: :pictures
+  post 'events/:id/profile/pictures', to: 'pictures#create', as: :pictures_create
 end
