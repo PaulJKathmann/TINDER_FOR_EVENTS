@@ -11,7 +11,8 @@ class SwipesController < ApplicationController
       participant_2: set_participant_2
     )
     if @swipe.participant_2.nil?
-      redirect_to root_path
+      raise
+      redirect_to projects_new_path
       return
     end
     swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
@@ -88,7 +89,7 @@ class SwipesController < ApplicationController
   def all_likable_participants
     all_participants = Participant.where(event: current_event).where.not(user_id: current_user.id)
     participants = []
-    return all_participants if current_user.preferred_gender.in?([nil, "Both"])
+    return all_participants if current_user.preferred_gender.in?([nil, "Both", "I don't care"])
 
     all_participants.select do |participant|
       current_user.preferred_gender == participant.user.gender
