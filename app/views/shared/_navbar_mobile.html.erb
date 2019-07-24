@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-lewagon" style="position: relative; z-index: 2; background-color: #<%=@event.primary_color%>;">
+
+<nav class="navbar navbar-expand-lg navbar-lewagon" style="position: relative; z-index: 2; background-color:<%=@event.primary_color%>;">
   <div class="nav-item dropdown">
         <% if current_user.pictures.empty? %>
           <%= image_tag "http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "width: 40px; height: 40px; object-fit: cover;" %>
         <% else %>
-          <%= image_tag current_user.pictures[0].url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "width: 40px; height: 40px; object-fit: cover;" %>
+          <%= cl_image_tag current_user.pictures[0].url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "width: 40px; height: 40px; object-fit: cover;" %>
         <% end %>
           <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", "profile", class: "dropdown-item" %>
@@ -19,7 +20,7 @@
       ">
         <i class="fas fa-comments show_secondary_text" style="
         font-size: 30px;
-        color: #<%=@event.secondary_color%>;
+        color: <%=@event.secondary_color%>;
         "></i>
       </div>
    <% end %>

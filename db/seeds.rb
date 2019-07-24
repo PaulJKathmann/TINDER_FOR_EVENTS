@@ -426,7 +426,10 @@ picture.save!
 nim = User.new(
   name: "Nim",
   email: "nim_test@gmail.com",
-  bio: "Work hard, party hard!",
+  bio: "Work hard, party hard! Work hard, party hard!
+  Work hard, party hard!
+  Work hard, party hard!Work hard, party hard!Work hard, party hard!
+  Work hard, party hard!",
   age: 24,
   gender: "Female",
   preferred_gender: "Both",
@@ -437,6 +440,16 @@ nim = User.new(
   password: "password"
   )
 nim.save!
+picture = Picture.new(
+  user: nim,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
+picture.save!
+
+picture = Picture.new(
+  user: nim,
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
+picture.save!
+
 picture = Picture.new(
   user: nim,
   url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
