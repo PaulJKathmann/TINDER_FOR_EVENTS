@@ -1,4 +1,4 @@
-const newName = document.querySelector("#new_name");
+const newName = document.querySelector("#event_name");
   const nameShow = document.querySelector("#show_name");
 
   newName.addEventListener("keyup", (event) => {

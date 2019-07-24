@@ -1,11 +1,46 @@
 <%= render 'shared/navbar' %>
 <div class="banner d-flex justify-content-around align-item-center" >
-
   <div class="banner-content text-center">
-    <h1 style="margin-top: 30vh;color: white;font-weight: bold;font-size:4.5rem;">Vesta</h1>
-    <h3 style="margin-bottom: 8vh;color: white">Match. Chat. Party</h3>
-    <%= link_to "Add my event", projects_new_path, class: "btn btn-light mr-5"%>
-    <%= link_to "Start to meet people", 'participant', class: "btn btn-dark"%>
+    <h1 style="margin-top: 30vh;color: rgb(40,40,40);font-weight: bold;font-size:4.5rem;">Vesta</h1>
+    <h3 style="margin-bottom: 8vh;color: rgb(40,40,40)">Match. Chat. Party</h3>
+    <%= link_to "Add my event", projects_new_path, class: "btn call_to_action"%>
   </div>
-
+  <a href="#how_it_works" class="scroll_down">
+    <p><i class="fas fa-chevron-down"></i></p>
+  </a>
 </div>
+
+<a name="how_it_works" style="height: 100vh;">
+  <div class="container how_it_works">
+    <h2>Design your platform to connect participants</h2>
+    <div class="d-flex justify-content-around work_card_container">
+      <div class="card work_card">
+        <img src="https://images.unsplash.com/photo-1524591431555-cc7876d14adf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1339&q=80" class="card-img-top" alt="Design">
+        <div class="card-body">
+          <h5>Design</h5>
+          <p>You can easily customize the app to fit the style of your event.</p>
+        </div>
+      </div>
+
+      <div class="work_card card">
+        <img src="https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Share">
+        <div class="card-body">
+          <h5>Share</h5>
+          <p>Share your customized app trough the provided link.</p>
+        </div>
+      </div>
+
+      <div class="work_card card">
+        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="Connect">
+        <div class="card-body">
+          <h5>Connect</h5>
+          <p>Let people get in touch and provide an amazing experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="call_to">
+    <%= link_to "Add my event", projects_new_path, class: "btn add_event"%>
+  </div>
+</a>
+<%= render 'shared/footer' %>

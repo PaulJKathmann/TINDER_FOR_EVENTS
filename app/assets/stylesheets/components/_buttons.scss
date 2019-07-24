@@ -39,3 +39,33 @@
 a:hover {
   text-decoration: none;
 }
+
+.call_to_action {
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(190,0,140);
+  padding: 10px 14px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.2);
+}
+
+.call_to_action:hover {
+  color: white;
+  background-color: rgba(190,0,140,.9);
+}
+
+.btn-okay {
+  position: absolute;
+  right: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(190,0,140);
+  padding: 6px 12px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+}
+
+.btn-okay:hover {
+  color: white;
+  background-color: rgba(190,0,140,.9);
+}
