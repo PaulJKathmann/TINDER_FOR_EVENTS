@@ -509,9 +509,9 @@ puts "Creating fake events"
 eurom = Event.new(
   name: "Euromasters 2020",
   remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563973105/eurom_back_xcaloa.jpg",
-  start_date: "27/07/2019",
-  end_date: "28/07/2019",
-  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563972756/euro_logo_po6b63.jpg",
+  start_date: "07/11/2019",
+  end_date: "09/11/2019",
+  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563974656/eurom_logo_rkzitg.png",
   welcome_message: "Welcome to Euromasters 2020! Use this app to connect with other participants ahead of the event.",
   user: organizer,
   primary_color: "#262c2a",

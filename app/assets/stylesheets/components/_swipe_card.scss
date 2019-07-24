@@ -115,10 +115,21 @@
   height: auto;
   top: 400px;
   bottom: 0px;
-  top: 400;
   width:100%;
   position: absolute;
   transition: 1.3s ;
+}
+.bottom-cont{
+  position:relative;
+  bottom: 0px;
+  min-height: 90px;
+  filter: brightness(115%);
+
+}
+.bottom-color{
+  position:absolute;
+  bottom: 0px;
+
 }
 
 @-webkit-keyframes rotateOutUpLeft {

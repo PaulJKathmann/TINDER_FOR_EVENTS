@@ -53,9 +53,17 @@
       <br>
       <br>
     </div>
+    <div class="main-picture  mb-1">
+      <%user_show.pictures[1..5].each do |picture| %>
+      <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
+      <% end %>
+    </div>
+    <br>
   </div>
 
-  <div class="container">
+  <div class="container bottom-cont" style="background-color:<%=@event.primary_color%>">
+
+
     <div id="buttons-box" style="background-color:<%=@event.primary_color%>">
       <div class="btn-love">
         <%= link_to reject_path(@swipe.id) do %>
