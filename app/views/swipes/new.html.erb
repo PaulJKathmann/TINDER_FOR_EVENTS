@@ -32,10 +32,11 @@
           </div>
       </div>
     </div>
-    <%user_show.pictures[1..5].each do |picture| %>
-      <%= cl_image_tag(picture.url, class: "user-pictures main-picture pt-2") %>
-    <% end %>
-    <br>
+    <div class="main-picture  mb-1">
+      <%user_show.pictures[1..5].each do |picture| %>
+      <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
+      <% end %>
+    </div>
     <br>
     <br>
     <br>
