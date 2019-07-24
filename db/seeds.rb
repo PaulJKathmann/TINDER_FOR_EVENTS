@@ -510,8 +510,8 @@ puts "Creating fake events"
 lewagon_demo_day = Event.new(
   name: "Demo Day",
   background_image: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg",
-  start_date: "26/06/2019",
-  end_date: "27/06/2019",
+  start_date: "27/07/2019",
+  end_date: "28/07/2019",
   logo: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
   welcome_message: "Welcome to Le Wagon Demo Day! Use this app to connect with other participants ahead of the event.",
   user: organizer,
