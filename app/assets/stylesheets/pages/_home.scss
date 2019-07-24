@@ -1,6 +1,68 @@
 // Specific CSS for your home-page/ landing page of the desktop
 .banner {
-  background-image:image_url("backgroud-pic.jpg");
-  background-size:cover;
+  background: linear-gradient(rgba(245,245,245,.4)), url("https://res.cloudinary.com/daw34oiuq/image/upload/v1563892479/HomeBack_swhtst.jpg");
+  background-size: cover;
   height: 100vh;
+  position: relative;
+}
+
+.scroll_down p {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  color: rgb(190,0,140);
+}
+
+.scroll_down {
+  position: absolute;
+  bottom: 3vh;
+  margin: auto;
+}
+
+.how_it_works h2 {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(100,100,100);
+  margin-top: 100px;
+}
+
+.work_card {
+  width: 300px;
+  border: none;
+  box-shadow: 0 0 4px rgba(0,0,0,.1);
+  margin-bottom: 30px;
+}
+
+.work_card h5 {
+  font-weight: bolder;
+  color: rgba(190,0,140,.6);
+}
+
+.work_card p {
+  color: rgb(140,140,140);
+}
+
+.work_card_container {
+  margin-top: 60px;
+}
+
+.add_event {
+  font-size: 20px;
+  font-weight: normal;
+  color: rgb(190,0,140);
+  background-color: transparent;
+  padding: 6px 10px;
+  border: 2px solid rgb(190,0,140);
+  border-radius: 4px;
+}
+
+.add_event:hover {
+  color: rgba(190,0,140,.9);
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+  border: 2px solid rgba(190,0,140,.9);
+}
+
+.call_to {
+  text-align: center;
+  margin-bottom: 40px;
 }

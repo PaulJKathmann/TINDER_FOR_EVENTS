@@ -33,8 +33,11 @@ class EventsController < ApplicationController
 
   def update
     @project = Event.find(params[:id])
-    @project.update(event_params)
-    redirect_to event_path(@project.token)
+    if @project.update(event_params)
+      redirect_to event_path(@project.token)
+    else
+      render :new
+    end
   end
 
 
