@@ -505,156 +505,157 @@ fusion = Event.new(
 fusion.save!
 
 puts "Creating fake events"
-lewagon_demo_day = Event.new(
-  name: "Demo Day",
-  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563535490/background_ivnvrf.jpg",
-  start_date: "27/07/2019",
-  end_date: "28/07/2019",
-  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563534407/logo_lewagon_ber9fg.png",
-  welcome_message: "Welcome to Le Wagon Demo Day! Use this app to connect with other participants ahead of the event.",
+
+eurom = Event.new(
+  name: "Euromasters 2020",
+  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563973105/eurom_back_xcaloa.jpg",
+  start_date: "07/11/2019",
+  end_date: "09/11/2019",
+  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563974656/eurom_logo_rkzitg.png",
+  welcome_message: "Welcome to Euromasters 2020! Use this app to connect with other participants ahead of the event.",
   user: organizer,
-  primary_color: "#866B6B",
-  secondary_color: "#FF0000",
+  primary_color: "#262c2a",
+  secondary_color: "#48E0AE",
   token: "bcd80dd95c14c6a985b3"
   )
-lewagon_demo_day.save!
+eurom.save!
 
 puts 'creating new participants, all going to fusion'
 
 annap = Participant.new(
   user: anna,
-  event: lewagon_demo_day
+  event: eurom
   )
   annap.save!
 mariap = Participant.new(
   user: maria,
-  event: lewagon_demo_day
+  event: eurom
   )
   mariap.save!
 franp = Participant.new(
   user: fran,
-  event: lewagon_demo_day
+  event: eurom
   )
   franp.save!
 
 ninap = Participant.new(
   user: nina,
-  event: lewagon_demo_day
+  event: eurom
   )
   ninap.save!
 
 leilap = Participant.new(
   user: leila,
-  event: lewagon_demo_day
+  event: eurom
   )
  leilap.save!
 
 sabrinap = Participant.new(
   user: sabrina,
-  event: lewagon_demo_day
+  event: eurom
   )
   sabrina.save!
 
 alexp = Participant.new(
   user: alex,
-  event: lewagon_demo_day
+  event: eurom
   )
-  alex.save!
+  alexp.save!
 
 hannahp = Participant.new(
   user: hannah,
-  event: lewagon_demo_day
+  event: eurom
   )
-  hannah.save!
+  hannahp.save!
 
 
 timp = Participant.new(
   user: tim,
-  event: lewagon_demo_day
+  event: eurom
   )
 timp.save!
 
 danp = Participant.new(
   user: dan,
-  event: lewagon_demo_day
+  event: eurom
   )
 danp.save!
 
 mikep = Participant.new(
   user: mike,
-  event: lewagon_demo_day
+  event: eurom
   )
 mikep.save!
 
 markp = Participant.new(
   user: mark,
-  event: lewagon_demo_day
+  event: eurom
   )
 markp.save!
 
 philp = Participant.new(
   user: dan,
-  event: lewagon_demo_day
+  event: eurom
   )
 philp.save!
 
 tomp = Participant.new(
   user: tom,
-  event: lewagon_demo_day
+  event: eurom
   )
 tomp.save!
 
 sammyp = Participant.new(
   user: sammy,
-  event: lewagon_demo_day
+  event: eurom
   )
 sammyp.save!
 
 andyp = Participant.new(
   user: andy,
-  event: lewagon_demo_day
+  event: eurom
   )
 andyp.save!
 
 dimitrip = Participant.new(
   user: dimitri,
-  event: lewagon_demo_day
+  event: eurom
   )
 dimitrip.save!
 
 nimp = Participant.new(
   user: nim,
-  event: lewagon_demo_day
+  event: eurom
   )
 nimp.save!
 
 leonp = Participant.new(
   user: leon,
-  event: lewagon_demo_day
+  event: eurom
   )
 leonp.save!
 
 tonip = Participant.new(
   user: toni,
-  event: lewagon_demo_day
+  event: eurom
   )
 tonip.save!
 
 richp = Participant.new(
   user: rich,
-  event: lewagon_demo_day
+  event: eurom
   )
-richp.save!
+rich.save!
 
 luisp = Participant.new(
   user: luis,
-  event: lewagon_demo_day
+  event: eurom
   )
 luisp.save!
 
 lup = Participant.new(
   user: lu,
-  event: lewagon_demo_day
+  event: eurom
   )
 lup.save!
 

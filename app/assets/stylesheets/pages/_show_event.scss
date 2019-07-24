@@ -38,6 +38,19 @@
   background-color: rgba(0,0,0,.4);
   border-radius: 8px;
 }
+.container_for_event_show_user {
+  position: absolute;
+  z-index: -1;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 16px;
+  color:white;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 8px;
+}
 
 .start_show_container h2 {
   text-align: center;

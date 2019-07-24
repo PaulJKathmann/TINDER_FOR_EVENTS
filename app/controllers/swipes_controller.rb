@@ -10,13 +10,11 @@ class SwipesController < ApplicationController
       participant_1: current_user_participant,
       participant_2: set_participant_2
     )
-    if @swipe.participant_2.nil?
-      redirect_to projects_new_path
-      return
-    end
+    @event = Event.find(params[:id])
+    return @swipe = nil if @swipe.participant_2.nil?
+
     swipe1 = Swipe.where(participant_2_id: @swipe.participant_2.id, participant_1_id: @swipe.participant_1.id ).first
     swipe2 = Swipe.where(participant_1_id: @swipe.participant_2.id, participant_2_id: @swipe.participant_1.id ).first
-    @event = Event.find(params[:id])
 
     if  swipe1
       @swipe = swipe1

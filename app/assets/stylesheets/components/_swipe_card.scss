@@ -115,10 +115,21 @@
   height: auto;
   top: 400px;
   bottom: 0px;
-  top: 400;
   width:100%;
   position: absolute;
   transition: 1.3s ;
+}
+.bottom-cont{
+  position:relative;
+  bottom: 0px;
+  min-height: 90px;
+  filter: brightness(115%);
+
+}
+.bottom-color{
+  position:absolute;
+  bottom: 0px;
+
 }
 
 @-webkit-keyframes rotateOutUpLeft {
@@ -195,4 +206,21 @@
   animation-name: rotateOutUpRight;
 }
 
+.no_swipes_card {
+  margin-top: 100px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 4px rgba(0,0,0,.1);
+  padding: 10px;
+  padding-top: 20px;
+  text-align: center;
+}
 
+.no_swipes_card p {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-dizzy {
+  font-size: 55px;
+}
