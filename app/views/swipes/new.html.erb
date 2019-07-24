@@ -5,9 +5,11 @@
   </div> -->
 <% if @swipe.nil? %>
   <div id="background_no_swipes" style="background-color:<%=@event.primary_color%>">
-    <div id="swiper_card" class="container">
-      <div id="scroll-card" class="swipe_card white-bottom-shadow" >
-        <p>Nobody you haven't seen yet, please wait a bit to see new faces!</p>
+    <div class="container">
+      <div class="card no_swipes_card" >
+        <p><i class="far fa-dizzy"></i></p>
+        <p>Ups!</p>
+        <p>You've seen all for now. Please wait for new faces.</p>
       </div>
     </div>
   </div>
