@@ -3,7 +3,7 @@
 <section id="chat-box" class="clearfix">
     <ul class="messages clearfix py-0 mb-0" style="padding-left:10px;padding-right: 10px;">
       <% if user_is_messages_author %>
-        <li class="messages_1" style="
+        <li class="message" style="
             margin-top:3px;
             display: block;
             position: relative;
@@ -26,8 +26,8 @@
             "><%= message.created_at.strftime("%I:%M %p")%></p></li>
      <% else%>
        <div class="d-inline-flex">
-       <%= image_tag message.author.pictures.first.url, class: "avatar" %>
-       <li class="messages_2 ml-1" style="
+       <%= cl_image_tag message.author.pictures.first.url, class: "avatar" %>
+       <li class="message ml-1" style="
             display: block;
             position: relative;
             float: left;

@@ -505,6 +505,7 @@ fusion = Event.new(
 fusion.save!
 
 puts "Creating fake events"
+
 eurom = Event.new(
   name: "Euromasters 2020",
   remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563973105/eurom_back_xcaloa.jpg",

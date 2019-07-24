@@ -3,34 +3,55 @@
 
 <!--   <div class="lighter_background">
   </div> -->
-<div style="background-color:<%=@event.primary_color%>">
-  <div id="swiper_card" class="container animated " style="background-color:<%=@event.primary_color%>">
-    <%= cl_image_tag(@event.logo, class: "event_img row" )%>
-    <div id="scroll-card" class="swipe_card white-bottom-shadow" >
-      <div class="main-picture" id="image-swiper">
-        <% if @swipe.participant_2.user.id == current_user.id %>
-          <% user_show = @swipe.participant_1.user %>
-        <% else %>
-          <% user_show = @swipe.participant_2.user %>
-        <% end %>
-
-        <% if user_show.pictures.empty? %>
-          <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="user-pictures">
-        <% else %>
-        <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
-        <% end %>
-
-        <div id="white_shadow" class="white-bottom-shadow other">
-        </div>
-          <div class="name-age" >
-            <p ><%= user_show.name %></p>
-            <p><%= user_show.age %></p>
-          </div>
-           <!--  <i id="arrowswipe" class="fas fa-chevron-down"></i> -->
-          <div class="description card-body">
-            <p class="card-text"><%= user_show.bio %></p>
-          </div>
+<% if @swipe.nil? %>
+  <div id="background_no_swipes" style="background-color:<%=@event.primary_color%>">
+    <div class="container">
+      <div class="card no_swipes_card" >
+        <p><i class="far fa-dizzy"></i></p>
+        <p>Oops!</p>
+        <p>You've seen all for now. Please wait for new faces.</p>
       </div>
+    </div>
+  </div>
+<% else %>
+  <div style="background-color:<%=@event.primary_color%>">
+    <div id="swiper_card" class="container animated " style="background-color:<%=@event.primary_color%>">
+      <%= cl_image_tag(@event.logo, class: "event_img row" )%>
+      <div id="scroll-card" class="swipe_card white-bottom-shadow" >
+        <div class="main-picture" id="image-swiper">
+          <% if @swipe.participant_2.user.id == current_user.id %>
+            <% user_show = @swipe.participant_1.user %>
+          <% else %>
+            <% user_show = @swipe.participant_2.user %>
+          <% end %>
+
+          <% if user_show.pictures.empty? %>
+            <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="user-pictures">
+          <% else %>
+          <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
+          <% end %>
+
+          <div id="white_shadow" class="white-bottom-shadow other">
+          </div>
+            <div class="name-age" >
+              <p ><%= user_show.name %></p>
+              <p><%= user_show.age %></p>
+            </div>
+             <!--  <i id="arrowswipe" class="fas fa-chevron-down"></i> -->
+            <div class="description card-body">
+              <p class="card-text"><%= user_show.bio %></p>
+            </div>
+        </div>
+      </div>
+      <div class="main-picture  mb-1">
+        <%user_show.pictures[1..5].each do |picture| %>
+        <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
+        <% end %>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
     <div class="main-picture  mb-1">
       <%user_show.pictures[1..5].each do |picture| %>
@@ -59,7 +80,6 @@
       </div>
     </div>
   </div>
-</div>
-
+<% end %>
 
 
