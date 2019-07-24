@@ -4,10 +4,13 @@
 <!--   <div class="lighter_background">
   </div> -->
 <% if @swipe.nil? %>
-  <div style="background-color:<%=@event.primary_color%>">
-    <div id="scroll-card" class="swipe_card white-bottom-shadow" >
-      <p>Nobody you haven't seen yet, please wait a bit to see new faces!</p>
+  <div id="background_no_swipes" style="background-color:<%=@event.primary_color%>">
+    <div id="swiper_card" class="container">
+      <div id="scroll-card" class="swipe_card white-bottom-shadow" >
+        <p>Nobody you haven't seen yet, please wait a bit to see new faces!</p>
+      </div>
     </div>
+  </div>
 <% else %>
   <div style="background-color:<%=@event.primary_color%>">
     <div id="swiper_card" class="container animated " style="background-color:<%=@event.primary_color%>">
