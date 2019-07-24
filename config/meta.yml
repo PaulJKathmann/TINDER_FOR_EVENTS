@@ -1,0 +1,5 @@
+meta_product_name: "Vesta"
+meta_title: "Vesta - Match.Chat.Party Togather"
+meta_description: "Customize a matching app to connect each other just for the participants in your event"
+meta_image: "<%= cl_image_tag("HomeBack_swhtst.jpg")" # should exist in `app/assets/images/`
+
