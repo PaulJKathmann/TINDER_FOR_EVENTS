@@ -447,12 +447,12 @@ picture.save!
 
 picture = Picture.new(
   user: nim,
-  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533011/Dimitri_btefya.png")
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
 picture.save!
 
 picture = Picture.new(
   user: nim,
-  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533011/Dimitri_btefya.png")
+  url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/nim_wcfdy0.jpg")
 picture.save!
 
 leon = User.new(
