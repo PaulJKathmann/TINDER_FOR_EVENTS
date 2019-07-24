@@ -26,7 +26,7 @@
             "><%= message.created_at.strftime("%I:%M %p")%></p></li>
      <% else%>
        <div class="d-inline-flex">
-       <%= image_tag message.author.pictures.first.url, class: "avatar" %>
+       <%= cl_image_tag message.author.pictures.first.url, class: "avatar" %>
        <li class="messages_2 ml-1" style="
             display: block;
             position: relative;
