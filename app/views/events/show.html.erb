@@ -70,6 +70,7 @@
         <div class="container my-4">
           <br>
           <% participants = Participant.where(event_id: @event.id) %>
+          <% if participants.count > 0 %>
             <p class="m-0">User</p>
             <p><%= participants.count %> <i class="fas fa-users"></i></p>
             <% swipes_total = 0 %>
@@ -94,7 +95,11 @@
             <% end %>
             <p class="m-0">Matches</p>
             <p><%= matches_double / 2 %> <i class="fas fa-heart"></i></p>
-          <p></p>
+          <% else %>
+            <br>
+            <h1 style="text-align: center;"><i class="far fa-dizzy"></i></h1>
+            <p style="font-size: 20px;">Share the <span style="color: rgb(190,0,140);">link</span> and come back later to see the user statistics.</p>
+          <% end %>
         </div>
       </div>
     </div>
