@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'projects/new', to: 'events#new'
   post 'projects', to: 'events#create', as: :events
+  get 'projects/:id/confirm', to: 'events#confirm', as: :project_confirm
   get 'projects/:id/edit', to: 'events#edit', as: :project_edit
   patch 'events/:id', to: 'events#update', as: :event
   get 'projects/:id', to: 'events#show'

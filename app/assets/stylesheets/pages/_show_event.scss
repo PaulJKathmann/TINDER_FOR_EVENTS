@@ -2,7 +2,6 @@
   border: none;
   box-shadow: 0 0 8px rgba(0,0,0,.1);
   border-radius: 4px;
-  min-height: 500px;
   z-index: 2;
 }
 
@@ -105,4 +104,17 @@
   height: 50px;
   width: 50px;
   object-fit: fill;
+}
+
+.statistics-frame p {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+.fa-users {
+  color: rgba(0,80,150,.4);
+}
+
+.fa-hand-point-up {
+  color: rgb(240, 160, 0);
 }
