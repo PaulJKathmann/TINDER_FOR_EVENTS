@@ -1,13 +1,13 @@
 <%= render 'shared/navbar_message', locals: {event: @match.event} %>
-<div style="min-height: 85vh; background:<%=@match.event.primary_color%>;filter: brightness(115%);">
+<div style="min-height: 93vh; width: 100vw; background:<%=@match.event.primary_color%>;filter: brightness(115%); position: fixed">
  <div>
-    <div class="text-center" style ="padding-top: 16px;">
+    <div class="text-center" style ="padding-top: 16px; background-color: rgba(255,255,255, 0.2); padding-bottom: 6px">
       <h7>A match from <%=@match.event.name%></h7>
       <h6 style="font-family: inherit;">-You can now chat with <%= @match.swipe.participant_2.user.name %>- </h6>
     </div>
     <div class="panel" style="position: relative;">
     <% if @match.messages.any? %>
-       <div class="messages" style="min-height: 75vh">
+       <div class="messages" style="height: 70%; margin-bottom: 48px">
         <% @match.messages.each do |message| %>
           <%= render "messages/message", message: message, user_is_messages_author: message.author == current_user %>
         <% end %>
@@ -21,7 +21,7 @@
 
 
       <div class="text-center" style="min-height: 10vh;margin: 6px;padding-left: 16px;" >
-        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex mb-2" }, authenticity_token: true do |f| %>
+        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex mb-2 justify-content-center", style: "position: absolute; bottom: 56px" }, authenticity_token: true do |f| %>
         <%= f.input :content, class: "message_content", label: false %>
         <%= f.hidden_field :match_id, value: @match.id %>
         <%= f.submit "Send", class: "btn_message",data: {send: "message"} %>
