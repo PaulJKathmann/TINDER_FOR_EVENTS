@@ -1,142 +1,135 @@
 <% unless current_user.id == @event.user_id %>
-<div style="background-color: rgba(0,0,0,0);">
-  <%= cl_image_tag(@event.background_image, class: "background_image_show") %>
-    <div class="container_for_event_show_user welcome-content" style="margin-top: 32px;">
-      <h1 class="text-center pt-3", style="color: white;"><%= @event.name %></h1>
-      <%= cl_image_tag(@event.logo, crop: :fill, class: "logo mb-2 text-center" )%>
-      <div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date:<%=@event.start_date.to_time.iso8601%>" style="justify-content: center;">
-        <div>
-            <div class="uk-countdown-number uk-countdown-days"></div>
-            <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Days</div>
+  <div style="background-color: rgba(0,0,0,0);">
+    <%= cl_image_tag(@event.background_image, class: "background_image_show") %>
+      <div class="container_for_event_show_user welcome-content" style="margin-top: 32px;">
+        <h1 class="text-center pt-3", style="color: white;"><%= @event.name %></h1>
+        <%= cl_image_tag(@event.logo, crop: :fill, class: "logo mb-2 text-center" )%>
+        <div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date:<%=@event.start_date.to_time.iso8601%>" style="justify-content: center;">
+          <div>
+              <div class="uk-countdown-number uk-countdown-days"></div>
+              <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Days</div>
+          </div>
+          <div class="uk-countdown-separator">:</div>
+          <div>
+              <div class="uk-countdown-number uk-countdown-hours"></div>
+              <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Hours</div>
+          </div>
+          <div class="uk-countdown-separator">:</div>
+          <div>
+              <div class="uk-countdown-number uk-countdown-minutes"></div>
+              <div class="uk-countdown-label  uk-text-center" style="margin-top: -15px;font-size: small;">Minutes</div>
+          </div>
+          <div class="uk-countdown-separator">:</div>
+          <div>
+              <div class="uk-countdown-number uk-countdown-seconds"></div>
+              <div class="uk-countdown-labeluk-text-center" style="margin-top: -15px;font-size: small;">Seconds</div>
+          </div>
         </div>
-        <div class="uk-countdown-separator">:</div>
-        <div>
-            <div class="uk-countdown-number uk-countdown-hours"></div>
-            <div class="uk-countdown-label uk-text-center" style="margin-top: -15px;font-size: small;">Hours</div>
-        </div>
-        <div class="uk-countdown-separator">:</div>
-        <div>
-            <div class="uk-countdown-number uk-countdown-minutes"></div>
-            <div class="uk-countdown-label  uk-text-center" style="margin-top: -15px;font-size: small;">Minutes</div>
-        </div>
-        <div class="uk-countdown-separator">:</div>
-        <div>
-            <div class="uk-countdown-number uk-countdown-seconds"></div>
-            <div class="uk-countdown-labeluk-text-center" style="margin-top: -15px;font-size: small;">Seconds</div>
-        </div>
-      </div>
-      <p class="p-3 text-center mt-2"><%= @event.welcome_message %></p>
+        <p class="p-3 text-center mt-2"><%= @event.welcome_message %></p>
+    </div>
   </div>
-</div>
 
   <div class="welcome-buttons" style="text-decoration: none;">
       <%= link_to "Start meeting people", participants_create_path(@event.id), method: :post, class: "btn-full-screen", style:"background-color:#{@event.secondary_color};";%>
   </div>
 <% end %>
+
 <% if current_user.id == @event.user_id %>
   <%= render 'shared/navbar' %>
   <div class="page_background"></div>
   <br>
   <br>
-  <div class="container my-3">
-    </div>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-4 card my-3 p-4 event_info_card">
-        <div>
-          <div style="width: 300px;">
-            <h2><%= @event.name %></h2>
-            <p class="my-2">Start date: <%= @event.start_date.strftime('%A') %>, <%= @event.start_date.strftime('%d %B %Y') %></p>
-            <p class="my-2">End date: <%= @event.end_date.strftime('%A') %>, <%= @event.end_date.strftime('%d %B %Y') %></p>
-            <div class="statistics">
-              <p><strong>Statistics:</strong></p>
-              <% participants = Participant.where(event_id: @event.id) %>
-              <p>Users: <%= participants.count %></p>
-              <% swipes_total = 0 %>
-              <% participants.each do |participant| %>
-                <% swipes_participant = Swipe.where(participant_1_id: participant.id)
-                .or(Swipe.where(participant_2_id: participant.id)) %>
-                <% swipes_total += swipes_participant.count %>
-              <% end %>
-              <p>Swipes: <%= swipes_total %></p>
-              <% matches_double = 0 %>
-              <% participants.each do |participant| %>
-                <% matches_participant = Swipe.where(
-                    participant_1_id: participant.id,
-                    participant_1_liked: true,
-                    participant_2_liked: true)
-                  .or(Swipe.where(
-                    participant_2_id: participant.id,
-                    participant_1_liked: true,
-                    participant_2_liked: true)) %>
-                <% matches_double += matches_participant.count %>
-              <% end %>
-              <p>Matches: <%= matches_double / 2 %></p>
-            </div>
-          </div>
-          <p style="margin-bottom: 0;"><strong>Link:</strong></p>
-          <div style="padding: 4px; background-color: rgb(220,220,220); border-radius: 4px;">
-            <p style="margin: 0;">https://www.go-vesta.com/events/<%= @event.token %></p>
-          </div>
-          <p style="margin: 0; margin-bottom: 30px; font-size: 12px;">(Share this link to make the app available for the participants)</p>
-          <div style="position: absolute; top: 30px; right: 40px;">
-            <%= cl_image_tag @event.logo, style: "widht: 100px; height: 100px; object-fit: fill;" %>
-          </div>
+  <div class="container my-3"></div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5">
+      <div class="card mt-5 p-4 event_info_card">
+        <h1 class="mb-3">Share this link!</h1>
+        <div style="padding: 4px; background-color: rgb(220,220,220); border-radius: 4px;">
+          <p style="margin: 0;">https://www.go-vesta.com/events/<%= @event.token %></p>
+        </div>
+        <%= link_to "Copy link", project_edit_path(@event), class: "btn btn-confirm my-2" %>
+      </div>
+      <div class="card mt-4 p-4 event_info_card">
+        <div style="width: 300px;">
+          <h2 class="my-3"><%= @event.name %></h2>
+          <p class="my-2">Start date: <%= @event.start_date.strftime('%A') %>, <%= @event.start_date.strftime('%d %B %Y') %></p>
+          <p class="my-2">End date: <%= @event.end_date.strftime('%A') %>, <%= @event.end_date.strftime('%d %B %Y') %></p>
+        </div>
+        <div style="position: absolute; top: 30px; right: 40px;">
+          <%= cl_image_tag @event.logo, style: "widht: 100px; height: 100px; object-fit: fill;" %>
+        </div>
 
-          <%= link_to "Edit", project_edit_path(@event), class: "btn btn-dark" %>
-          <%= link_to "My Events", projects_path, class: "btn btn-light" %>
+        <%= link_to "Edit", project_edit_path(@event), class: "btn btn-dark my-2" %>
+        <%= link_to "My Events", projects_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="col-2 mt-5 ml-0">
+      <div class="statistics-frame">
+        <div class="container my-4">
+          <br>
+          <% participants = Participant.where(event_id: @event.id) %>
+            <p class="m-0">User</p>
+            <p><%= participants.count %> <i class="fas fa-users"></i></p>
+            <% swipes_total = 0 %>
+            <% participants.each do |participant| %>
+              <% swipes_participant = Swipe.where(participant_1_id: participant.id)
+              .or(Swipe.where(participant_2_id: participant.id)) %>
+              <% swipes_total += swipes_participant.count %>
+            <% end %>
+            <p class="m-0">Swipes</p>
+            <p><%= swipes_total %> <i class="fas fa-hand-point-up"></i></p>
+            <% matches_double = 0 %>
+            <% participants.each do |participant| %>
+              <% matches_participant = Swipe.where(
+                  participant_1_id: participant.id,
+                  participant_1_liked: true,
+                  participant_2_liked: true)
+                .or(Swipe.where(
+                  participant_2_id: participant.id,
+                  participant_1_liked: true,
+                  participant_2_liked: true)) %>
+              <% matches_double += matches_participant.count %>
+            <% end %>
+            <p class="m-0">Matches</p>
+            <p><%= matches_double / 2 %> <i class="fas fa-heart"></i></p>
+          <p></p>
         </div>
       </div>
-
-    <div class="col-1"></div>
-
-    <div class="col-2">
-    <div class="phone-frame">
-      <div class="iphone_layout"></div>
-
-      <%= cl_image_tag @event.background_image, class: "background_image_show" %>
-
-      <div class="start_show_container">
-        <h2><%= @event.name %></h2>
-        <p><%= @event.welcome_message %></p>
-      </div>
-
-      <div class="start_show_button" style="background-color: <%= @event.secondary_color %>;">
-        <p>Start meeting people</p>
-      </div>
     </div>
-  </div>
 
-  <div class="col-2">
-    <div class="phone-frame ml-5">
-      <div class="iphone_layout"></div>
-      <div class="nav_show show_primary" style="
-        background-color: <%= @event.primary_color %>;
-      "></div>
-      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show"></img>
-      <div class="chat_show">
-        <i class="fas fa-comments show_secondary_text" style="
-        font-size: 25px;
-        color: <%= @event.secondary_color %>;
-        "></i>
+    <div class="col-2 mt-5">
+      <div class="phone-frame ml-5">
+        <div class="iphone_layout"></div>
+        <div class="nav_show show_primary" style="
+          background-color: <%= @event.primary_color %>;
+        "></div>
+        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show"></img>
+        <div class="chat_show">
+          <i class="fas fa-comments show_secondary_text" style="
+          font-size: 25px;
+          color: <%= @event.secondary_color %>;
+          "></i>
+        </div>
+        <%= cl_image_tag @event.logo, class: "logo_pic_show" %>
+        <div class="background_show show_primary" style="
+          background-color: <%= @event.primary_color %>;
+        "></div>
+        <div class="lighter_background_show"></div>
+
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" class="swipe_pic_show">
+        <div class="card_show"></div>
+        <div class="username_show">Mara</div>
+        <div class="age_show">21</div>
+        <div class="bio_show">Live & Laugh</div>
+        <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
+          color: <%= @event.secondary_color %>;
+        "></i></div>
+        <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
+          color: <%= @event.secondary_color %>;
+        "></i></div>
       </div>
-      <%= cl_image_tag @event.logo, class: "logo_pic_show" %>
-      <div class="background_show show_primary" style="
-        background-color: <%= @event.primary_color %>;
-      "></div>
-      <div class="lighter_background_show"></div>
-
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" class="swipe_pic_show">
-      <div class="card_show"></div>
-      <div class="username_show">Mara</div>
-      <div class="age_show">21</div>
-      <div class="bio_show">Live & Laugh</div>
-      <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
-        color: <%= @event.secondary_color %>;
-      "></i></div>
-      <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
-        color: <%= @event.secondary_color %>;
-      "></i></div>
     </div>
   </div>
 <% end %>

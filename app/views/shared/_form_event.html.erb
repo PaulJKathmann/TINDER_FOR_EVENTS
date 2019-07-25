@@ -47,8 +47,8 @@
 
     <div class="row photo_upload_row">
       <div class="col-6 m-0 p-0">
-        <div class="form-group file optional event_logo"><label class="form-control-label file optional" for="event_logo">Logo</label><input class="form-control file optional" type="file" name="event[logo]" id="event_logo"></div>
-        <div class="form-group hidden event_logo_cache"><input class="form-control hidden" type="hidden" name="event[logo_cache]" id="event_logo_cache"></div>
+        <%= f.input :logo %>
+        <%= f.input :logo_cache, as: :hidden %>
       </div>
 
       <div class="col-6">

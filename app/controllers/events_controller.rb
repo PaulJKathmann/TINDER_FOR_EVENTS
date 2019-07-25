@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   end
 
   def participation
-
     @participations = Participant.where(user_id: current_user.id)
   end
 
@@ -21,10 +20,14 @@ class EventsController < ApplicationController
     @project.token = SecureRandom.hex(10)
     @project.user = current_user
     if @project.save
-      redirect_to event_path(@project.token)
+      redirect_to project_confirm_path(@project.id)
     else
       render :new
     end
+  end
+
+  def confirm
+    @event = Event.last
   end
 
   def edit
