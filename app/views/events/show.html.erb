@@ -46,7 +46,8 @@
       <div class="card mt-5 p-4 event_info_card">
         <h1 class="mb-3">Share this link!</h1>
         <div style="padding: 4px; background-color: rgb(220,220,220); border-radius: 4px;">
-          <input class="js-copytextarea" style="display: none;">https://www.go-vesta.com/events/<%= @event.token %></input>
+          <input class="js-copytextarea"  style="position: absolute; z-index: -3; opacity: 0;" value="https://www.go-vesta.com/events/<%= @event.token %>"></input>
+          <p class="m-0">https://www.go-vesta.com/events/<%= @event.token %></p>
         </div>
         <button class="btn btn-confirm my-2 js-textareacopybtn">Copy</button>
       </div>
@@ -146,7 +147,7 @@
     try {
       var successful = document.execCommand('copy');
       var msg = successful ? 'successful' : 'unsuccessful';
-      console.log('Copying text command was ' + msg);
+      alert('Copying the link was ' + msg + '!');
     } catch (err) {
       console.log('Oops, unable to copy');
     }
