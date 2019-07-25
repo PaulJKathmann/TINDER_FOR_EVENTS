@@ -562,7 +562,7 @@ lollapaloza = Event.new(
   end_date: "30/06/2019",
   remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564067780/LollaBerlin18_Logo_color_stacked_bigdbf.png",
   welcome_message: "Welcome to Lollapaloza! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
-  user: organizer,
+  user: nim,
   primary_color: "#00af9a",
   secondary_color: "#F0037E",
   token: "7f727fe0c4cd86a1402d"
@@ -726,13 +726,6 @@ lup.save!
 
 puts "create a swipe for lu"
 
-s1 = Swipe.new(
-  participant_1: paulp,
-  participant_2: nimp,
-  participant_1_liked: true,
-  participant_2_liked: true
-  )
-s1.save!
 
 s2 = Swipe.new(
   participant_1: paulp,
@@ -746,27 +739,24 @@ s2.save!
 s3 = Swipe.new(
   participant_1: paulp,
   participant_2: franp,
-  participant_1_liked: true,
-  participant_2_liked: true
-  )
-s3.save!
-
-s3 = Swipe.new(
-  participant_1: paulp,
-  participant_2: lup,
   participant_1_liked: nil,
   participant_2_liked: true
   )
 s3.save!
 
+s4 = Swipe.new(
+  participant_1: paulp,
+  participant_2: lup,
+  participant_1_liked: true,
+  participant_2_liked: true
+  )
+s4.save!
 
- puts "a match for lu"
-m1 = Match.new(swipe: s1)
-m1.save!
-m2 = Match.new(swipe: s2)
-m2.save!
-m3 = Match.new(swipe: s3)
-m3.save!
+
+ puts "a match for paul"
+
+m4 = Match.new(swipe: s4)
+m4.save!
 
 
 
