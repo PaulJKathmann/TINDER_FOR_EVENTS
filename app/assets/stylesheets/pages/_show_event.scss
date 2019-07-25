@@ -20,7 +20,7 @@
   z-index: -5;
   height: 100%;
   width: 100%;
-  border-radius: 24px;
+  border-radius: 19px;
   object-fit: cover;
 }
 
@@ -34,7 +34,7 @@
   margin-right: auto;
   padding: 10px 16px;
   width: 200px;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0,0,0,.7);
   border-radius: 8px;
 }
 .container_for_event_show_user {
@@ -57,7 +57,7 @@
 
 .start_show_container p {
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 14px;
   position: left;
 }
 
@@ -117,4 +117,34 @@
 
 .fa-hand-point-up {
   color: rgb(240, 160, 0);
+}
+
+.info_confirm p {
+  font-size: 17px;
+  font-weight: lighter;
+  color: rgb(70,70,70);
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 4px;
+}
+
+.show_count {
+  font-size: 20px;
+  padding: 2px;
+}
+
+.confirm .uk-grid-small>* {
+    padding-left: 0px;
+}
+
+.confirm .uk-grid>* {
+    padding-left: 0px;
+}
+
+.confirm .uk-countdown-number, .uk-countdown-separator {
+    line-height: 30px;
 }

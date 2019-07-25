@@ -23,7 +23,7 @@ const newName = document.querySelector("#event_name");
   newSecondary.addEventListener("change", (event) => {
     let secondary = document.querySelector("#event_secondary_color").value;
     for (const element of secondaryShow) {
-      element.style.backgroundColor = secondary;
+      element.style.boxShadow = `0 0 5px ${secondary}`;
     }
     for (const element of secondaryTextShow) {
       element.style.color = secondary;
