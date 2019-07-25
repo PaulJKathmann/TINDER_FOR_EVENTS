@@ -37,25 +37,25 @@ picture = Picture.new(
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292928/n3gga63cnhde7ztwdbwd.jpg")
 picture.save!
 
-anna = User.new(
-  name: "Anna",
-  email: "Anna_test@gmail.com",
-  bio: "Let's dance all night!",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
+# anna = User.new(
+#   name: "Anna",
+#   email: "Anna_test@gmail.com",
+#   bio: "Let's dance all night!",
+#   age: rand(21...30),
+#   gender: "Female",
+#   preferred_gender: "Both",
+#   preferred_match_type: "Friends",
+#   role: "user",
+#   lower_age_preference: 18,
+#   upper_age_preference: 40,
+#   password: "password"
+#   )
 
-anna.save!
-picture = Picture.new(
-  user: anna,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292971/oapfaj830rdqcgfsc7vz.jpg")
-picture.save!
+# anna.save!
+# picture = Picture.new(
+#   user: anna,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292971/oapfaj830rdqcgfsc7vz.jpg")
+# picture.save!
 
 fran = User.new(
   name: "Fran",
@@ -88,25 +88,25 @@ picture = Picture.new(
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/camille-kmile-iNM9QoklAts-unsplash_f3gajq.jpg" )
 picture.save!
 
-nina = User.new(
-  name: "Nina",
-  email: "nina_test@gmail.com",
-  bio: "Techno is Lifeeee",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
+# nina = User.new(
+#   name: "Nina",
+#   email: "nina_test@gmail.com",
+#   bio: "Techno is Lifeeee",
+#   age: rand(21...30),
+#   gender: "Female",
+#   preferred_gender: "Both",
+#   preferred_match_type: "Friends",
+#   role: "user",
+#   lower_age_preference: 18,
+#   upper_age_preference: 40,
+#   password: "password"
+#   )
 
-nina.save!
-picture = Picture.new(
-  user: nina,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292993/lpet7w6dyag73uge6ytx.jpg")
-picture.save!
+# nina.save!
+# picture = Picture.new(
+#   user: nina,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292993/lpet7w6dyag73uge6ytx.jpg")
+# picture.save!
 
 leila = User.new(
   name: "Leila",
@@ -431,24 +431,24 @@ picture = Picture.new(
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533784/luzhu_gko9ay.jpg")
 picture.save!
 
-luis = User.new(
-  name: "Luis",
-  email: "luis_test@gmail.com",
-  bio: "young and wild ;)",
-  age: 19,
-  gender: "Male",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-luis.save!
-picture = Picture.new(
-  user: luis,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/luis_2_fy316u.jpg")
-picture.save!
+# luis = User.new(
+#   name: "Luis",
+#   email: "luis_test@gmail.com",
+#   bio: "young and wild ;)",
+#   age: 19,
+#   gender: "Male",
+#   preferred_gender: "Both",
+#   preferred_match_type: "Friends",
+#   role: "user",
+#   lower_age_preference: 18,
+#   upper_age_preference: 40,
+#   password: "password"
+#   )
+# luis.save!
+# picture = Picture.new(
+#   user: luis,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/luis_2_fy316u.jpg")
+# picture.save!
 
 # andy = User.new(
 #   name: "Andy",
@@ -555,172 +555,172 @@ organizer = User.new(
 organizer.save!
 
 puts "Creating fake events"
-fusion = Event.new(
-  name: "Fusion",
-  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563359484/Fusion-Festival-2017_xfzslw.jpg",
+lollapaloza = Event.new(
+  name: "Lollapaloza",
+  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564067933/lollap_back_d9kbqk.jpg",
   start_date: "26/06/2019",
   end_date: "30/06/2019",
-  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563362331/fusion_logo2019_spskle.png",
-  welcome_message: "Welcome to Fusion! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
+  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564067780/LollaBerlin18_Logo_color_stacked_bigdbf.png",
+  welcome_message: "Welcome to Lollapaloza! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
   user: organizer,
-  primary_color: "#232323",
+  primary_color: "#00af9a",
   secondary_color: "#F0037E",
   token: "7f727fe0c4cd86a1402d"
   )
-fusion.save!
+lollapaloza.save!
 
 puts "Creating fake events"
 
-eurom = Event.new(
-  name: "Berliner Beach Festival ",
-  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563973105/eurom_back_xcaloa.jpg",
+helene = Event.new(
+  name: "Helene Beach Festival ",
+  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564070792/helleneback_yjuyjv.jpg",
   start_date: "07/08/2019",
   end_date: "09/08/2019",
-  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563974656/eurom_logo_rkzitg.png",
-  welcome_message: "Welcome to Euromasters 2020! Use this app to connect with other participants ahead of the event.",
+  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564069205/hellene_logo_kwoljq.png",
+  welcome_message: "Welcome to Helene Festival! Use this app to connect with other participants ahead of the event.",
   user: organizer,
-  primary_color: "#737373",
-  secondary_color: "#6994fe",
+  primary_color: "#0e3556",
+  secondary_color: "#dfb62d",
   token: "bcd80dd95c14c6a985b3"
   )
-eurom.save!
+helene.save!
 
-puts 'creating new participants, all going to fusion'
+puts 'creating new participants, all going to lollapaloza'
 
-annap = Participant.new(
-  user: anna,
-  event: eurom
-  )
-  annap.save!
+# annap = Participant.new(
+#   user: anna,
+#   event: helene
+#   )
+#   annap.save!
 mariap = Participant.new(
   user: maria,
-  event: eurom
+  event: helene
   )
   mariap.save!
 franp = Participant.new(
   user: fran,
-  event: eurom
+  event: helene
   )
   franp.save!
 
-ninap = Participant.new(
-  user: nina,
-  event: eurom
-  )
-  ninap.save!
+# ninap = Participant.new(
+#   user: nina,
+#   event: helene
+#   )
+#   ninap.save!
 
 leilap = Participant.new(
   user: leila,
-  event: eurom
+  event: helene
   )
  leilap.save!
 
 sabrinap = Participant.new(
   user: sabrina,
-  event: eurom
+  event: helene
   )
   sabrina.save!
 
 alexp = Participant.new(
   user: alex,
-  event: eurom
+  event: helene
   )
   alexp.save!
 
 hannahp = Participant.new(
   user: hannah,
-  event: eurom
+  event: helene
   )
   hannahp.save!
 
 
 timp = Participant.new(
   user: tim,
-  event: eurom
+  event: helene
   )
 timp.save!
 
 danp = Participant.new(
   user: dan,
-  event: eurom
+  event: helene
   )
 danp.save!
 
 paulp = Participant.new(
   user: paul,
-  event: eurom
+  event: helene
   )
 paulp.save!
 
 # markp = Participant.new(
 #   user: mark,
-#   event: eurom
+#   event: helene
 #   )
 # markp.save!
 
 # philp = Participant.new(
 #   user: dan,
-#   event: eurom
+#   event: helene
 #   )
 # philp.save!
 
 tomp = Participant.new(
   user: tom,
-  event: eurom
+  event: helene
   )
 tomp.save!
 
 sammyp = Participant.new(
   user: sammy,
-  event: eurom
+  event: helene
   )
 sammyp.save!
 
 # andyp = Participant.new(
 #   user: andy,
-#   event: eurom
+#   event: helene
 #   )
 # andyp.save!
 
 # dimitrip = Participant.new(
 #   user: dimitri,
-#   event: eurom
+#   event: helene
 #   )
 # dimitrip.save!
 
 nimp = Participant.new(
   user: nim,
-  event: eurom
+  event: helene
   )
 nimp.save!
 
 # leonp = Participant.new(
 #   user: leon,
-#   event: eurom
+#   event: helene
 #   )
 # leonp.save!
 
 # tonip = Participant.new(
 #   user: toni,
-#   event: eurom
+#   event: helene
 #   )
 # tonip.save!
 
 # richp = Participant.new(
 #   user: rich,
-#   event: eurom
+#   event: helene
 #   )
 # rich.save!
 
-luisp = Participant.new(
-  user: luis,
-  event: eurom
-  )
-luisp.save!
+# luisp = Participant.new(
+#   user: luis,
+#   event: helene
+#   )
+# luisp.save!
 
 lup = Participant.new(
   user: lu,
-  event: eurom
+  event: helene
   )
 lup.save!
 
@@ -737,7 +737,7 @@ s1.save!
 s2 = Swipe.new(
   participant_1: paulp,
   participant_2: mariap,
-  participant_1_liked: true,
+  participant_1_liked: nil,
   participant_2_liked: true
   )
 s2.save!
@@ -751,6 +751,13 @@ s3 = Swipe.new(
   )
 s3.save!
 
+s3 = Swipe.new(
+  participant_1: paulp,
+  participant_2: lup,
+  participant_1_liked: nil,
+  participant_2_liked: true
+  )
+s3.save!
 
 
  puts "a match for lu"
