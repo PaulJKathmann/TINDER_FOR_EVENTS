@@ -107,16 +107,18 @@
 }
 
 .statistics-frame p {
-  font-size: 40px;
+  font-size: 26px;
   font-weight: lighter;
+  margin-bottom: 40px;
 }
 
-.fa-users {
-  color: rgba(0,80,150,.4);
+.statistics-frame i {
+  font-size: 70px;
+  color: rgb(160,160,160);
 }
 
-.fa-hand-point-up {
-  color: rgb(240, 160, 0);
+.stat_icon {
+  text-align: center;
 }
 
 .info_confirm p {
