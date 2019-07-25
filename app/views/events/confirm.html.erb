@@ -1,0 +1,134 @@
+<%= render 'shared/navbar' %>
+<div class="page_background"></div>
+<br>
+<br>
+<div class="container my-3"></div>
+  <div class="row">
+    <div class="col-1"></div>
+    <h1 style="color: rgb(100,100,100); position: relative; z-index: 2; margin-top: 30px;
+      margin-bottom: 20px;">Everything perfect?</h1>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-4 card mb-5 p-4 event_info_card">
+      <div>
+        <div class="row">
+          <div class="col-12">
+            <p class="m-0">Event name</p>
+          </div>
+          <div class="col-12">
+            <p><%= @event.name %></p>
+          </div>
+
+          <div class="col-6">
+            <p class="m-0">Start date</p>
+          </div>
+          <div class="col-6">
+            <p class="m-0">End date</p>
+          </div>
+          <div class="col-6">
+            <p><%= @event.start_date.strftime('%A') %>, <%= @event.start_date.strftime('%d %B %Y') %></p>
+          </div>
+          <div class="col-6">
+            <p><%= @event.end_date.strftime('%A') %>, <%= @event.end_date.strftime('%d %B %Y') %></p>
+          </div>
+
+          <div class="col-6">
+            <p class="mb-1">Background</p>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Buttons</p>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div style="width: 20px; height: 20px; background-color: <%= @event.primary_color %>" class="ml-3"></div>
+              <p class="ml-2"><%= @event.primary_color %></p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div style="width: 20px; height: 20px; background-color: <%= @event.secondary_color %>" class="ml-3"></div>
+              <p class="ml-2"><%= @event.secondary_color %></p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p class="m-0">Welcome message</p>
+          </div>
+          <div class="col-12">
+            <p><%= @event.welcome_message %></p>
+          </div>
+        </div>
+        <div style="position: absolute; bottom: 10px; left: 0; right: 0; width: 190px; margin: auto;">
+          <button type="button" class="btn btn-confirm" data-toggle="modal" data-target="#exampleModal">Confirm</button>
+          <!-- Actually new page needed to make it logically work -->
+          <%= link_to "Change", project_edit_path(@event), class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+
+  <div class="col-1"></div>
+
+  <div class="col-2">
+  <div class="phone-frame">
+    <div class="iphone_layout"></div>
+
+    <%= cl_image_tag @event.background_image, class: "background_image_show" %>
+
+    <div class="start_show_container">
+      <h2><%= @event.name %></h2>
+      <p><%= @event.welcome_message %></p>
+    </div>
+
+    <div class="start_show_button" style="background-color: <%= @event.secondary_color %>;">
+      <p>Start meeting people</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-2">
+  <div class="phone-frame ml-5">
+    <div class="iphone_layout"></div>
+    <div class="nav_show show_primary" style="
+      background-color: <%= @event.primary_color %>;
+    "></div>
+    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="nav_avatar_show"></img>
+    <div class="chat_show">
+      <i class="fas fa-comments show_secondary_text" style="
+      font-size: 25px;
+      color: <%= @event.secondary_color %>;
+      "></i>
+    </div>
+    <%= cl_image_tag @event.logo, class: "logo_pic_show" %>
+    <div class="background_show show_primary" style="
+      background-color: <%= @event.primary_color %>;
+    "></div>
+    <div class="lighter_background_show"></div>
+
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" class="swipe_pic_show">
+    <div class="card_show"></div>
+    <div class="username_show">Mara</div>
+    <div class="age_show">21</div>
+    <div class="bio_show">Live & Laugh</div>
+    <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
+      color: <%= @event.secondary_color %>;
+    "></i></div>
+    <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
+      color: <%= @event.secondary_color %>;
+    "></i></div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        You successfully created your customized platform!
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Okay", event_path(@event.token), class: "btn btn-confirm" %>
+      </div>
+    </div>
+  </div>
+</div>
