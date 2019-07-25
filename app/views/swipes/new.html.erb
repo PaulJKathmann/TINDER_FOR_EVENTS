@@ -43,25 +43,14 @@
             </div>
         </div>
       </div>
-      <div class="main-picture  mb-1">
+      <div class="main-picture pb-2">
         <%user_show.pictures[1..5].each do |picture| %>
         <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
         <% end %>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
     </div>
-    <div class="main-picture  mb-1">
-      <%user_show.pictures[1..5].each do |picture| %>
-      <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
-      <% end %>
-    </div>
-    <br>
-  </div>
-
-  <div class="container bottom-cont" style="background-color:<%=@event.primary_color%>">
+<!--
+  <div class="container bottom-cont" style="background-color:<%=@event.primary_color%>"> -->
 
 
     <div id="buttons-box" style="background-color:<%=@event.primary_color%>">
@@ -79,6 +68,7 @@
         <% end %>
       </div>
     </div>
+ <!--  </div> -->
   </div>
 <% end %>
 
