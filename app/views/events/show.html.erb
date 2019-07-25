@@ -1,5 +1,5 @@
 <% unless current_user.id == @event.user_id %>
-  <div style="background-color: rgba(0,0,0,0);">
+  <div style="background-color: rgba(0,0,0,0); border-radius: none;">
     <%= cl_image_tag(@event.background_image, class: "background_image_show") %>
       <div class="container_for_event_show_user welcome-content" style="margin-top: 32px;">
         <h1 class="text-center pt-3", style="color: white;"><%= @event.name %></h1>
@@ -46,9 +46,9 @@
       <div class="card mt-5 p-4 event_info_card">
         <h1 class="mb-3">Share this link!</h1>
         <div style="padding: 4px; background-color: rgb(220,220,220); border-radius: 4px;">
-          <p style="margin: 0;">https://www.go-vesta.com/events/<%= @event.token %></p>
+          <input class="js-copytextarea" style="display: none;">https://www.go-vesta.com/events/<%= @event.token %></input>
         </div>
-        <%= link_to "Copy link", project_edit_path(@event), class: "btn btn-confirm my-2" %>
+        <button class="btn btn-confirm my-2 js-textareacopybtn">Copy</button>
       </div>
       <div class="card mt-4 p-4 event_info_card">
         <div style="width: 300px;">
@@ -70,6 +70,7 @@
         <div class="container my-4">
           <br>
           <% participants = Participant.where(event_id: @event.id) %>
+          <% if participants.count > 0 %>
             <p class="m-0">User</p>
             <p><%= participants.count %> <i class="fas fa-users"></i></p>
             <% swipes_total = 0 %>
@@ -94,7 +95,11 @@
             <% end %>
             <p class="m-0">Matches</p>
             <p><%= matches_double / 2 %> <i class="fas fa-heart"></i></p>
-          <p></p>
+          <% else %>
+            <br>
+            <h1 style="text-align: center;"><i class="far fa-dizzy"></i></h1>
+            <p style="font-size: 20px;">Share the <span style="color: rgb(190,0,140);">link</span> and come back later to see the user statistics.</p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -123,13 +128,31 @@
         <div class="username_show">Mara</div>
         <div class="age_show">21</div>
         <div class="bio_show">Live & Laugh</div>
-        <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
+        <div class="bnt_reject_show" style="box-shadow: 0 0 5px <%=@event.secondary_color%>;"><i class="fas fa-times show_secondary_text symbol_reject" style="
           color: <%= @event.secondary_color %>;
         "></i></div>
-        <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
+        <div class="bnt_love_show" style="box-shadow: 0 0 5px <%=@event.secondary_color%>;"><i class="fas fa-heart show_secondary_text symbol_love" style="
           color: <%= @event.secondary_color %>;
         "></i></div>
       </div>
     </div>
   </div>
 <% end %>
+
+<script>
+  var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+  copyTextareaBtn.addEventListener('click', function(event) {
+    var copyTextarea = document.querySelector('.js-copytextarea');
+    copyTextarea.focus();
+    copyTextarea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Copying text command was ' + msg);
+    } catch (err) {
+      console.log('Oops, unable to copy');
+    }
+  });
+</script>

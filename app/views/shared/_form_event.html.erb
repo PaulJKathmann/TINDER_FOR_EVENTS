@@ -105,14 +105,24 @@
     <div class="username_show">Mara</div>
     <div class="age_show">21</div>
     <div class="bio_show">Live & Laugh</div>
-    <div class="bnt_reject_show"><i class="fas fa-times show_secondary_text symbol_reject" style="
+    <div class="bnt_reject_show show_secondary" style="box-shadow: 0 0 5px
+              <% if @project.secondary_color.nil? %>
+                <%= "#F0037E" %>
+              <% else %>
+                <%= @project.secondary_color %>
+              <% end %>;"><i class="fas fa-times show_secondary_text symbol_reject" style="
       color: <% if @project.secondary_color.nil? %>
                 <%= "#F0037E" %>
               <% else %>
                 <%= @project.secondary_color %>
               <% end %>;
     "></i></div>
-    <div class="bnt_love_show"><i class="fas fa-heart show_secondary_text symbol_love" style="
+    <div class="bnt_love_show show_secondary" style="box-shadow: 0 0 5px
+              <% if @project.secondary_color.nil? %>
+                <%= "#F0037E" %>
+              <% else %>
+                <%= @project.secondary_color %>
+              <% end %>;"><i class="fas fa-heart show_secondary_text symbol_love" style="
       color: <% if @project.secondary_color.nil? %>
                 <%= "#F0037E" %>
               <% else %>
