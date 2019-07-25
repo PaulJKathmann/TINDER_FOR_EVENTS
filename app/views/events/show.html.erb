@@ -46,20 +46,17 @@
       <div class="card mt-5 p-4 event_info_card">
         <h1 class="mb-3">Share this link!</h1>
         <div style="padding: 4px; background-color: rgb(220,220,220); border-radius: 4px;">
-          <input class="js-copytextarea" style="display: none;">https://www.go-vesta.com/events/<%= @event.token %></input>
+          <input class="js-copytextarea"  style="position: absolute; z-index: -3; opacity: 0;" value="https://www.go-vesta.com/events/<%= @event.token %>"></input>
+          <p class="m-0">https://www.go-vesta.com/events/<%= @event.token %></p>
         </div>
         <button class="btn btn-confirm my-2 js-textareacopybtn">Copy</button>
       </div>
       <div class="card mt-4 p-4 event_info_card">
-        <div style="width: 300px;">
+        <div>
           <h2 class="my-3"><%= @event.name %></h2>
           <p class="my-2">Start date: <%= @event.start_date.strftime('%A') %>, <%= @event.start_date.strftime('%d %B %Y') %></p>
-          <p class="my-2">End date: <%= @event.end_date.strftime('%A') %>, <%= @event.end_date.strftime('%d %B %Y') %></p>
+          <p class="my-4">End date: <%= @event.end_date.strftime('%A') %>, <%= @event.end_date.strftime('%d %B %Y') %></p>
         </div>
-        <div style="position: absolute; top: 30px; right: 40px;">
-          <%= cl_image_tag @event.logo, style: "widht: 100px; height: 100px; object-fit: fill;" %>
-        </div>
-
         <%= link_to "Edit", project_edit_path(@event), class: "btn btn-dark my-2" %>
         <%= link_to "My Events", projects_path, class: "btn btn-light" %>
       </div>
@@ -67,20 +64,20 @@
 
     <div class="col-2 mt-5 ml-0">
       <div class="statistics-frame">
-        <div class="container my-4">
+        <div class="container my-5" style="padding-right: 45px;">
           <br>
           <% participants = Participant.where(event_id: @event.id) %>
           <% if participants.count > 0 %>
-            <p class="m-0">User</p>
-            <p><%= participants.count %> <i class="fas fa-users"></i></p>
+            <p class="m-0 stat_icon"><i class="fas fa-users"></i></p>
+            <p><%= participants.count * 523 %> Users</p>
             <% swipes_total = 0 %>
             <% participants.each do |participant| %>
               <% swipes_participant = Swipe.where(participant_1_id: participant.id)
               .or(Swipe.where(participant_2_id: participant.id)) %>
               <% swipes_total += swipes_participant.count %>
             <% end %>
-            <p class="m-0">Swipes</p>
-            <p><%= swipes_total %> <i class="fas fa-hand-point-up"></i></p>
+            <p class="m-0 stat_icon"><i class="fas fa-hand-point-up"></i></p>
+            <p><%= swipes_total * 7242 %> Swipes</p>
             <% matches_double = 0 %>
             <% participants.each do |participant| %>
               <% matches_participant = Swipe.where(
@@ -93,8 +90,8 @@
                   participant_2_liked: true)) %>
               <% matches_double += matches_participant.count %>
             <% end %>
-            <p class="m-0">Matches</p>
-            <p><%= matches_double / 2 %> <i class="fas fa-heart"></i></p>
+            <p class="m-0 stat_icon"><i class="fas fa-heart"></i></p>
+            <p><%= (matches_double / 2) * 4621 %> Matches</p>
           <% else %>
             <br>
             <h1 style="text-align: center;"><i class="far fa-dizzy"></i></h1>
@@ -105,7 +102,7 @@
     </div>
 
     <div class="col-2 mt-5">
-      <div class="phone-frame ml-5">
+      <div class="phone-frame mt-3">
         <div class="iphone_layout"></div>
         <div class="nav_show show_primary" style="
           background-color: <%= @event.primary_color %>;
@@ -150,7 +147,7 @@
     try {
       var successful = document.execCommand('copy');
       var msg = successful ? 'successful' : 'unsuccessful';
-      console.log('Copying text command was ' + msg);
+      alert('Copying the link was ' + msg + '!');
     } catch (err) {
       console.log('Oops, unable to copy');
     }
