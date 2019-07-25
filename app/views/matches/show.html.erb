@@ -6,16 +6,16 @@
       <h6 style="font-family: inherit;">-You can now chat with <%= @match.swipe.participant_2.user.name %>- </h6>
     </div>
     <div class="panel" style="position: relative;">
+    <div class="messages" style="height: 70%; margin-bottom: 64px">
     <% if @match.messages.any? %>
-       <div class="messages" style="height: 70%; margin-bottom: 64px">
         <% @match.messages.each do |message| %>
           <%= render "messages/message", message: message, user_is_messages_author: message.author == current_user %>
         <% end %>
-      </div>
      <%else%>
        <div class="panel-body hidden" id="messages">
       </div>
     <% end %>
+    </div>
     </div>
  </div>
 
