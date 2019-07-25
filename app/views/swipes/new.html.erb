@@ -28,7 +28,7 @@
           <% if user_show.pictures.empty? %>
             <img src="http://autozentrum-west.at/wp-content/uploads/2015/10/avatar-placeholder-300x300.png" class="user-pictures">
           <% else %>
-          <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
+          <%= cl_image_tag(user_show.pictures.first.url, gravity:"face", class: "user-pictures") %>
           <% end %>
 
           <div id="white_shadow" class="white-bottom-shadow other">
@@ -45,7 +45,7 @@
       </div>
       <div class="main-picture pb-2">
         <%user_show.pictures[1..5].each do |picture| %>
-        <%= cl_image_tag(picture.url, class: "user-pictures main-picture mt-3") %>
+        <%= cl_image_tag(picture.url, gravity:"face", class: "user-pictures main-picture mt-3") %>
         <% end %>
       </div>
     </div>
@@ -54,14 +54,14 @@
 
 
     <div id="buttons-box" style="background-color:<%=@event.primary_color%>">
-      <div class="btn-love">
+      <div class="btn-love" style="box-shadow: 0 0 5px <%=@event.secondary_color%>;">
         <%= link_to reject_path(@swipe.id) do %>
         <i id="reject-btn" class="fas fa-times" style="color:<%=@event.secondary_color%>;">
         </i>
         <% end %>
       </div>
 
-      <div class="btn-love">
+      <div class="btn-love" style="box-shadow: 0 0 5px <%=@event.secondary_color%>;">
         <%= link_to accept_path(@swipe.id) do %>
         <i id="accept-btn" class="fas fa-heart" style="color:<%=@event.secondary_color%>;">
         </i>
