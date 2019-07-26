@@ -4,7 +4,7 @@
   padding: 10px;
   border-top: none;
   border-bottom-width: 0;
-  max-height: calc(100vh - 100px - 45px - 61px - 30px);
+  max-height: calc(90vh - 120px - 45px - 61px - 30px);
   overflow: scroll;
 }
 .btn_message{
@@ -43,4 +43,11 @@ input.form-control {
     border: 1px solid blue;
     box-shadow: none;
   }
+}
+
+.sss {
+  position: absolute;
+    bottom: 56px;
+    margin-top: 36px;
+    overflow-y: scroll;
 }
