@@ -30,9 +30,6 @@
           <% else %>
           <%= cl_image_tag(user_show.pictures.first.url, class: "user-pictures") %>
           <% end %>
-
-          <div id="white_shadow" class="white-bottom-shadow other">
-          </div>
             <div class="name-age" >
               <p ><%= user_show.name %></p>
               <p><%= user_show.age %></p>
