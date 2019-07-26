@@ -15,15 +15,12 @@ function showEvent() {
     }
   });
 
-  const getTooltip = tippy('#myButton', {
-    content: "Copied!",
-    placement: 'bottom',
-    trigger: 'click',
-    arrow: true,
-    arrowType: 'sharp',
-    animation: 'fade',
-    delay: 300
-  });
+  document.getElementById("btnCopy").addEventListener ('click',
+    function() { //<-----anonyme Funktion
+      document.getElementById("copied-info").style.visibility = "visible" ;
+    },
+
+    false);
 };
 
 export { showEvent };
