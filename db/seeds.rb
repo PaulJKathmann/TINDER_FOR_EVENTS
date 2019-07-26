@@ -553,6 +553,11 @@ organizer.save!
 
 puts "Creating fake events"
 
+picture = Picture.new(
+  user: organizer,
+  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564146338/WhatsApp_Image_2019-07-26_at_15.01.11_mg4pml.jpg")
+picture.save!
+
 helene = Event.new(
   name: "Helene Beach Festival ",
   remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564070792/helleneback_yjuyjv.jpg",
