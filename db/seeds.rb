@@ -37,26 +37,6 @@ picture = Picture.new(
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292928/n3gga63cnhde7ztwdbwd.jpg")
 picture.save!
 
-# anna = User.new(
-#   name: "Anna",
-#   email: "Anna_test@gmail.com",
-#   bio: "Let's dance all night!",
-#   age: rand(21...30),
-#   gender: "Female",
-#   preferred_gender: "Both",
-#   preferred_match_type: "Friends",
-#   role: "user",
-#   lower_age_preference: 18,
-#   upper_age_preference: 40,
-#   password: "password"
-#   )
-
-# anna.save!
-# picture = Picture.new(
-#   user: anna,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292971/oapfaj830rdqcgfsc7vz.jpg")
-# picture.save!
-
 fran = User.new(
   name: "Fran",
   email: "Fran_test@gmail.com",
@@ -78,74 +58,6 @@ picture = Picture.new(
 picture.save!
 
 fran.save!
-picture = Picture.new(
-  user: fran,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055732/marion-michele-Ki0tCxh7GRk-unsplash_yhph2z.jpg" )
-picture.save!
-
-picture = Picture.new(
-  user: fran,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/camille-kmile-iNM9QoklAts-unsplash_f3gajq.jpg" )
-picture.save!
-
-# nina = User.new(
-#   name: "Nina",
-#   email: "nina_test@gmail.com",
-#   bio: "Techno is Lifeeee",
-#   age: rand(21...30),
-#   gender: "Female",
-#   preferred_gender: "Both",
-#   preferred_match_type: "Friends",
-#   role: "user",
-#   lower_age_preference: 18,
-#   upper_age_preference: 40,
-#   password: "password"
-#   )
-
-# nina.save!
-# picture = Picture.new(
-#   user: nina,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292993/lpet7w6dyag73uge6ytx.jpg")
-# picture.save!
-
-leila = User.new(
-  name: "Leila",
-  email: "leila_test@gmail.com",
-  bio: "Spelling is important. I'm always down for a beer, reggueton-ton-ton, or meeting friends. Tell me joke that cracks me and you will win my heart!",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-leila.save!
-picture = Picture.new(
-  user: leila,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563457254/female8_rmcgfw.jpg")
-picture.save!
-leila.save!
-picture = Picture.new(
-  user: leila,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/baylee-gramling-ui00DmD1KAU-unsplash_bxfftu.jpg")
-picture.save!
-leila.save!
-picture = Picture.new(
-  user: leila,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/sandra-seitamaa-0nM3mFNuAaI-unsplash_lleayk.jpg")
-picture.save!
-leila.save!
-picture = Picture.new(
-  user: leila,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/alexander-mils-Q9YdEzqwfDE-unsplash_jizugm.jpg")
-picture.save!
-leila.save!
-picture = Picture.new(
-  user: leila,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055739/abigail-keenan-99C5lrAyxpQ-unsplash_a0lyx4.jpg")
-picture.save!
 
 sabrina = User.new(
   name: "Sabrina",
@@ -205,16 +117,6 @@ picture = Picture.new(
 picture.save!
 
 hannah.save!
-# picture = Picture.new(
-#   user: hannah,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055735/thibault-debaene-pZTVa_Gt1f8-unsplash_hgannw.jpg")
-# picture.save!
-# hannah.save!
-# picture = Picture.new(
-#   user: hannah,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/gesina-kunkel-ISmHh0Ip1BA-unsplash_mh7zjk.jpg")
-# picture.save!
-
 
 tim = User.new(
   name: "Tim",
@@ -236,15 +138,6 @@ picture = Picture.new(
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079290/Party%20people/aneesh-mandava-JYGMpnMygjY-unsplash_r194ud.jpg")
 picture.save!
 tim.save!
-# picture = Picture.new(
-#   user: tim,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564056903/ehimetalor-unuabona-SG21zQPSayU-unsplash_kftfqm.jpg")
-# picture.save!
-# tim.save!
-# picture = Picture.new(
-#   user: tim,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564056907/patrick-pierre-LRoleO6DmQ8-unsplash_h0uolo.jpg")
-# picture.save!
 
 dan = User.new(
   name: "Dan",
@@ -264,15 +157,64 @@ picture = Picture.new(
   user: dan,
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079289/Party%20people/marvin-meyer-QS4KxdelN_4-unsplash_cfszqv.jpg")
 picture.save!
-# picture = Picture.new(
-#   user: dan,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/sandis-helvigs-hfZYhPNK1Oc-unsplash_qdimq0.jpg")
-# picture.save!
-# picture = Picture.new(
-#   user: dan,
-#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/kimberly-mears-_ar-3Puhomo-unsplash_vbcgxu.jpg")
-# picture.save!
 
+laura = User.new(
+  name: "Laura",
+  email: "laura_test@gmail.com",
+  bio: "i dont care bout Spelling but i care about love festivals and animals. I also dont care about gender, im here to finde cool people to hang out and have an awesome festival",
+  age: rand(21...30),
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+laura.save!
+picture = Picture.new(
+  user: laura,
+  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079289/Party%20people/andy-falconer-hdb9Rkojn7M-unsplash_tw1on7.jpg")
+picture.save!
+
+lola = User.new(
+  name: "Lola",
+  email: "lola_test@gmail.com",
+  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!",
+  age: 24,
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+lola.save!
+picture = Picture.create(
+  user: lola,
+  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079290/Party%20people/lukas-eggers-uO3m-y-EOI4-unsplash_sff3e0.jpg")
+picture.save!
+
+
+lu = User.new(
+  name: "Lu Zhu",
+  email: "lu_test@gmail.com",
+  bio: "Rock'n Roll!",
+  age: 25,
+  gender: "Female",
+  preferred_gender: "Both",
+  preferred_match_type: "Friends",
+  role: "user",
+  lower_age_preference: 18,
+  upper_age_preference: 40,
+  password: "password"
+  )
+lu.save!
+picture = Picture.new(
+  user: lu,
+  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533784/luzhu_gko9ay.jpg")
+picture.save!
 
 paul = User.new(
   name: "Paul",
@@ -292,6 +234,113 @@ picture = Picture.new(
   user: paul,
   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563447177/myphoto_fxdkfl.jpg")
 picture.save!
+
+
+
+
+# anna = User.new(
+#   name: "Anna",
+#   email: "Anna_test@gmail.com",
+#   bio: "Let's dance all night!",
+#   age: rand(21...30),
+#   gender: "Female",
+#   preferred_gender: "Both",
+#   preferred_match_type: "Friends",
+#   role: "user",
+#   lower_age_preference: 18,
+#   upper_age_preference: 40,
+#   password: "password"
+#   )
+
+# anna.save!
+# picture = Picture.new(
+#   user: anna,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292971/oapfaj830rdqcgfsc7vz.jpg")
+# picture.save!
+
+
+# picture = Picture.new(
+#   user: fran,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055732/marion-michele-Ki0tCxh7GRk-unsplash_yhph2z.jpg" )
+# picture.save!
+
+# picture = Picture.new(
+#   user: fran,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/camille-kmile-iNM9QoklAts-unsplash_f3gajq.jpg" )
+# picture.save!
+
+# nina = User.new(
+#   name: "Nina",
+#   email: "nina_test@gmail.com",
+#   bio: "Techno is Lifeeee",
+#   age: rand(21...30),
+#   gender: "Female",
+#   preferred_gender: "Both",
+#   preferred_match_type: "Friends",
+#   role: "user",
+#   lower_age_preference: 18,
+#   upper_age_preference: 40,
+#   password: "password"
+#   )
+
+# nina.save!
+# picture = Picture.new(
+#   user: nina,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292993/lpet7w6dyag73uge6ytx.jpg")
+# picture.save!
+
+
+# picture = Picture.new(
+#   user: leila,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/baylee-gramling-ui00DmD1KAU-unsplash_bxfftu.jpg")
+# picture.save!
+# leila.save!
+# picture = Picture.new(
+#   user: leila,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/sandra-seitamaa-0nM3mFNuAaI-unsplash_lleayk.jpg")
+# picture.save!
+# leila.save!
+# picture = Picture.new(
+#   user: leila,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055736/alexander-mils-Q9YdEzqwfDE-unsplash_jizugm.jpg")
+# picture.save!
+# leila.save!
+# picture = Picture.new(
+#   user: leila,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055739/abigail-keenan-99C5lrAyxpQ-unsplash_a0lyx4.jpg")
+# picture.save!
+
+# picture = Picture.new(
+#   user: hannah,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055735/thibault-debaene-pZTVa_Gt1f8-unsplash_hgannw.jpg")
+# picture.save!
+# hannah.save!
+# picture = Picture.new(
+#   user: hannah,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/gesina-kunkel-ISmHh0Ip1BA-unsplash_mh7zjk.jpg")
+# picture.save!
+
+
+# picture = Picture.new(
+#   user: tim,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564056903/ehimetalor-unuabona-SG21zQPSayU-unsplash_kftfqm.jpg")
+# picture.save!
+# tim.save!
+# picture = Picture.new(
+#   user: tim,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564056907/patrick-pierre-LRoleO6DmQ8-unsplash_h0uolo.jpg")
+# picture.save!
+
+# picture = Picture.new(
+#   user: dan,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/sandis-helvigs-hfZYhPNK1Oc-unsplash_qdimq0.jpg")
+# picture.save!
+# picture = Picture.new(
+#   user: dan,
+#   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564055733/kimberly-mears-_ar-3Puhomo-unsplash_vbcgxu.jpg")
+# picture.save!
+
+
 
 # mark = User.new(
 #   name: "Mark",
@@ -331,24 +380,7 @@ picture.save!
 #   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563457374/male3_rrpw5g.jpg")
 # picture.save!
 
- laura = User.new(
-  name: "Laura",
-  email: "laura_test@gmail.com",
-  bio: "i dont care bout Spelling but i care about love festivals and animals. I also dont care about gender, im here to finde cool people to hang out and have an awesome festival",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-laura.save!
-picture = Picture.new(
-  user: laura,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079289/Party%20people/andy-falconer-hdb9Rkojn7M-unsplash_tw1on7.jpg")
-picture.save!
+
 
 # picture = Picture.new(
 #   user: tom,
@@ -412,24 +444,7 @@ picture.save!
 #   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533010/toni_fhrwle.jpg")
 # picture.save!
 
-lu = User.new(
-  name: "Lu Zhu",
-  email: "lu_test@gmail.com",
-  bio: "Rock'n Roll!",
-  age: 25,
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-lu.save!
-picture = Picture.new(
-  user: lu,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533784/luzhu_gko9ay.jpg")
-picture.save!
+
 
 # luis = User.new(
 #   name: "Luis",
@@ -488,24 +503,6 @@ picture.save!
 #   remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563533011/Dimitri_btefya.png")
 # picture.save!
 
-lola = User.new(
-  name: "Nim",
-  email: "lola_test@gmail.com",
-  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!",
-  age: 24,
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-lola.save!
-picture = Picture.create(
-  user: lola,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079290/Party%20people/lukas-eggers-uO3m-y-EOI4-unsplash_sff3e0.jpg")
-picture.save!
 
 # picture = Picture.create(
 #   user: nim,
@@ -555,21 +552,6 @@ organizer = User.new(
 organizer.save!
 
 puts "Creating fake events"
-lollapaloza = Event.new(
-  name: "Lollapaloza",
-  remote_background_image_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564067933/lollap_back_d9kbqk.jpg",
-  start_date: "26/06/2019",
-  end_date: "30/06/2019",
-  remote_logo_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564067780/LollaBerlin18_Logo_color_stacked_bigdbf.png",
-  welcome_message: "Welcome to Lollapaloza! We encourage you to connect with many new people, create new friendships and get out of your comfort zone",
-  user: nim,
-  primary_color: "#00af9a",
-  secondary_color: "#F0037E",
-  token: "7f727fe0c4cd86a1402d"
-  )
-lollapaloza.save!
-
-puts "Creating fake events"
 
 helene = Event.new(
   name: "Helene Beach Festival ",
@@ -608,12 +590,6 @@ franp = Participant.new(
 #   event: helene
 #   )
 #   ninap.save!
-
-leilap = Participant.new(
-  user: leila,
-  event: helene
-  )
- leilap.save!
 
 sabrinap = Participant.new(
   user: sabrina,
