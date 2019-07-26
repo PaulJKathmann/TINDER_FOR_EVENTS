@@ -41,7 +41,7 @@ picture.save!
 hannah = User.new(
   name: "Hannah",
   email: "hannah_test@gmail.com",
-  bio: "Who wants to listen to techno with me?",
+  bio: "Who wants to listen to techno with me? I really lik dancing and partying. main stage is going to be awesome this year!",
   age: rand(21...30),
   gender: "Female",
   preferred_gender: "Male",
@@ -62,7 +62,7 @@ hannah.save!
 tim = User.new(
   name: "Tim",
   email: "tim_test@gmail.com",
-  bio: "You can find me at the Rock Stage.",
+  bio: "You can find me at the Rock Stage. lets meet up, rock n' roll. what do you guys think about bad drummers?",
   age: rand(21...30),
   gender: "Male",
   preferred_gender: "Both",
@@ -82,7 +82,7 @@ tim.save!
 laura = User.new(
   name: "Laura",
   email: "laura_test@gmail.com",
-  bio: "Dance all day 'n night!",
+  bio: "Dance all day 'n night! Like I dont't care",
   age: rand(21...30),
   gender: "Female",
   preferred_gender: "Both",
@@ -101,7 +101,7 @@ picture.save!
 lola = User.new(
   name: "Lola",
   email: "lola_test@gmail.com",
-  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard!",
+  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard! Work hard, party hard!Work hard, party hard",
   age: 24,
   gender: "Female",
   preferred_gender: "Both",
