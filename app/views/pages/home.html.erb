@@ -1,40 +1,43 @@
 <%= render 'shared/navbar' %>
 <div class="banner d-flex justify-content-around align-item-center" >
   <div class="banner-content text-center">
-    <h1 style="margin-top: 30vh;color: rgb(40,40,40);font-weight: bold;font-size:4.5rem;">Vesta</h1>
-    <h3 style="margin-bottom: 8vh;color: rgb(40,40,40)">Match. Chat. Party</h3>
-    <%= link_to "Add my event", projects_new_path, class: "btn call_to_action"%>
+    <h1 style="margin-top: 30vh;font-weight: bold;">
+      Let festival-goers connect</h1>
+    <h3 style="margin-bottom: 12vh;">Build the platform your guests need to meet each other</h3>
+    <%= link_to "Add a project", projects_new_path, class: "btn call_to_action mt-5"%>
   </div>
   <a href="#how_it_works" class="scroll_down">
     <p><i class="fas fa-chevron-down"></i></p>
   </a>
 </div>
 
+<div id="home_page_card">
+
 <a name="how_it_works" style="height: 100vh;">
   <div class="container how_it_works">
-    <h2>Design your platform to connect participants</h2>
+    <h2>Vesta lets festival-goers connect before the party starts</h2>
     <div class="d-flex justify-content-around work_card_container">
       <div class="card work_card">
-        <img src="https://images.unsplash.com/photo-1524591431555-cc7876d14adf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1339&q=80" class="card-img-top" alt="Design">
+        <img src="https://res.cloudinary.com/daw34oiuq/image/upload/v1564079002/taelynn-christopher-pfSNx3Z12K8-unsplash_1_bz32ig.jpg" class="card-img-top" alt="Design">
         <div class="card-body">
-          <h5>Design</h5>
+          <h5>Customize</h5>
           <p>You can easily customize the app to fit the style of your event.</p>
         </div>
       </div>
 
       <div class="work_card card">
-        <img src="https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Share">
+        <img src="https://res.cloudinary.com/daw34oiuq/image/upload/v1564079132/ukraine-kyiv-september-2-2018-260nw-1200838027_2_lv1o6r.jpg" class="card-img-top" alt="Share">
         <div class="card-body">
-          <h5>Share</h5>
+          <h5>Invite everyone</h5>
           <p>Share your customized app trough the provided link.</p>
         </div>
       </div>
 
       <div class="work_card card">
-        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="Connect">
+        <img src="https://res.cloudinary.com/daw34oiuq/image/upload/v1564079242/darpan-dodiya-CBimDPN8uj8-unsplash_1_dkwo2t.jpg" class="card-img-top" alt="Connect">
         <div class="card-body">
-          <h5>Connect</h5>
-          <p>Let people get in touch and provide an amazing experience.</p>
+          <h5>Magic</h5>
+          <p>Let people get in touch with each other</p>
         </div>
       </div>
     </div>
@@ -44,3 +47,4 @@
   </div>
 </a>
 <%= render 'shared/footer' %>
+</div>
