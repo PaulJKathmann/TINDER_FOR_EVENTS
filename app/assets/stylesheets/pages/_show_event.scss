@@ -155,3 +155,17 @@
 .confirm .uk-countdown-number, .uk-countdown-separator {
     line-height: 30px;
 }
+
+#copied-info {
+  visibility: hidden;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgb(120,120,120);
+  color: white;
+  width: 160px;
+  text-align: center;
+  border-radius: 2px;
+}

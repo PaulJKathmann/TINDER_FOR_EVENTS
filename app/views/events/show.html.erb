@@ -48,7 +48,8 @@
           <input class="js-copytextarea"  style="position: absolute; z-index: -3; opacity: 0;" value="https://www.go-vesta.com/events/<%= @event.token %>"></input>
           <p class="m-0">https://www.go-vesta.com/events/<%= @event.token %></p>
         </div>
-        <button class="btn btn-confirm my-2 js-textareacopybtn" id="myButton">Copy</button>
+        <button class="btn btn-confirm mt-2 mb-2 js-textareacopybtn" id="btnCopy">Copy</button>
+        <div id="copied-info">Copied to clipboard</div>
       </div>
       <div class="card mt-3 p-4 event_info_card">
         <div>
