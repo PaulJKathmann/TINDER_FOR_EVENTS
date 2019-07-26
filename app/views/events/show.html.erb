@@ -1,6 +1,6 @@
 <% unless current_user.id == @event.user_id %>
   <div style="background-color: rgba(0,0,0,0);">
-    <%= cl_image_tag(@event.background_image, class: "background_image_2", style:"border-radius:none") %>
+    <%= cl_image_tag(@event.background_image, class: "background_image_2", style:"border-radius:none; object-fit:cover;") %>
       <div class="container_for_event_show_user welcome-content" style="margin-top: 32px;">
         <h1 class="text-center pt-3", style="color: white;"><%= @event.name %></h1>
         <%= cl_image_tag(@event.logo, crop: :fill, class: "logo mb-2 text-center" )%>
