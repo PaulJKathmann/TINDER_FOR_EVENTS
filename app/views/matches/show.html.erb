@@ -21,7 +21,7 @@
 
 
       <div class="text-center" style="min-height: 10vh;margin: 6px;padding-left: 16px;" >
-        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "sss d-flex mb-2 justify-content-center", style: "position: absolute; margin-top: 36px;bottom: 120px;background-color:#{@match.event.secondary_color}" }, authenticity_token: true do |f| %>
+        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex mb-2 justify-content-center", style: "position: absolute; margin-top: 36px;bottom: 120px;background-color:#{@match.event.secondary_color}" }, authenticity_token: true do |f| %>
         <%= f.input :content, class: "message_content", label: false %>
         <%= f.hidden_field :match_id, value: @match.id %>
         <%= f.submit "Send", class: "btn_message",data: {send: "message"} %>
