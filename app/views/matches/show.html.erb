@@ -6,7 +6,7 @@
       <h6 style="font-family: inherit;">-You can now chat with <%= @match.swipe.participant_2.user.name %>- </h6>
     </div>
     <div class="panel" style="position: relative;">
-    <div class="messages" style="height: 70%; margin-bottom: 64px">
+    <div class="messages" style="height: 70%; margin-bottom: 120px">
     <% if @match.messages.any? %>
         <% @match.messages.each do |message| %>
           <%= render "messages/message", message: message, user_is_messages_author: message.author == current_user %>
@@ -21,7 +21,7 @@
 
 
       <div class="text-center" style="min-height: 10vh;margin: 6px;padding-left: 16px;" >
-        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex mb-2 justify-content-center", style: "position: absolute; bottom: 56px; margin-top: 36px" }, authenticity_token: true do |f| %>
+        <%= simple_form_for @message, remote: true, html: {autocomplete: "off" ,class: "d-flex mb-2 justify-content-center", style: "position: absolute; margin-top: 36px;bottom: 120px;background-color:#{@match.event.secondary_color}" }, authenticity_token: true do |f| %>
         <%= f.input :content, class: "message_content", label: false %>
         <%= f.hidden_field :match_id, value: @match.id %>
         <%= f.submit "Send", class: "btn_message",data: {send: "message"} %>
