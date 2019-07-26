@@ -17,71 +17,12 @@ User.destroy_all
 
 
 puts 'Creating fake users'
-maria = User.new(
-  name: "Maria",
-  email: "maria_test@gmail.com",
-  bio: "Big hardstyle fan!",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Date",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
 
-maria.save!
-picture = Picture.new(
-  user: maria,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292928/n3gga63cnhde7ztwdbwd.jpg")
-picture.save!
-
-fran = User.new(
-  name: "Fran",
-  email: "Fran_test@gmail.com",
-  bio: " I like pancakes! I'm a really cool girl that likes to party. maybe I'm not cool for you. Who Knows? Lets meet at the party and have a drink.",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Male",
-  preferred_match_type: "Date",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-
-fran.save!
-picture = Picture.new(
-  user: fran,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563292982/lrostbfruf0i4bcmgukk.jpg" )
-picture.save!
-
-fran.save!
-
-sabrina = User.new(
-  name: "Sabrina",
-  email: "sabrina_test@gmail.com",
-  bio: "When I grow up I will buy a huge bus and live in the mountains",
-  age: rand(21...30),
-  gender: "Female",
-  preferred_gender: "Both",
-  preferred_match_type: "Friends",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-sabrina.save!
-picture = Picture.new(
-  user: sabrina,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1563457253/female6_pj2md0.jpg")
-picture.save!
 
 alex = User.new(
   name: "Alex",
   email: "alex_test@gmail.com",
-  bio: "I love to party, looking for someone to have a nice time",
+  bio: "Hit me up if you also like Trance and Hardstyle!",
   age: rand(21...30),
   gender: "Male",
   preferred_gender: "Both",
@@ -100,7 +41,7 @@ picture.save!
 hannah = User.new(
   name: "Hannah",
   email: "hannah_test@gmail.com",
-  bio: "this yellow shirt is very cool huh? oh wait! I'm not even wearing a yellow shirt! who wants to listen to tecno with me! my friends are bullshit an they just want to dance near the reggueton stage",
+  bio: "Who wants to listen to techno with me? I really lik dancing and partying. main stage is going to be awesome this year!",
   age: rand(21...30),
   gender: "Female",
   preferred_gender: "Male",
@@ -121,8 +62,7 @@ hannah.save!
 tim = User.new(
   name: "Tim",
   email: "tim_test@gmail.com",
-  bio: "I'm pretty awesome, but you probably don't belive me... read my reviews.
-  'Groundbreaking' - NY Times, 'Man of the year' - Men's Health  '5 Stars'- Random Uber Driver",
+  bio: "You can find me at the Rock Stage. lets meet up, rock n' roll. what do you guys think about bad drummers?",
   age: rand(21...30),
   gender: "Male",
   preferred_gender: "Both",
@@ -139,29 +79,10 @@ picture = Picture.new(
 picture.save!
 tim.save!
 
-dan = User.new(
-  name: "Dan",
-  email: "dan_test@gmail.com",
-  bio: "Hi i'm Dan! by day I'm an entrepreneur/developer/magician by night I'm a Grammar Professor at the uni. Just kidding XD. I'm Batman!  ",
-  age: rand(21...30),
-  gender: "Male",
-  preferred_gender: "Female",
-  preferred_match_type: "Date",
-  role: "user",
-  lower_age_preference: 18,
-  upper_age_preference: 40,
-  password: "password"
-  )
-dan.save!
-picture = Picture.new(
-  user: dan,
-  remote_url_url: "https://res.cloudinary.com/daw34oiuq/image/upload/v1564079289/Party%20people/marvin-meyer-QS4KxdelN_4-unsplash_cfszqv.jpg")
-picture.save!
-
 laura = User.new(
   name: "Laura",
   email: "laura_test@gmail.com",
-  bio: "i dont care bout Spelling but i care about love festivals and animals. I also dont care about gender, im here to finde cool people to hang out and have an awesome festival",
+  bio: "Dance all day 'n night! Like I dont't care",
   age: rand(21...30),
   gender: "Female",
   preferred_gender: "Both",
@@ -180,7 +101,7 @@ picture.save!
 lola = User.new(
   name: "Lola",
   email: "lola_test@gmail.com",
-  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!Work hard, party hard!",
+  bio: "Work hard, party hard! Work hard, party hard! Work hard, party hard!Work hard, party hard! Work hard, party hard!Work hard, party hard",
   age: 24,
   gender: "Female",
   preferred_gender: "Both",
@@ -579,28 +500,12 @@ puts 'creating new participants, all going to lollapaloza'
 #   event: helene
 #   )
 #   annap.save!
-mariap = Participant.new(
-  user: maria,
-  event: helene
-  )
-  mariap.save!
-franp = Participant.new(
-  user: fran,
-  event: helene
-  )
-  franp.save!
 
 # ninap = Participant.new(
 #   user: nina,
 #   event: helene
 #   )
 #   ninap.save!
-
-sabrinap = Participant.new(
-  user: sabrina,
-  event: helene
-  )
-  sabrina.save!
 
 alexp = Participant.new(
   user: alex,
@@ -621,11 +526,6 @@ timp = Participant.new(
   )
 timp.save!
 
-danp = Participant.new(
-  user: dan,
-  event: helene
-  )
-danp.save!
 
 paulp = Participant.new(
   user: paul,
@@ -633,17 +533,6 @@ paulp = Participant.new(
   )
 paulp.save!
 
-# markp = Participant.new(
-#   user: mark,
-#   event: helene
-#   )
-# markp.save!
-
-# philp = Participant.new(
-#   user: dan,
-#   event: helene
-#   )
-# philp.save!
 
 laurap = Participant.new(
   user: laura,
@@ -651,53 +540,12 @@ laurap = Participant.new(
   )
 laurap.save!
 
-# sammyp = Participant.new(
-#   user: sammy,
-#   event: helene
-#   )
-# sammyp.save!
-
-# andyp = Participant.new(
-#   user: andy,
-#   event: helene
-#   )
-# andyp.save!
-
-# dimitrip = Participant.new(
-#   user: dimitri,
-#   event: helene
-#   )
-# dimitrip.save!
-
 lolap = Participant.new(
   user: lola,
   event: helene
   )
 lolap.save!
 
-# leonp = Participant.new(
-#   user: leon,
-#   event: helene
-#   )
-# leonp.save!
-
-# tonip = Participant.new(
-#   user: toni,
-#   event: helene
-#   )
-# tonip.save!
-
-# richp = Participant.new(
-#   user: rich,
-#   event: helene
-#   )
-# rich.save!
-
-# luisp = Participant.new(
-#   user: luis,
-#   event: helene
-#   )
-# luisp.save!
 
 lup = Participant.new(
   user: lu,
@@ -710,7 +558,7 @@ puts "create a swipe for lu"
 
 s2 = Swipe.new(
   participant_1: paulp,
-  participant_2: mariap,
+  participant_2: lolap,
   participant_1_liked: nil,
   participant_2_liked: true
   )
@@ -719,7 +567,7 @@ s2.save!
 
 s3 = Swipe.new(
   participant_1: paulp,
-  participant_2: franp,
+  participant_2: laurap,
   participant_1_liked: nil,
   participant_2_liked: true
   )
@@ -727,17 +575,25 @@ s3.save!
 
 s4 = Swipe.new(
   participant_1: paulp,
-  participant_2: lup,
-  participant_1_liked: true,
+  participant_2: alexp,
+  participant_1_liked: nil,
   participant_2_liked: true
   )
 s4.save!
 
+s5 = Swipe.new(
+  participant_1: paulp,
+  participant_2: lup,
+  participant_1_liked: true,
+  participant_2_liked: true
+  )
+s5.save!
+
 
  puts "a match for paul"
 
-m4 = Match.new(swipe: s4)
-m4.save!
+m5 = Match.new(swipe: s5)
+m5.save!
 
 
 
