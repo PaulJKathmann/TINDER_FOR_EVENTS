@@ -23,14 +23,6 @@
   border-radius: 19px;
   object-fit: cover;
 }
-.background_image_2 {
-  position: absolute;
-  top: 0;
-  z-index: -5;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
 
 .start_show_container {
   position: absolute;
@@ -118,15 +110,20 @@
   font-size: 26px;
   font-weight: lighter;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .statistics-frame i {
+  position: center;
   font-size: 70px;
-  color: rgb(160,160,160);
 }
 
-.stat_icon {
-  text-align: center;
+.fa-users {
+  color: rgba(0,80,150,.4);
+}
+
+.fa-hand-point-up {
+  color: rgb(240, 160, 0);
 }
 
 .info_confirm p {
